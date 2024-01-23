@@ -22,18 +22,16 @@ class Climber : public frc2::SubsystemBase {
 
     bool IsClimberBrakeEngaged(void);
 
-
- 
   void Periodic() override;
 
  private:
 
- rev::CANSparkMax m_leftClimbMotor{CLIMBER_LEFT_CANID, rev::CANSparkMax::MotorType::kBrushless};
- rev::CANSparkMax m_rightClimbMotor{CLIMBER_RIGHT_CANID, rev::CANSparkMax::MotorType::kBrushless};
+  rev::CANSparkMax    m_leftClimbMotor  {CLIMBER_LEFT_CANID, rev::CANSparkMax::MotorType::kBrushless};
+  rev::CANSparkMax    m_rightClimbMotor {CLIMBER_RIGHT_CANID, rev::CANSparkMax::MotorType::kBrushless};
+  
+  frc::DoubleSolenoid m_climbBrake      {PCM_CAN, frc::PneumaticsModuleType::CTREPCM, CLIMBER_BRAKE_ENGAGE_PCM, CLIMBER_BRAKE_DISENGAGE_PCM};
 
- frc::DoubleSolenoid m_climbBrake{PCM_CAN, frc::PneumaticsModuleType::CTREPCM, CLIMBER_BRAKE_ENGAGE_PCM, CLIMBER_BRAKE_DISENGAGE_PCM};
-
- bool m_isClimberActivated;
- bool m_isClimberBrakeActivated;
+  bool                m_isClimberActivated;
+  bool                m_isClimberBrakeActivated;
  
 };

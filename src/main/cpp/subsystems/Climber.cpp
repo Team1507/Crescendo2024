@@ -5,10 +5,13 @@ Climber::Climber() = default;
 void Climber::ClimberInit(void) 
 {
     m_climbBrake.Set(frc::DoubleSolenoid::kReverse);
+
     m_isClimberActivated = false;
     m_isClimberBrakeActivated = false;
+
     m_leftClimbMotor.RestoreFactoryDefaults();
     m_rightClimbMotor.RestoreFactoryDefaults();
+    
     ClimberSetPower(0);
 }
 

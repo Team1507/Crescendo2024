@@ -26,9 +26,10 @@ class Intake : public frc2::SubsystemBase {
 
  private:
   
-  rev::CANSparkMax m_intakeMotor {INTAKE_MOTOR_CANID, rev::CANSparkMax::MotorType::kBrushless};
+  rev::CANSparkMax    m_intakeMotor    {INTAKE_MOTOR_CANID, rev::CANSparkMax::MotorType::kBrushless};
+
   frc::DoubleSolenoid m_doubleSolenoid {PCM_CAN, frc::PneumaticsModuleType::CTREPCM, INTAKE_DEPLOY_PCM, INTAKE_RETRACT_PCM};
   
-  bool m_isIntaking;
+  bool                m_isIntaking;
 
 };
