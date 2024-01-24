@@ -10,17 +10,16 @@ class Intake : public frc2::SubsystemBase {
  public:
   Intake();
 
-  void IntakeInit(void);
+  void   IntakeInit(void);
 
-  void IntakeDeploy(void);
+  void   IntakeDeploy(void);
+  void   IntakeRetract(void);
 
-  void IntakeRetract(void);
-
-  void IntakeSetPower(double power);
+  void   IntakeSetPower(double power);
 
   double IntakeGetPower(void);
 
-  bool IntakeIsDeployed(void);
+  bool   IntakeIsDeployed(void);
 
   void Periodic() override;
 

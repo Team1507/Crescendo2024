@@ -16,6 +16,10 @@
 #define CLIMBER_LEFT_CANID 0
 #define CLIMBER_RIGHT_CANID 0
 
+#define SHOOTER_UPPER_CANID 0
+#define SHOOTER_LOWER_CANID 0
+#define SHOOTER_PIVOT_CANID 0
+
 namespace OperatorConstants {
 
 inline constexpr int kDriverControllerPort = 0;

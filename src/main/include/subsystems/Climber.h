@@ -15,7 +15,6 @@ class Climber : public frc2::SubsystemBase {
     void ClimberSetPower(double power);
 
     void ClimberBrakeEngage(void);
-
     void ClimberBrakeDisengage(void);
 
     bool IsClimberEngaged(void);
