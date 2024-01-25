@@ -1,4 +1,5 @@
 #include "subsystems/Climber.h"
+#include "frc/smartdashboard/SmartDashboard.h"
 
 Climber::Climber() = default;
 
@@ -23,6 +24,7 @@ void Climber::ClimberSetPower(double power)
 
 void Climber::ClimberBrakeEngage(void) 
 {
+
     m_climbBrake.Set(frc::DoubleSolenoid::kForward);
     m_isClimberBrakeActivated = true;
 }
@@ -40,7 +42,19 @@ bool Climber::IsClimberEngaged(void)
 
 bool Climber::IsClimberBrakeEngaged(void)
 {
-    m_isClimberBrakeActivated;
+   return m_isClimberBrakeActivated;
+}
+bool Climber::IsClimberTopLimitSwitch(void)
+{
+    return m_topLimitSwitch.Get();
+}
+bool Climber::IsClimberBotLimitSwitch(void)
+{
+    return m_botLimitSwitch.Get();
 }
 
-void Climber::Periodic() {}
+void Climber::Periodic()
+{
+  frc::SmartDashboard::PutBoolean("TopClimberLimitSwitch", Climber::IsClimberTopLimitSwitch());
+  frc::SmartDashboard::PutBoolean("BotClimberLimitSwitch", Climber::IsClimberBotLimitSwitch());
+}
