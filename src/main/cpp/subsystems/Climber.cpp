@@ -42,12 +42,14 @@ bool Climber::IsClimberEngaged(void)
 
 bool Climber::IsClimberBrakeEngaged(void)
 {
-   return m_isClimberBrakeActivated;
+    return m_isClimberBrakeActivated;
 }
+
 bool Climber::IsClimberTopLimitSwitch(void)
 {
     return m_topLimitSwitch.Get();
 }
+
 bool Climber::IsClimberBotLimitSwitch(void)
 {
     return m_botLimitSwitch.Get();

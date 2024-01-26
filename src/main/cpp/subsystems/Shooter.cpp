@@ -49,14 +49,14 @@ double Shooter::GetLowerShooterRPM(void)
 
 bool Shooter::IsIdle(void)
 {
-    return m_isIdle;
+   return m_isIdle;
 }
 
 //***********PIVOT*********************
 
 void Shooter::SetPivotAngle(double angle)
 {
-    m_shooterPivotEncoder.SetPosition(angle);
+   m_shooterPivotEncoder.SetPosition(angle);
 }
 
 void Shooter::SetPivotPower(double power)
@@ -66,12 +66,12 @@ void Shooter::SetPivotPower(double power)
 
 void Shooter::ResetPivotEncoder(void)
 {
-    m_shooterPivotEncoder.SetPosition(0);
+   m_shooterPivotEncoder.SetPosition(0);
 }
 
 double Shooter::GetPivotAngle(void)
 {
-  return  m_shooterPivotEncoder.GetPosition();
+   return  m_shooterPivotEncoder.GetPosition();
 }
 
 double Shooter::GetPivotPower(void)
@@ -81,7 +81,7 @@ double Shooter::GetPivotPower(void)
 
 bool Shooter::GetUpperPivotLimitSW(void)
 {
- return 0;
+   return 0;
 }
 
 bool Shooter::GetLowerPivotLimitSW(void)
