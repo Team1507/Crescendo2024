@@ -1,9 +1,6 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #include "subsystems/Intake.h"
 #include <frc/smartdashboard/SmartDashboard.h>
+
 Intake::Intake() 
 {
     m_isIntaking = true;
@@ -16,16 +13,17 @@ void Intake::IntakeInit()
 
 void Intake::IntakeDeploy(void)
 {
-    if(!m_isIntaking)
+    if(!m_isIntaking && !m_gamePieceDetect.Get())
     {
         m_doubleSolenoid.Set(frc::DoubleSolenoid::kForward);
+        m_intakeMotor.Set(0.5);
         m_isIntaking = true;
     }
 }
 
 void Intake::IntakeRetract(void)
 {
-    if(m_isIntaking)
+    if(m_isIntaking && m_gamePieceDetect.Get())
     {
         m_doubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
         m_isIntaking = false;
@@ -47,5 +45,9 @@ bool Intake::IntakeIsDeployed(void)
     return m_isIntaking;
 }
 
-// This method will be called once per scheduler run
+bool Intake::IntakeIsPieceDetected(void)
+{
+    return m_gamePieceDetect.Get();
+}
+
 void Intake::Periodic() {}

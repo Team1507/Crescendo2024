@@ -20,6 +20,8 @@
 #define SHOOTER_LOWER_CANID 0
 #define SHOOTER_PIVOT_CANID 0
 
+#define DIO_INTAKE_DETECT_ID 0
+
 namespace OperatorConstants {
 
 inline constexpr int kDriverControllerPort = 0;

@@ -1,11 +1,13 @@
 #pragma once
 
 #include <frc2/command/CommandPtr.h>
-#include <frc2/command/button/CommandXboxController.h>
+
+#include <frc2/command/button/JoystickButton.h>
 
 #include "Constants.h"
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/Climber.h"
+#include "subsystems/Intake.h"
 
 #include <frc/XboxController.h>
 
@@ -18,6 +20,7 @@ class RobotContainer
   frc::XboxController m_topDriver{1};
 
   Climber m_climber;
+  Intake m_intake;
 
   frc2::CommandPtr GetAutonomousCommand();
 
@@ -25,5 +28,7 @@ class RobotContainer
   
   ExampleSubsystem m_subsystem;
 
+  frc2::JoystickButton m_topDriver_LeftBumper{&m_topDriver,frc::XboxController::Button::kLeftBumper};
+  
   void ConfigureBindings();
 };
