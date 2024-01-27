@@ -8,6 +8,7 @@
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/Climber.h"
 #include "subsystems/Intake.h"
+#include "subsystems/Shooter.h"
 
 #include <frc/XboxController.h>
 
@@ -20,7 +21,8 @@ class RobotContainer
   frc::XboxController m_topDriver{1};
 
   Climber m_climber;
-  Intake m_intake;
+  Intake  m_intake;
+  Shooter m_shooter;
 
   frc2::CommandPtr GetAutonomousCommand();
 

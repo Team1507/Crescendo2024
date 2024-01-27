@@ -1,18 +1,19 @@
-
 #pragma once
 
 #include <rev/CANSparkMax.h>
 #include <frc2/command/SubsystemBase.h>
 #include "Constants.h"
 #include <rev/CANSparkBase.h>
+#include <frc/DigitalInput.h>
 
 class Shooter : public frc2::SubsystemBase {
  public:
   Shooter();
 
   void Periodic() override;
+  void ShooterInterpolate(double distance);
 
-  //*******SHOOTER*************
+  //*******SHOOTER***********
   void ShooterInit(void);
   void SetShooterPower(double power);
   void SetShooterRPM(double rpm);
@@ -49,6 +50,8 @@ class Shooter : public frc2::SubsystemBase {
   rev::CANSparkMax          m_shooterPivot {SHOOTER_PIVOT_CANID, rev::CANSparkMax::MotorType::kBrushless};
   rev::SparkPIDController   m_shooterPivotPID = m_shooterPivot.GetPIDController();
   rev::SparkRelativeEncoder m_shooterPivotEncoder = m_shooterPivot.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
+  rev::SparkLimitSwitch     m_shooterPivotFwLimit = m_shooterPivot.GetForwardLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
+  rev::SparkLimitSwitch     m_shooterPivotRvLimit = m_shooterPivot.GetReverseLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
 
   bool                      m_isIdle;
 };

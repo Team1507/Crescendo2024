@@ -7,6 +7,11 @@ void Shooter::ShooterInit()
 
 }
 
+void Shooter::ShooterInterpolate(double distance)
+{
+   
+}
+
 //*************SHOOTER****************
 
 void Shooter::SetShooterPower(double power) 
@@ -81,12 +86,12 @@ double Shooter::GetPivotPower(void)
 
 bool Shooter::GetUpperPivotLimitSW(void)
 {
-   return 0;
+   return m_shooterPivotFwLimit.Get();
 }
 
 bool Shooter::GetLowerPivotLimitSW(void)
 {
-   return 0;
+   return m_shooterPivotRvLimit.Get();
 }
 
 

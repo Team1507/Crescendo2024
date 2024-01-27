@@ -31,4 +31,8 @@ bool CmdIntakeDeploy::IsFinished()
 
     return true;
   }
+  else
+  {
+    return false;
+  }
 }
