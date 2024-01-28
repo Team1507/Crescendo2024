@@ -2,9 +2,12 @@
 #include "subsystems/Climber.h"
 #include "Robot.h"
 
+#include <iostream>
+
 
 CmdClimberDefault::CmdClimberDefault() 
 {
+  std::cout << "Climber Init" << std::endl;
   AddRequirements(&robotContainer.m_climber); 
 }
 
@@ -20,7 +23,10 @@ void CmdClimberDefault::Execute()
   }
 }
 
-void CmdClimberDefault::End(bool interrupted) {}
+void CmdClimberDefault::End(bool interrupted) 
+{
+  std::cout << "Climber End" << std::endl;
+}
 
 bool CmdClimberDefault::IsFinished() 
 {
