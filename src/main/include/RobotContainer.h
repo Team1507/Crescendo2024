@@ -1,7 +1,6 @@
 #pragma once
 
 #include <frc2/command/CommandPtr.h>
-#include <frc2/command/button/CommandXboxController.h>
 
 #include "Constants.h"
 #include "subsystems/ExampleSubsystem.h"
@@ -9,8 +8,8 @@
 #include "subsystems/Intake.h"
 #include "subsystems/Shooter.h"
 #include <frc/XboxController.h>
-
 #include <frc2/command/button/JoystickButton.h>
+
 
 class RobotContainer
 {
@@ -29,5 +28,7 @@ class RobotContainer
   
   ExampleSubsystem m_subsystem;
 
+  frc2::JoystickButton m_topDriver_LeftBumper{&m_topDriver,frc::XboxController::Button::kLeftBumper};
+  
   void ConfigureBindings();
 };

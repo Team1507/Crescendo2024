@@ -11,8 +11,6 @@ class Intake : public frc2::SubsystemBase {
  public:
   Intake();
 
-  void   IntakeInit(void);
-
   void   IntakeDeploy(void);
   void   IntakeRetract(void);
 
