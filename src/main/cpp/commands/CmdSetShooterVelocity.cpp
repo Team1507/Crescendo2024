@@ -4,7 +4,7 @@
 
 CmdSetShooterVelocity::CmdSetShooterVelocity() 
 {
-    AddRequirements(&robotContainer.m_shooter);
+  AddRequirements(&robotContainer.m_shooter);
 }
 
 void CmdSetShooterVelocity::Initialize() 

@@ -19,7 +19,7 @@ void CmdClimberDefault::Execute()
   
   if(robotContainer.m_topDriver.GetBackButtonPressed() && !robotContainer.m_climber.IsClimberBrakeEngaged())
   {
-      robotContainer.m_climber.ClimberSetPower(leftY);
+    robotContainer.m_climber.ClimberSetPower(leftY);
   }
 }
 

@@ -20,7 +20,7 @@ void CmdIntakeDeploy::Execute()
 
 void CmdIntakeDeploy::End(bool interrupted) 
 {
-    std::cout << "Intake Deploy Ended" << std::endl;
+  std::cout << "Intake Deploy Ended" << std::endl;
 }
 
 bool CmdIntakeDeploy::IsFinished()
@@ -28,7 +28,6 @@ bool CmdIntakeDeploy::IsFinished()
   if(robotContainer.m_intake.IntakeIsPieceDetected() == true)
   {
     robotContainer.m_intake.IntakeRetract();
-
     return true;
   }
   else

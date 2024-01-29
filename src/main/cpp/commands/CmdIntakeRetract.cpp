@@ -2,7 +2,6 @@
 #include <iostream>
 #include "Robot.h"
 
-
 CmdIntakeRetract::CmdIntakeRetract() 
 {
   AddRequirements(&robotContainer.m_intake);
@@ -13,7 +12,6 @@ void CmdIntakeRetract::Initialize()
   robotContainer.m_intake.IntakeRetract();
   std::cout << "Intake Retract Started" << std::endl;
 }
-
 
 void CmdIntakeRetract::Execute() 
 {
