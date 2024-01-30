@@ -1,5 +1,6 @@
 #include "subsystems/Intake.h"
 #include <frc/smartdashboard/SmartDashboard.h>
+#include "Robot.h"
 
 #define INTAKE_POWER 0
 
@@ -15,7 +16,7 @@ Intake::Intake()
 
 void Intake::IntakeDeploy(void)
 {
-    if(!m_isIntaking && !m_gamePieceDetect.Get())
+    if(!m_isIntaking && !robotContainer.m_shooter.GetFeederPhotoEye())
     {
         m_doubleSolenoid.Set(frc::DoubleSolenoid::kForward);
         m_intakeMotor.Set( frc::SmartDashboard::GetNumber("INTAKE_POWER",0.0) );
@@ -46,11 +47,6 @@ double Intake::IntakeGetPower(void)
 bool Intake::IntakeIsDeployed(void)
 {
     return m_isIntaking;
-}
-
-bool Intake::IntakeIsPieceDetected(void)
-{
-    return m_gamePieceDetect.Get();
 }
 
 void Intake::Periodic() {}

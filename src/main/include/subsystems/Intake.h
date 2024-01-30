@@ -20,8 +20,6 @@ class Intake : public frc2::SubsystemBase {
 
   bool   IntakeIsDeployed(void);
 
-  bool   IntakeIsPieceDetected(void);
-
   void   Periodic() override;
 
  private:
@@ -30,8 +28,6 @@ class Intake : public frc2::SubsystemBase {
 
   frc::DoubleSolenoid m_doubleSolenoid  {PCM_CAN, frc::PneumaticsModuleType::CTREPCM, INTAKE_DEPLOY_PCM, INTAKE_RETRACT_PCM};
   
-  frc::DigitalInput   m_gamePieceDetect {DIO_INTAKE_DETECT_ID};
-
   bool                m_isIntaking;
 
 };

@@ -2,10 +2,7 @@
 #include <iostream>
 #include "Robot.h"
 
-CmdShooterSetAngle::CmdShooterSetAngle() 
-{
-  AddRequirements(&robotContainer.m_shooter);
-}
+CmdShooterSetAngle::CmdShooterSetAngle() {}
 
 void CmdShooterSetAngle::Initialize() 
 {
@@ -17,9 +14,10 @@ void CmdShooterSetAngle::Execute() {}
 
 void CmdShooterSetAngle::End(bool interrupted) 
 {
-  std::cout << "Shooter Set Velocity Ended" << std::endl;
+  std::cout << "Shooter Set Angle Ended" << std::endl;
 }
 
-bool CmdShooterSetAngle::IsFinished() {
-  return false;
+bool CmdShooterSetAngle::IsFinished() 
+{
+  return true;
 }

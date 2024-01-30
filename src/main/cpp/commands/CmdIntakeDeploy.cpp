@@ -25,7 +25,7 @@ void CmdIntakeDeploy::End(bool interrupted)
 
 bool CmdIntakeDeploy::IsFinished()
 {
-  if(robotContainer.m_intake.IntakeIsPieceDetected() == true)
+  if(robotContainer.m_shooter.GetFeederPhotoEye())
   {
     robotContainer.m_intake.IntakeRetract();
     return true;

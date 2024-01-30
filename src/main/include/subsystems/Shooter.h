@@ -13,7 +13,7 @@ class Shooter : public frc2::SubsystemBase {
   void   Periodic() override;
   void   ShooterInterpolate(double distance);
 
-  //*******SHOOTER***********
+  //***********SHOOTER***********
   void   ShooterInit(void);
   void   SetShooterPower(double power);
   void   SetShooterRPM(double rpm);
@@ -25,7 +25,7 @@ class Shooter : public frc2::SubsystemBase {
   double GetLowerShooterRPM(void);
   bool   IsIdle(void);
 
-  //********PIVOT***********
+  //***********PIVOT***********
   void   SetPivotAngle(double angle);
   void   SetPivotPower(double power);
 
@@ -39,6 +39,12 @@ class Shooter : public frc2::SubsystemBase {
 
   void   HoldPivotAngle(float position);
 
+  // ***********FEEDER***********
+
+  void   SetFeederPower(double power);
+  double GetFeederPower(void);
+  bool   GetFeederStatus(void);
+  bool   GetFeederPhotoEye(void);
 
  private:
 
@@ -56,5 +62,9 @@ class Shooter : public frc2::SubsystemBase {
   rev::SparkLimitSwitch     m_shooterPivotFwLimit = m_shooterPivot.GetForwardLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
   rev::SparkLimitSwitch     m_shooterPivotRvLimit = m_shooterPivot.GetReverseLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
 
+  rev::CANSparkMax          m_feederMotor{SHOOTER_FEEDER_CANID, rev::CANSparkMax::MotorType::kBrushless};
+  frc::DigitalInput         m_feederPhotoEye{SHOOTER_FEEDER_PHOTOEYE};
+
   bool                      m_isIdle;
+  bool                      m_feederStatus;
 };

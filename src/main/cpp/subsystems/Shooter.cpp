@@ -99,5 +99,29 @@ void Shooter::HoldPivotAngle(float position)
    return;
 }
 
+void Shooter::SetFeederPower(double power)
+{
+   m_feederMotor.Set(power);
+}
+
+double Shooter::GetFeederPower(void)
+{
+   return m_feederMotor.Get();
+}
+
+bool Shooter::GetFeederStatus(void)
+{
+   return m_feederStatus;
+}
+
+bool Shooter::GetFeederPhotoEye(void)
+{
+   return m_feederPhotoEye.Get();
+}
+
+
 // This method will be called once per scheduler run
-void Shooter::Periodic() {}
+void Shooter::Periodic() 
+{
+   
+}
