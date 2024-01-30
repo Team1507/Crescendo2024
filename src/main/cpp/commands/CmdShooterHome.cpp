@@ -15,7 +15,10 @@ void CmdShooterHome::Initialize()
   robotContainer.m_shooter.SetPivotPower(-0.2);
 }
 
-void CmdShooterHome::Execute() {}
+void CmdShooterHome::Execute() 
+{
+
+}
 
 void CmdShooterHome::End(bool interrupted) 
 {
