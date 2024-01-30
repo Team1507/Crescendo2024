@@ -25,5 +25,5 @@ void CmdIntakeRetract::End(bool interrupted)
 
 bool CmdIntakeRetract::IsFinished() 
 {
-  return false;
+  return true;
 }

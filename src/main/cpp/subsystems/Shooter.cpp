@@ -94,7 +94,10 @@ bool Shooter::GetLowerPivotLimitSW(void)
    return m_shooterPivotRvLimit.Get();
 }
 
-
+void Shooter::HoldPivotAngle(float position)
+{
+   return;
+}
 
 // This method will be called once per scheduler run
 void Shooter::Periodic() {}

@@ -11,17 +11,20 @@ CmdShooterHome::CmdShooterHome()
 
 void CmdShooterHome::Initialize() 
 {
-  robotContainer.m_shooter.SetPivotAngle(PIVOT_HOME_POS);
-  std::cout << "Shooter Home Started" << std::endl;
+  std::cout << "Shooter Home Started." << std::endl;
+  robotContainer.m_shooter.SetPivotPower(-0.2);
 }
 
 void CmdShooterHome::Execute() {}
 
 void CmdShooterHome::End(bool interrupted) 
 {
-  std::cout << "Shooter Home Started" << std::endl;
+  robotContainer.m_shooter.SetPivotAngle(0);
+  robotContainer.m_shooter.HoldPivotAngle(PIVOT_HOME_POS);
+  std::cout << "Shooter Home Ended." << std::endl;
 }
 
-bool CmdShooterHome::IsFinished() {
-  return false;
+bool CmdShooterHome::IsFinished() 
+{
+  return robotContainer.m_shooter.GetLowerPivotLimitSW();
 }

@@ -37,6 +37,9 @@ class Shooter : public frc2::SubsystemBase {
   bool   GetUpperPivotLimitSW(void);
   bool   GetLowerPivotLimitSW(void);
 
+  void HoldPivotAngle(float position);
+
+
  private:
 
   rev::CANSparkMax          m_shooterUpper {SHOOTER_UPPER_CANID, rev::CANSparkMax::MotorType::kBrushless};
