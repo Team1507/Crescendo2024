@@ -1,25 +1,25 @@
-#include "commands/CmdSetShooterVelocity.h"
+#include "commands/CmdShooterSetVelocity.h"
 #include <iostream>
 #include "Robot.h"
 
-CmdSetShooterVelocity::CmdSetShooterVelocity() 
+CmdShooterSetVelocity::CmdShooterSetVelocity() 
 {
   AddRequirements(&robotContainer.m_shooter);
 }
 
-void CmdSetShooterVelocity::Initialize() 
+void CmdShooterSetVelocity::Initialize() 
 {
   robotContainer.m_shooter.SetShooterRPM(0.3);
   std::cout << "Shooter Set Velocity Started" << std::endl;
 }
 
-void CmdSetShooterVelocity::Execute() {}
+void CmdShooterSetVelocity::Execute() {}
 
-void CmdSetShooterVelocity::End(bool interrupted) 
+void CmdShooterSetVelocity::End(bool interrupted) 
 {
   std::cout << "Shooter Set Velocity Ended" << std::endl;
 }
 
-bool CmdSetShooterVelocity::IsFinished() {
+bool CmdShooterSetVelocity::IsFinished() {
   return false;
 }

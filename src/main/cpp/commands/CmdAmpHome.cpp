@@ -7,18 +7,13 @@
 CmdAmpHome::CmdAmpHome() 
 {
   AddRequirements(&robotContainer.m_amperatus);
-  std::cout<<"amp home start"<<std::endl;
 }
 
 
 void CmdAmpHome::Initialize() 
 {
-  if(robotContainer.m_amperatus.GetAmpBotLimit())
-  {
-    robotContainer.m_amperatus.SetAmpAngle(0.0);
-    robotContainer.m_amperatus.HoldAmpAngle(AMP_HOME_POS);
-    robotContainer.m_amperatus.SetAmpHome(true); //write this function
-  }
+  std::cout<<"Amperatus Home Start"<<std::endl;
+  robotContainer.m_amperatus.SetAmpPower(-0.2);  
 }
 
 
@@ -30,11 +25,13 @@ void CmdAmpHome::Execute()
 
 void CmdAmpHome::End(bool interrupted) 
 {
-  std::cout<<"amp home end"<<std::endl;
+  robotContainer.m_amperatus.SetAmpAngle(0);
+  robotContainer.m_amperatus.HoldAmpAngle(AMP_HOME_POS);
+  std::cout<<"Amperatus Home End"<<std::endl;
 }
 
 
 bool CmdAmpHome::IsFinished() 
 {
-  return false;
+  return robotContainer.m_amperatus.GetAmpBotLimit();
 }

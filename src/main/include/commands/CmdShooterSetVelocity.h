@@ -3,11 +3,10 @@
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
 
-class CmdShooterSetPower
-    : public frc2::CommandHelper<frc2::Command, CmdShooterSetPower> {
+class CmdShooterSetVelocity
+    : public frc2::CommandHelper<frc2::Command, CmdShooterSetVelocity> {
  public:
-
-  CmdShooterSetPower(double shooterPower);
+  CmdShooterSetVelocity();
 
   void Initialize() override;
 
@@ -16,10 +15,4 @@ class CmdShooterSetPower
   void End(bool interrupted) override;
 
   bool IsFinished() override;
-
- private: 
-
-  double m_shooterPower;
-
-
 };

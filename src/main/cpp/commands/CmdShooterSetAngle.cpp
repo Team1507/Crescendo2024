@@ -2,11 +2,14 @@
 #include <iostream>
 #include "Robot.h"
 
-CmdShooterSetAngle::CmdShooterSetAngle() {}
+CmdShooterSetAngle::CmdShooterSetAngle(double shooterAngle) 
+{
+  m_shooterAngle = shooterAngle;
+}
 
 void CmdShooterSetAngle::Initialize() 
 {
-  robotContainer.m_shooter.SetPivotAngle(0.0);
+  robotContainer.m_shooter.SetPivotAngle(m_shooterAngle);
   std::cout << "Shooter Set Angle Started" << std::endl;
 }
 

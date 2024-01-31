@@ -1,4 +1,5 @@
 #include "subsystems/Shooter.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 
 Shooter::Shooter() = default;
 
@@ -16,8 +17,10 @@ void Shooter::ShooterInterpolate(double distance)
 
 void Shooter::SetShooterPower(double power) 
 {
-    m_shooterUpper.Set(power);
-    m_shooterLower.Set(power);
+   double testPower = frc::SmartDashboard::GetNumber("SHOOTER_POWER",0.0);
+
+    m_shooterUpper.Set(testPower);
+    m_shooterLower.Set(testPower);
 }
 
 void Shooter::SetShooterRPM(double rpm)

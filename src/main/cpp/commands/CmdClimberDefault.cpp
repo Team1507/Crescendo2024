@@ -1,17 +1,18 @@
 #include "commands/CmdClimberDefault.h"
 #include "subsystems/Climber.h"
 #include "Robot.h"
-
 #include <iostream>
 
 
 CmdClimberDefault::CmdClimberDefault() 
 {
-  std::cout << "Climber Init" << std::endl;
   AddRequirements(&robotContainer.m_climber); 
 }
 
-void CmdClimberDefault::Initialize() {}
+void CmdClimberDefault::Initialize() 
+{
+  std::cout << "Climber Init" << std::endl;
+}
 
 void CmdClimberDefault::Execute() 
 {

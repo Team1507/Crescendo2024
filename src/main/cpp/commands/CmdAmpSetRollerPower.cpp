@@ -2,7 +2,8 @@
 #include "robot.h"
 #include "commands/CmdAmpSetRollerPower.h"
 
-CmdAmpSetRollerPower::CmdAmpSetRollerPower() {
+CmdAmpSetRollerPower::CmdAmpSetRollerPower() 
+{
 
 }
 

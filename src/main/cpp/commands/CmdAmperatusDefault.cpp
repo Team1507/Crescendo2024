@@ -5,12 +5,11 @@
 CmdAmperatusDefault::CmdAmperatusDefault() 
 {
   AddRequirements(&robotContainer.m_amperatus);
-  std::cout<<"Amp default start"<<std::endl;
 }
 
 void CmdAmperatusDefault::Initialize() 
 {
-
+  std::cout<<"Amp default start"<<std::endl;
 }
 
 void CmdAmperatusDefault::Execute() 
