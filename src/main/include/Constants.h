@@ -22,6 +22,12 @@
 #define SHOOTER_FEEDER_CANID 0
 #define SHOOTER_FEEDER_PHOTOEYE 0
 
+#define AMP_MOTOR_CANID 0
+#define AMP_ROLLER_CANID 0
+#define AMP_PHOTOEYE_CANID 0
+#define AMP_UPPER_LIMIT 0
+#define AMP_LOWER_LIMIT 0
+
 #define DIO_INTAKE_DETECT_ID 0
 
 namespace OperatorConstants {

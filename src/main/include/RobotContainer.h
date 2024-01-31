@@ -7,6 +7,7 @@
 #include "subsystems/Climber.h"
 #include "subsystems/Intake.h"
 #include "subsystems/Shooter.h"
+#include "subsystems/Amperatus.h"
 #include <frc/XboxController.h>
 #include <frc2/command/button/JoystickButton.h>
 
@@ -22,6 +23,7 @@ class RobotContainer
   Shooter m_shooter;
   Climber m_climber;
   Intake  m_intake;
+  Amperatus m_amperatus;
   frc2::CommandPtr GetAutonomousCommand();
 
  private:
