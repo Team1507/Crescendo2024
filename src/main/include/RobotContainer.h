@@ -31,6 +31,16 @@ class RobotContainer
   ExampleSubsystem m_subsystem;
 
   frc2::JoystickButton m_topDriver_LeftBumper{&m_topDriver,frc::XboxController::Button::kLeftBumper};
-  
+
+  frc2::JoystickButton m_topDriver_LeftTrigger{&m_topDriver,frc::XboxController::Axis::kLeftTrigger};
+
+  frc2::JoystickButton m_topDriver_XButton{&m_topDriver,frc::XboxController::Button::kX};
+  frc2::JoystickButton m_topDriver_BButton{&m_topDriver,frc::XboxController::Button::kB};
+
+  frc2::JoystickButton m_topDriver_RightBumper{&m_topDriver,frc::XboxController::Button::kRightBumper};
+
+  frc2::JoystickButton m_topDriver_RightTrigger{&m_topDriver,frc::XboxController::Axis::kRightTrigger};
+  // frc2::JoystickButton m_topDriver_RightTrigger{&m_topDriver,frc::XboxController::POV::};
+
   void ConfigureBindings();
 };

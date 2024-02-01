@@ -7,6 +7,10 @@
 
 #include "commands/CmdIntakeDeploy.h"
 #include "commands/CmdIntakeRetract.h"
+#include "commands/CmdShooterCalculateShot.h"
+#include "commands/CmdAmpSetRollerPower.h"
+#include "commands/CmdAmpSetAngle.h"
+#include "commands/CmdSetFeederPower.h"
 
 RobotContainer::RobotContainer() 
 {
@@ -17,6 +21,19 @@ void RobotContainer::ConfigureBindings()
 {
   m_topDriver_LeftBumper.OnTrue(new CmdIntakeDeploy());
   m_topDriver_LeftBumper.OnFalse(new CmdIntakeRetract()); 
+
+  m_topDriver_LeftTrigger.OnTrue(new CmdShooterCalculateShot());
+
+  m_topDriver_XButton.OnTrue(new CmdAmpSetRollerPower()); //amp intake
+  m_topDriver_BButton.OnTrue(new CmdAmpSetRollerPower()); //amp eject
+
+  m_topDriver_RightBumper.OnTrue(new CmdAmpSetAngle()); //amp up
+  m_topDriver_RightBumper.OnFalse(new CmdAmpSetAngle()); //amp down
+
+  m_topDriver_RightTrigger.OnTrue(new CmdSetFeederPower()); //puts note into shooter, shoots
+  m_topDriver_RightTrigger.OnFalse(new CmdSetFeederPower()); //turns off feeder 
+  
+
 }
 
 frc2::CommandPtr RobotContainer::GetAutonomousCommand() 
