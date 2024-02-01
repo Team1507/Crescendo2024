@@ -22,16 +22,13 @@ void RobotContainer::ConfigureBindings()
   m_topDriver_LeftBumper.OnTrue(new CmdIntakeDeploy());
   m_topDriver_LeftBumper.OnFalse(new CmdIntakeRetract()); 
 
-  m_topDriver_LeftTrigger.OnTrue(new CmdShooterCalculateShot());
-
+  
   m_topDriver_XButton.OnTrue(new CmdAmpSetRollerPower()); //amp intake
   m_topDriver_BButton.OnTrue(new CmdAmpSetRollerPower()); //amp eject
 
   m_topDriver_RightBumper.OnTrue(new CmdAmpSetAngle()); //amp up
   m_topDriver_RightBumper.OnFalse(new CmdAmpSetAngle()); //amp down
 
-  m_topDriver_RightTrigger.OnTrue(new CmdSetFeederPower()); //puts note into shooter, shoots
-  m_topDriver_RightTrigger.OnFalse(new CmdSetFeederPower()); //turns off feeder 
   
 
 }

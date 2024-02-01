@@ -15,4 +15,8 @@ class CmdShooterDefault
   void End(bool interrupted) override;
 
   bool IsFinished() override;
+  private:
+
+  bool m_shooting;
+  
 };
