@@ -18,5 +18,6 @@ class CmdShooterDefault
   private:
 
   bool m_shooting;
-  
+
+  bool m_interpolation;
 };

@@ -5,6 +5,7 @@
 CmdShooterDefault::CmdShooterDefault() 
 {
   m_shooting = false;
+  m_interpolation = false;
   AddRequirements(&robotContainer.m_shooter);
 }
 
@@ -29,6 +30,16 @@ void CmdShooterDefault::Execute()
     m_shooting = false;
   }
   
+  if(robotContainer.m_topDriver.GetLeftTriggerAxis() )
+  {
+    robotContainer.m_shooter.ShooterInterpolate(0.0);
+    m_interpolation = true;
+  }
+  else if(m_interpolation)
+  {
+    m_interpolation = false;
+  }
+
 }
 
 
