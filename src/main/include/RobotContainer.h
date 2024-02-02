@@ -2,14 +2,17 @@
 
 #include <frc2/command/CommandPtr.h>
 
+#include "commands/AutoDoNothing.h"
 #include "Constants.h"
-#include "subsystems/ExampleSubsystem.h"
 #include "subsystems/Climber.h"
 #include "subsystems/Intake.h"
 #include "subsystems/Shooter.h"
 #include "subsystems/Amperatus.h"
 #include <frc/XboxController.h>
 #include <frc2/command/button/JoystickButton.h>
+#include <frc/smartdashboard/SendableChooser.h>
+#include <frc/DriverStation.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 
 
 class RobotContainer
@@ -26,10 +29,12 @@ class RobotContainer
   Amperatus m_amperatus;
   frc2::CommandPtr GetAutonomousCommand();
 
- private:
-  
-  ExampleSubsystem m_subsystem;
+  AutoDoNothing m_autoDoNothing{};
 
+ private:
+
+  //frc::SendableChooser<frc2::CommandPtr> m_chooser;
+  
   frc2::JoystickButton m_topDriver_LeftBumper{&m_topDriver,frc::XboxController::Button::kLeftBumper};
 
   frc2::JoystickButton m_topDriver_LeftTrigger{&m_topDriver,frc::XboxController::Axis::kLeftTrigger};
@@ -41,6 +46,7 @@ class RobotContainer
 
   frc2::JoystickButton m_topDriver_RightTrigger{&m_topDriver,frc::XboxController::Axis::kRightTrigger};
   // frc2::JoystickButton m_topDriver_RightTrigger{&m_topDriver,frc::XboxController::POV::};
+
 
   void ConfigureBindings();
 };

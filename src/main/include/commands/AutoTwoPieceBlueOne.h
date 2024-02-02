@@ -9,9 +9,9 @@
 #include "subsystems/Shooter.h"
 //#include "subsystems/DriveTrain"
 
-class AutoTwoPieceMiddle
+class AutoTwoPieceBlueOne
     : public frc2::CommandHelper<frc2::SequentialCommandGroup,
-                                 AutoTwoPieceMiddle> {
+                                 AutoTwoPieceBlueOne> {
  public:
-  AutoTwoPieceMiddle();
+  AutoTwoPieceBlueOne();
 };

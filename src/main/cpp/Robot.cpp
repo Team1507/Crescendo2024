@@ -16,7 +16,8 @@ void Robot::DisabledInit() {}
 
 void Robot::DisabledPeriodic() {}
 
-void Robot::AutonomousInit() {
+void Robot::AutonomousInit() 
+{
   m_autonomousCommand = robotContainer.GetAutonomousCommand();
 
   if (m_autonomousCommand) {
@@ -28,7 +29,7 @@ void Robot::AutonomousPeriodic() {}
 
 void Robot::TeleopInit()
 {
-  if (m_autonomousCommand) {
+if (m_autonomousCommand) {
     m_autonomousCommand->Cancel();
   }
 }

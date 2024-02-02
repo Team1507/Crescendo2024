@@ -1,4 +1,4 @@
-#include "commands/AutoTwoPieceMiddle.h"
+#include "commands/AutoTwoPieceBlueThree.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/"
 #include "commands/CmdShooterHome.h"
@@ -8,28 +8,22 @@
 #include "commands/CmdIntakeDeploy.h"
 #include "commands/CmdIntakeRetract.h"
 
-AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
- {
-  // AddCommands(FooCommand{}, BarCommand{});
+AutoTwoPieceBlueThree::AutoTwoPieceBlueThree() {
 
   AddCommands(
-    
-    
-    CmdPrintText("Auto Two Piece Middle"), 
+
+    CmdPrintText("Auto Two Piece Blue Three"), 
     CmdShooterHome(),
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
+    //DriveTrain rotate 
     CmdSetFeederPower(),
+    CmdShooterHome(),
     CmdIntakeDeploy(),
-    //Drive Back
-    CmdSetFeederPower(),
-    CmdShooterSetPower(0),
+    //DriveTrain backbourd
     CmdIntakeRetract(),
-    CmdPrintText("Auto Two Piece Middle Completed")
-  
-  
-  
-  
-  
+    CmdPrintText("Auto Two Piece Blue Three Completed")
+
+
   );
 }

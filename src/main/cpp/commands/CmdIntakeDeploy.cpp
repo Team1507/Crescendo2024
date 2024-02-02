@@ -1,6 +1,7 @@
 #include "commands/CmdIntakeDeploy.h"
 #include <iostream>
 #include "Robot.h"
+#include "Constants.h"
 
 CmdIntakeDeploy::CmdIntakeDeploy() 
 {
@@ -10,6 +11,7 @@ CmdIntakeDeploy::CmdIntakeDeploy()
 void CmdIntakeDeploy::Initialize()
 {
   robotContainer.m_intake.IntakeDeploy();
+  robotContainer.m_shooter.SetFeederIntakePower(FEEDER_INTAKE_POWER);
   std::cout << "Intake Deploy Started" << std::endl;
 }
 
@@ -28,6 +30,7 @@ bool CmdIntakeDeploy::IsFinished()
   if(robotContainer.m_shooter.GetFeederPhotoEye())
   {
     robotContainer.m_intake.IntakeRetract();
+    robotContainer.m_shooter.SetFeederIntakePower(0);
     return true;
   }
   else

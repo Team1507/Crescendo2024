@@ -1,6 +1,8 @@
 #include "subsystems/Shooter.h"
 #include <frc/smartdashboard/SmartDashboard.h>
 
+#define FEEDER_POWER 0
+
 Shooter::Shooter() = default;
 
 void Shooter::ShooterInit()
@@ -102,12 +104,22 @@ void Shooter::HoldPivotAngle(float position)
    return;
 }
 
-void Shooter::SetFeederPower(double power)
+void Shooter::SetFeederShooterPower(double power)
 {
-   m_feederMotor.Set(power);
+   m_feederMotor.Set( frc::SmartDashboard::GetNumber("FEEDER_POWER",FEEDER_SHOOTER_POWER) );
 }
 
-double Shooter::GetFeederPower(void)
+double Shooter::GetFeederShooterPower(void)
+{
+   return m_feederMotor.Get();
+}
+
+void Shooter::SetFeederIntakePower(double power)
+{
+   m_feederMotor.Set( frc::SmartDashboard::GetNumber("FEEDER_POWER",FEEDER_INTAKE_POWER) );
+}
+
+double Shooter::GetFeederIntakePower(void)
 {
    return m_feederMotor.Get();
 }

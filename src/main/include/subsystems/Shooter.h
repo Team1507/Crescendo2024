@@ -41,8 +41,10 @@ class Shooter : public frc2::SubsystemBase {
 
   // ***********FEEDER***********
 
-  void   SetFeederPower(double power);
-  double GetFeederPower(void);
+  void   SetFeederIntakePower(double power);
+  double GetFeederIntakePower(void);
+  void   SetFeederShooterPower(double power);
+  double GetFeederShooterPower(void);
   bool   GetFeederStatus(void);
   bool   GetFeederPhotoEye(void);
 
