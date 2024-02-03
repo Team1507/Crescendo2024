@@ -30,7 +30,8 @@
 #define AMP_PHOTOEYE_CANID 0
 #define AMP_UPPER_LIMIT 0
 #define AMP_LOWER_LIMIT 0
-
+#define AMP_DEPLOY_PCM 0
+#define AMP_RETRACT_PCM 0
 #define DIO_INTAKE_DETECT_ID 0
 
 namespace OperatorConstants {

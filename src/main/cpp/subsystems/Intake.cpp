@@ -8,7 +8,7 @@
 
 Intake::Intake() 
 {
-  m_doubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
+  m_intakeDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
   m_intakeMotor.Set(0.0);
   m_isIntaking = false;
 
@@ -20,8 +20,8 @@ void Intake::IntakeDeploy(void)
 {
     if(!m_isIntaking && !robotContainer.m_shooter.GetFeederPhotoEye())
     {
-        m_doubleSolenoid.Set(frc::DoubleSolenoid::kForward);
-        m_intakeMotor.Set( frc::SmartDashboard::GetNumber("INTAKE_POWER",0.0) );
+        m_intakeDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
+        m_intakeMotor.Set(frc::SmartDashboard::GetNumber("INTAKE_POWER",0.0));
         m_isIntaking = true;
     }
 }
@@ -30,10 +30,12 @@ void Intake::IntakeRetract(void)
 {
     if( m_isIntaking )
     {
-        m_doubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
+        m_intakeDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
         m_intakeMotor.Set(0.0);
         m_isIntaking = false;
     }
+
+    
 }
 
 void Intake::IntakeSetPower(double power)

@@ -1,4 +1,5 @@
 #include "subsystems/Amperatus.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 
 Amperatus::Amperatus() = default;
 
@@ -43,7 +44,32 @@ double Amperatus::GetAmpRollerPower(void)
 {
     return m_ampRoller.Get();
 }
- 
+
+void Amperatus::AmpTrapDeploy(void)
+{
+    if (!m_ampIsDeployed && !Amperatus::GetAmpPhotoEye())
+    {
+    m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
+    m_ampMotor.Set(frc::SmartDashboard::GetNumber("AMPERATUS_POWER",0.0));
+    m_ampIsDeployed = true;
+    }
+} 
+
+void Amperatus::AmpTrapRetract(void)
+{
+    if (m_ampIsDeployed)
+    {
+    m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
+    m_ampMotor.Set(0.0);
+    m_ampIsDeployed = false;
+    }
+}
+
+bool Amperatus::AmpTrapIsDeployed(void)
+{
+    return m_ampIsDeployed;
+}
+
 bool   Amperatus::GetAmpTopLimit(void)
 {
     return m_ampTopLimit.Get();
