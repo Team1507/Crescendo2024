@@ -1,4 +1,4 @@
-#include "commands/AutoTwoPieceBlueOne.h"
+#include "commands/AutoThreePieceRedThree.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <--- drivetrain
 #include "commands/CmdShooterHome.h"
@@ -9,20 +9,31 @@
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdShooterShootNote.h"
 
-AutoTwoPieceBlueOne::AutoTwoPieceBlueOne() {
+
+AutoThreePieceRedThree::AutoThreePieceRedThree() {
+
   AddCommands(
 
-  CmdPrintText("Auto Two Piece Blue One Started"), 
+  CmdPrintText("Auto Three Piece Red Two Started"), 
   CmdShooterHome(),
   CmdShooterSetAngle(0),
   CmdShooterSetPower(0),
+  // rotate to speaker
   CmdShooterShootNote(0),
-  //Rotate to staring position
+  // Rotate to starting pos
   CmdIntakeDeploy(),
-  //Drive backwards
-  //Rotate to speaker
+  // drive backwards
+  // drive forwards
+  // rotate to speaker
+  CmdShooterShootNote(0),
+  // Rotate to starting position
+  // drive backwards
+  // drive forwards
+  // rotate to speaker
+  CmdShooterShootNote(0),
   CmdShooterSetPower(0),
   CmdIntakeRetract(),
-  CmdPrintText("Auto Two Piece Blue One")
+  CmdPrintText("Auto Three Piece Red Two Finished")
+
   );
 }

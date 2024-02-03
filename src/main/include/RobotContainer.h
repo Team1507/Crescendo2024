@@ -23,9 +23,9 @@ class RobotContainer
   frc::XboxController m_botDriver{0};
   frc::XboxController m_topDriver{1};
 
-  Shooter m_shooter;
-  Climber m_climber;
-  Intake  m_intake;
+  Shooter   m_shooter;
+  Climber   m_climber;
+  Intake    m_intake;
   Amperatus m_amperatus;
   frc2::CommandPtr GetAutonomousCommand();
 
