@@ -1,7 +1,38 @@
 #include "subsystems/Shooter.h"
 #include <frc/smartdashboard/SmartDashboard.h>
 
-Shooter::Shooter() = default;
+Shooter::Shooter()
+{
+   m_shooterLowerPID.SetP(0.0);
+   m_shooterLowerPID.SetI(0.0);
+   m_shooterLowerPID.SetD(0.0);
+   m_shooterLowerPID.SetSmartMotionAllowedClosedLoopError(0.0);
+   m_shooterLowerPID.SetOutputRange(-0.3,0.3,0);
+
+   m_shooterUpperPID.SetP(0.0);
+   m_shooterUpperPID.SetI(0.0);
+   m_shooterUpperPID.SetD(0.0);
+   m_shooterUpperPID.SetSmartMotionAllowedClosedLoopError(0.0);
+   m_shooterUpperPID.SetOutputRange(-0.3,0.3,0);
+
+   m_shooterPivotPID.SetP(0.0);
+   m_shooterPivotPID.SetI(0.0);
+   m_shooterPivotPID.SetD(0.0);
+   m_shooterPivotPID.SetSmartMotionAllowedClosedLoopError(0.0);
+   m_shooterPivotPID.SetOutputRange(-0.3,0.3,0);
+
+   m_shooterLower.RestoreFactoryDefaults();
+   m_shooterLower.SetClosedLoopRampRate(0.0);
+   m_shooterLower.SetInverted(false);
+
+   m_shooterUpper.RestoreFactoryDefaults();
+   m_shooterUpper.SetClosedLoopRampRate(0.0);
+   m_shooterUpper.SetInverted(false);
+
+   m_shooterPivot.RestoreFactoryDefaults();
+   m_shooterPivot.SetClosedLoopRampRate(0.0);
+   m_shooterPivot.SetInverted(false);
+}
 
 void Shooter::ShooterInit()
 {
@@ -99,7 +130,7 @@ bool Shooter::GetLowerPivotLimitSW(void)
 
 void Shooter::HoldPivotAngle(float position)
 {
-   return;
+   m_shooterPivotPID.SetReference(position,rev::CANSparkMax::ControlType::kPosition);
 }
 
 void Shooter::SetFeederPower(double power)

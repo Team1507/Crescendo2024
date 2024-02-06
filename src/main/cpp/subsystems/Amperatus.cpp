@@ -1,6 +1,14 @@
 #include "subsystems/Amperatus.h"
 
-Amperatus::Amperatus() = default;
+Amperatus::Amperatus() 
+{
+    m_ampMotorPID.SetP(0.0);
+    m_ampMotorPID.SetI(0.0);
+    m_ampMotorPID.SetD(0.0);
+
+    m_ampMotorPID.SetSmartMotionAllowedClosedLoopError(0.0);
+    m_ampMotorPID.SetOutputRange(-0.3, 0.3, 0);
+}
 
 void Amperatus::Periodic() {}
 
@@ -21,7 +29,7 @@ void   Amperatus::SetAmpHome(bool home)
 
 void   Amperatus::HoldAmpAngle(double position)
 {
-
+    m_ampMotorPID.SetReference(position, rev::CANSparkMax::ControlType::kPosition);
 }
 
 void   Amperatus::SetAmpRollerPower(double power)
