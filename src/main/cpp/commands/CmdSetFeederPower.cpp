@@ -6,7 +6,7 @@ CmdSetFeederPower::CmdSetFeederPower() {}
 
 void CmdSetFeederPower::Initialize() 
 {
-  robotContainer.m_shooter.SetFeederPower(0.0);
+  //robotContainer.m_shooter.SetFeederPower(0.0);
   std::cout << "Feeder Set Power Started" << std::endl;
 }
 

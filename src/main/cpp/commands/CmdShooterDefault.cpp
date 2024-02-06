@@ -1,6 +1,7 @@
 #include "commands/CmdShooterDefault.h"
 #include "Robot.h"
 #include <iostream>
+#include "Constants.h"
 
 CmdShooterDefault::CmdShooterDefault() 
 {
@@ -21,12 +22,12 @@ void CmdShooterDefault::Execute()
 
   if( (robotContainer.m_topDriver.GetRightTriggerAxis() > 0.9) && !m_shooting)
   {
-    robotContainer.m_shooter.SetFeederPower(0.0);// # will be changed
+    robotContainer.m_shooter.SetFeederShooterPower(FEEDER_SHOOTER_POWER);
     m_shooting = true;
   } 
   else if(m_shooting)
   {
-    robotContainer.m_shooter.SetFeederPower(0.0);
+    robotContainer.m_shooter.SetFeederShooterPower(FEEDER_SHOOTER_POWER);
     m_shooting = false;
   }
   

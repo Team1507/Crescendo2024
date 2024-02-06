@@ -2,9 +2,6 @@
 
 #include <frc2/command/button/Trigger.h>
 
-#include "commands/Autos.h"
-#include "commands/ExampleCommand.h"
-
 #include "commands/CmdIntakeDeploy.h"
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdShooterCalculateShot.h"
@@ -14,6 +11,9 @@
 
 RobotContainer::RobotContainer() 
 {
+  //m_chooser.SetDefaultOption("Auto Do Nothing", &m_autoDoNothing);
+
+
   ConfigureBindings();
 }
 
@@ -34,6 +34,6 @@ void RobotContainer::ConfigureBindings()
 }
 
 frc2::CommandPtr RobotContainer::GetAutonomousCommand() 
-{
-  return autos::ExampleAuto(&m_subsystem);
-}
+ {
+   return (frc2::CommandPtr) AutoDoNothing();
+ }

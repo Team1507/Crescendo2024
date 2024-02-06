@@ -10,6 +10,7 @@ CmdIntakeRetract::CmdIntakeRetract()
 void CmdIntakeRetract::Initialize() 
 {
   robotContainer.m_intake.IntakeRetract();
+  robotContainer.m_shooter.SetFeederIntakePower(0);
   std::cout << "Intake Retract Started" << std::endl;
 }
 
