@@ -18,7 +18,7 @@ Intake::Intake()
 
 void Intake::IntakeDeploy(void)
 {
-    if(!m_isIntaking && !robotContainer.m_shooter.GetFeederPhotoEye())
+    if(!m_isIntaking && !robotContainer.m_shooter.FeederInRange())
     {
         m_intakeDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
         m_intakeMotor.Set(frc::SmartDashboard::GetNumber("INTAKE_POWER",0.0));

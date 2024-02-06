@@ -8,9 +8,23 @@ Amperatus::Amperatus()
    m_ampMotorPID.SetD(0.0);
    m_ampMotorPID.SetSmartMotionAllowedClosedLoopError(0.0);
    m_ampMotorPID.SetOutputRange(-0.3,0.3,0);
+
+   m_ampTimeOfFlight.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
+    m_ampTimeOfFlight.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
 }
 
-void Amperatus::Periodic() {}
+void Amperatus::Periodic() 
+{
+    frc::SmartDashboard::PutBoolean("TOF: AmpIsRangeValid",  m_ampTimeOfFlight.IsRangeValid()   );
+    frc::SmartDashboard::PutNumber("TOF: AmpGetRange",      m_ampTimeOfFlight.GetRange()       );
+    frc::SmartDashboard::PutNumber("TOF: AmpGetStatus",     m_ampTimeOfFlight.GetStatus()      );
+
+    //Detecting object based on range only, ignoring IsRangeValid
+    bool objectDetect = false;
+    if( m_ampTimeOfFlight.GetRange() < 75.0 )objectDetect = true;
+    frc::SmartDashboard::PutBoolean("TOF: AmpObjectDetect",  objectDetect   );
+
+}
 
 void   Amperatus::SetAmpPower(double power)
 {
@@ -54,7 +68,7 @@ double Amperatus::GetAmpRollerPower(void)
 
 void Amperatus::AmpTrapDeploy(void)
 {
-    if (!m_ampIsDeployed && !Amperatus::GetAmpPhotoEye())
+    if (!m_ampIsDeployed && !Amperatus::AmpInRange())
     {
     m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
     m_ampMotor.Set(frc::SmartDashboard::GetNumber("AMPERATUS_POWER",0.0));
@@ -87,7 +101,7 @@ bool   Amperatus::GetAmpBotLimit(void)
     return m_ampBotLimit.Get();
 }
 
-bool   Amperatus::GetAmpPhotoEye(void)
+bool   Amperatus::AmpInRange(void)
 {
-    return m_ampPhotoEye.Get();
+    return m_ampTimeOfFlight.IsRangeValid();
 }

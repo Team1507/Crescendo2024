@@ -30,6 +30,22 @@ Shooter::Shooter()
     m_shooterUpper.RestoreFactoryDefaults();
     m_shooterUpper.SetClosedLoopRampRate(0.0);
     m_shooterUpper.SetInverted(false);
+
+    m_feederTimeOfFlight.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
+    m_feederTimeOfFlight.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
+}
+
+void Shooter::Periodic()
+{
+   frc::SmartDashboard::PutBoolean("TOF: FeederIsRangeValid",  m_feederTimeOfFlight.IsRangeValid()   );
+    frc::SmartDashboard::PutNumber("TOF: FeederGetRange",      m_feederTimeOfFlight.GetRange()       );
+    frc::SmartDashboard::PutNumber("TOF: FeederGetStatus",     m_feederTimeOfFlight.GetStatus()      );
+
+    //Detecting object based on range only, ignoring IsRangeValid
+    bool objectDetect = false;
+    if( m_feederTimeOfFlight.GetRange() < 75.0 )objectDetect = true;
+    frc::SmartDashboard::PutBoolean("TOF: FeederObjectDetect",  objectDetect   );
+
 }
 
 void Shooter::ShooterInit()
@@ -156,14 +172,10 @@ bool Shooter::GetFeederStatus(void)
    return m_feederStatus;
 }
 
-bool Shooter::GetFeederPhotoEye(void)
+bool Shooter::FeederInRange(void)
 {
-   return m_feederPhotoEye.Get();
+   return m_feederTimeOfFlight.IsRangeValid();
 }
 
 
-// This method will be called once per scheduler run
-void Shooter::Periodic() 
-{
-   
-}
+

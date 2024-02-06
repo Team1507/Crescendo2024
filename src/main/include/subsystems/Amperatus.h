@@ -5,6 +5,7 @@
 #include <frc2/command/SubsystemBase.h>
 #include "Constants.h"
 #include <frc/DoubleSolenoid.h>
+#include "TimeOfFlight.h"
 
 class Amperatus : public frc2::SubsystemBase {
  public:
@@ -36,7 +37,7 @@ class Amperatus : public frc2::SubsystemBase {
 
   bool   GetAmpBotLimit(void);
 
-  bool   GetAmpPhotoEye(void);
+  bool   AmpInRange(void);
 
   void   Periodic() override;
 
@@ -45,7 +46,7 @@ class Amperatus : public frc2::SubsystemBase {
   frc::DigitalInput         m_ampTopLimit{AMP_UPPER_LIMIT};
   frc::DigitalInput         m_ampBotLimit{AMP_LOWER_LIMIT};
 
-  frc::DigitalInput         m_ampPhotoEye{AMP_PHOTOEYE_CANID};  
+  frc::TimeOfFlight        m_ampTimeOfFlight{AMP_TIME_OF_FLIGHT_CANID};  
 
   rev::CANSparkMax          m_ampRoller{AMP_ROLLER_CANID, rev::CANSparkMax::MotorType::kBrushless};
   rev::SparkPIDController   m_ampRollerPID     = m_ampRoller.GetPIDController();

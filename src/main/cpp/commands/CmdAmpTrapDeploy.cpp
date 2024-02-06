@@ -1,4 +1,3 @@
-
 #include "commands/CmdAmpTrapDeploy.h"
 #include <iostream>
 #include "Robot.h"
@@ -27,7 +26,7 @@ std::cout<<"Amp Trap Deploy has ended"<<std::endl;
 
 bool CmdAmpDeploy::IsFinished() 
 {
-  if(robotContainer.m_amperatus.GetAmpPhotoEye())
+  if(robotContainer.m_amperatus.AmpInRange ())
   {
     robotContainer.m_amperatus.AmpTrapRetract();
     return true;
