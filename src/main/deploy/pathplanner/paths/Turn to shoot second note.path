@@ -1,0 +1,76 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.3993019006780372,
+        "y": 6.958223409714651
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.3996780950257677,
+        "y": 6.963471112895647
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.3993019006780372,
+        "y": 6.958223409714651
+      },
+      "prevControl": {
+        "x": 1.397767672413473,
+        "y": 6.940114753329805
+      },
+      "nextControl": {
+        "x": 1.4022644311664163,
+        "y": 6.993190466366377
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.41742487851788,
+        "y": 6.794108625517106
+      },
+      "prevControl": {
+        "x": 2.422973745146908,
+        "y": 6.8002027659804964
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Shoot Piece two",
+      "waypointRelativePos": 2.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": []
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 23.604373699424286,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": null,
+  "useDefaultConstraints": false
+}
