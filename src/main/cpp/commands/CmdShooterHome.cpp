@@ -22,8 +22,8 @@ void CmdShooterHome::Execute()
 
 void CmdShooterHome::End(bool interrupted) 
 {
-  robotContainer.m_shooter.SetPivotAngle(0);
-  robotContainer.m_shooter.HoldPivotAngle(PIVOT_HOME_POS);
+  robotContainer.m_shooter.ResetPivotEncoder();
+  robotContainer.m_shooter.SetPivotAngle(PIVOT_HOME_POS);
   std::cout << "Shooter Home Ended." << std::endl;
 }
 

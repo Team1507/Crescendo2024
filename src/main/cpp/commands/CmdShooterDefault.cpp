@@ -5,14 +5,14 @@
 
 CmdShooterDefault::CmdShooterDefault() 
 {
-  m_shooting = false;
-  m_interpolation = false;
   AddRequirements(&robotContainer.m_shooter);
 }
 
 
 void CmdShooterDefault::Initialize() 
 {
+  m_shooting = false;
+  m_interpolation = false;
   std:: cout << "Shooter default started" << std::endl;
 }
 
@@ -25,18 +25,18 @@ void CmdShooterDefault::Execute()
     robotContainer.m_shooter.SetFeederShooterPower(FEEDER_SHOOTER_POWER);
     m_shooting = true;
   } 
-  else if(m_shooting)
+  else if((robotContainer.m_topDriver.GetRightTriggerAxis() < 0.9) && m_shooting)
   {
-    robotContainer.m_shooter.SetFeederShooterPower(FEEDER_SHOOTER_POWER);
+    robotContainer.m_shooter.SetFeederShooterPower(0);
     m_shooting = false;
   }
   
-  if(robotContainer.m_topDriver.GetLeftTriggerAxis() )
+  if((robotContainer.m_topDriver.GetLeftTriggerAxis() > 0.9) && !m_interpolation)
   {
     robotContainer.m_shooter.ShooterInterpolate(0.0);
     m_interpolation = true;
   }
-  else if(m_interpolation)
+  else if((robotContainer.m_topDriver.GetLeftTriggerAxis() < 0.9) && m_interpolation)
   {
     m_interpolation = false;
   }

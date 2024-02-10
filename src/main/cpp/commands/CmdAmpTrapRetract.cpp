@@ -11,7 +11,7 @@ CmdAmpRetract::CmdAmpRetract()
 
 void CmdAmpRetract::Initialize() 
 {
-  robotContainer.m_amperatus.AmpTrapRetract();
+  // robotContainer.m_amperatus.AmpTrapRetract();
   std::cout<<"Amp Trap Retract has started"<<std::endl;
 }
 

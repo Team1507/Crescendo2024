@@ -11,7 +11,7 @@ CmdAmpDeploy::CmdAmpDeploy()
 
 void CmdAmpDeploy::Initialize() 
 {
-robotContainer.m_amperatus.AmpTrapDeploy();
+// robotContainer.m_amperatus.AmpTrapDeploy();
 std::cout<<"Amp Trap Deploy has started"<<std::endl;
 }
 
@@ -29,7 +29,7 @@ bool CmdAmpDeploy::IsFinished()
 {
   if(robotContainer.m_amperatus.GetAmpPhotoEye())
   {
-    robotContainer.m_amperatus.AmpTrapRetract();
+    // robotContainer.m_amperatus.AmpTrapRetract();
     return true;
   }
   else

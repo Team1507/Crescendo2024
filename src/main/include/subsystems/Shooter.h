@@ -6,6 +6,9 @@
 #include <rev/CANSparkBase.h>
 #include <frc/DigitalInput.h>
 
+#define FEEDER_SHOOTER_POWER 0
+#define FEEDER_INTAKE_POWER 0
+
 class Shooter : public frc2::SubsystemBase {
  public:
   Shooter();
@@ -17,16 +20,13 @@ class Shooter : public frc2::SubsystemBase {
   void   ShooterInit(void);
   void   SetShooterPower(double power);
   void   SetShooterRPM(double rpm);
-  void   SetIdle(bool idle);
 
   double GetUpperShooterPower(void);
   double GetUpperShooterRPM(void);
   double GetLowerShooterPower(void);
   double GetLowerShooterRPM(void);
-  bool   IsIdle(void);
 
   //***********PIVOT***********
-  void   SetPivotAngle(double angle);
   void   SetPivotPower(double power);
 
   void   ResetPivotEncoder(void);
@@ -37,7 +37,7 @@ class Shooter : public frc2::SubsystemBase {
   bool   GetUpperPivotLimitSW(void);
   bool   GetLowerPivotLimitSW(void);
 
-  void   HoldPivotAngle(float position);
+  void   SetPivotAngle(float position);
 
   // ***********FEEDER***********
 
@@ -45,7 +45,6 @@ class Shooter : public frc2::SubsystemBase {
   double GetFeederIntakePower(void);
   void   SetFeederShooterPower(double power);
   double GetFeederShooterPower(void);
-  bool   GetFeederStatus(void);
   bool   GetFeederPhotoEye(void);
 
  private:
@@ -67,6 +66,4 @@ class Shooter : public frc2::SubsystemBase {
   rev::CANSparkMax          m_feederMotor{SHOOTER_FEEDER_CANID, rev::CANSparkMax::MotorType::kBrushless};
   frc::DigitalInput         m_feederPhotoEye{SHOOTER_FEEDER_PHOTOEYE};
 
-  bool                      m_isIdle;
-  bool                      m_feederStatus;
 };

@@ -8,6 +8,7 @@
 #include "commands/CmdAmpSetRollerPower.h"
 #include "commands/CmdAmpSetAngle.h"
 #include "commands/CmdSetFeederPower.h"
+#include "commands/CmdClimberClimb.h"
 
 RobotContainer::RobotContainer() 
 {
@@ -29,7 +30,7 @@ void RobotContainer::ConfigureBindings()
   m_topDriver_RightBumper.OnTrue(new CmdAmpSetAngle()); //amp up
   m_topDriver_RightBumper.OnFalse(new CmdAmpSetAngle()); //amp down
 
-  
+  m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
 
 }
 

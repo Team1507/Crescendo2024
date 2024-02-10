@@ -32,7 +32,7 @@ class Climber : public frc2::SubsystemBase {
   rev::CANSparkMax    m_leftClimbMotor    {CLIMBER_LEFT_CANID, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANSparkMax    m_rightClimbMotor   {CLIMBER_RIGHT_CANID, rev::CANSparkMax::MotorType::kBrushless};
   
-  frc::DoubleSolenoid m_climbBrake        {PCM_CAN, frc::PneumaticsModuleType::CTREPCM, CLIMBER_BRAKE_ENGAGE_PCM, CLIMBER_BRAKE_DISENGAGE_PCM};
+  frc::DoubleSolenoid m_climbBrake        {PCM_CANID, frc::PneumaticsModuleType::CTREPCM, CLIMBER_BRAKE_ENGAGE_PCM, CLIMBER_BRAKE_DISENGAGE_PCM};
   frc::DigitalInput   m_topLimitSwitch    {0};
   frc::DigitalInput   m_botLimitSwitch    {0};
 

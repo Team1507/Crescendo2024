@@ -26,11 +26,11 @@ class Amperatus : public frc2::SubsystemBase {
 
   double GetAmpRollerPower(void);
 
-  void   AmpTrapDeploy(void); 
+  // void   AmpTrapDeploy(void); 
 
-  void   AmpTrapRetract(void); 
+  // void   AmpTrapRetract(void); 
 
-  bool   AmpTrapIsDeployed(void); 
+  // bool   AmpTrapIsDeployed(void); 
  
   bool   GetAmpTopLimit(void);
 
@@ -42,8 +42,8 @@ class Amperatus : public frc2::SubsystemBase {
 
  private:
 
-  frc::DigitalInput         m_ampTopLimit{AMP_UPPER_LIMIT};
-  frc::DigitalInput         m_ampBotLimit{AMP_LOWER_LIMIT};
+  // frc::DigitalInput         m_ampTopLimit{AMP_UPPER_LIMIT};
+  // frc::DigitalInput         m_ampBotLimit{AMP_LOWER_LIMIT};
 
   frc::DigitalInput         m_ampPhotoEye{AMP_PHOTOEYE_CANID};  
 
@@ -55,7 +55,7 @@ class Amperatus : public frc2::SubsystemBase {
   rev::SparkPIDController   m_ampMotorPID = m_ampMotor.GetPIDController();
   rev::SparkRelativeEncoder m_ampEncoder  = m_ampMotor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor); 
 
-  frc::DoubleSolenoid       m_ampDoubleSolenoid  {PCM_CAN, frc::PneumaticsModuleType::CTREPCM, AMP_DEPLOY_PCM, AMP_RETRACT_PCM}; 
+  // frc::DoubleSolenoid       m_ampDoubleSolenoid  {PCM_CAN, frc::PneumaticsModuleType::CTREPCM, AMP_DEPLOY_PCM, AMP_RETRACT_PCM}; 
 
-  bool m_ampIsDeployed;
+  // bool m_ampIsDeployed;
 };
