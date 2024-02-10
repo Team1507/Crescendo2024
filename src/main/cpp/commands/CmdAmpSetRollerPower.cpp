@@ -1,16 +1,16 @@
 #include <iostream>
-#include "robot.h"
+#include "Robot.h"
 #include "commands/CmdAmpSetRollerPower.h"
 
-CmdAmpSetRollerPower::CmdAmpSetRollerPower() 
+CmdAmpSetRollerPower::CmdAmpSetRollerPower(double power) 
 {
-
+  m_ampPower = power;
 }
 
 
 void CmdAmpSetRollerPower::Initialize() 
 {
-  robotContainer.m_amperatus.SetAmpRollerPower(0.0);
+  robotContainer.m_amperatus.SetAmpRollerPower(m_ampPower);
   std::cout << "Amperatus Set Roller Power Started" << std::endl;
 }
 

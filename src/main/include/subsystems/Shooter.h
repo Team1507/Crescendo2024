@@ -5,6 +5,7 @@
 #include "Constants.h"
 #include <rev/CANSparkBase.h>
 #include <frc/DigitalInput.h>
+#include "TimeOfFlight.h"
 
 #define FEEDER_SHOOTER_POWER 0
 #define FEEDER_INTAKE_POWER 0
@@ -45,7 +46,7 @@ class Shooter : public frc2::SubsystemBase {
   double GetFeederIntakePower(void);
   void   SetFeederShooterPower(double power);
   double GetFeederShooterPower(void);
-  bool   GetFeederPhotoEye(void);
+  bool   GetFeederTOF(void);
 
  private:
 
@@ -64,6 +65,7 @@ class Shooter : public frc2::SubsystemBase {
   rev::SparkLimitSwitch     m_shooterPivotRvLimit = m_shooterPivot.GetReverseLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
 
   rev::CANSparkMax          m_feederMotor{SHOOTER_FEEDER_CANID, rev::CANSparkMax::MotorType::kBrushless};
-  frc::DigitalInput         m_feederPhotoEye{SHOOTER_FEEDER_PHOTOEYE};
+  frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
+  // frc::DigitalInput         m_feederPhotoEye{SHOOTER_FEEDER_PHOTOEYE};
 
 };

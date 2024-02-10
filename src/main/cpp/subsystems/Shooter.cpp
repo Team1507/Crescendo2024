@@ -41,6 +41,10 @@ Shooter::Shooter()
 
    frc::SmartDashboard::PutNumber("SHOOTER_POWER",0.0);
    frc::SmartDashboard::PutNumber("SHOOTER_RPM",0.0);
+
+   m_feederTOF.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
+   m_feederTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
+
 }
 
 void Shooter::ShooterInit()
@@ -150,14 +154,15 @@ double Shooter::GetFeederIntakePower(void)
    return m_feederMotor.Get();
 }
 
-bool Shooter::GetFeederPhotoEye(void)
+bool Shooter::GetFeederTOF(void)
 {
-   return m_feederPhotoEye.Get();
+   if( m_feederTOF.GetRange() < 75.0 ) return true; 
+   else return false;
 }
 
 
 // This method will be called once per scheduler run
 void Shooter::Periodic() 
 {
-   
+   frc::SmartDashboard::PutBoolean("FEEDER TOF", GetFeederTOF());
 }

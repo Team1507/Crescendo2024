@@ -5,6 +5,7 @@
 #include <frc2/command/SubsystemBase.h>
 #include "Constants.h"
 #include <frc/DoubleSolenoid.h>
+#include "TimeOfFlight.h"
 
 class Amperatus : public frc2::SubsystemBase {
  public:
@@ -12,11 +13,9 @@ class Amperatus : public frc2::SubsystemBase {
 
   void   SetAmpPower(double power);
 
-  void   SetAmpAngle(double angle);
+  void   SetAmpAngle(double position);
 
-  void   SetAmpHome(bool home);
-
-  void   HoldAmpAngle(double position);
+  void   ResetAmpEncoder(void);
 
   void   SetAmpRollerPower(double power);
 
@@ -26,17 +25,11 @@ class Amperatus : public frc2::SubsystemBase {
 
   double GetAmpRollerPower(void);
 
-  // void   AmpTrapDeploy(void); 
-
-  // void   AmpTrapRetract(void); 
-
-  // bool   AmpTrapIsDeployed(void); 
- 
   bool   GetAmpTopLimit(void);
 
   bool   GetAmpBotLimit(void);
 
-  bool   GetAmpPhotoEye(void);
+  bool   GetAmpTOF(void);
 
   void   Periodic() override;
 
@@ -45,7 +38,7 @@ class Amperatus : public frc2::SubsystemBase {
   // frc::DigitalInput         m_ampTopLimit{AMP_UPPER_LIMIT};
   // frc::DigitalInput         m_ampBotLimit{AMP_LOWER_LIMIT};
 
-  frc::DigitalInput         m_ampPhotoEye{AMP_PHOTOEYE_CANID};  
+  frc::TimeOfFlight         m_ampTOF{AMP_TOF_CANID};  
 
   rev::CANSparkMax          m_ampRoller{AMP_ROLLER_CANID, rev::CANSparkMax::MotorType::kBrushless};
   rev::SparkPIDController   m_ampRollerPID     = m_ampRoller.GetPIDController();

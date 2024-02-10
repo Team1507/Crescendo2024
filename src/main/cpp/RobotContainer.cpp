@@ -22,10 +22,12 @@ void RobotContainer::ConfigureBindings()
 {
   m_topDriver_LeftBumper.OnTrue(new CmdIntakeDeploy());
   m_topDriver_LeftBumper.OnFalse(new CmdIntakeRetract()); 
-
   
-  m_topDriver_XButton.OnTrue(new CmdAmpSetRollerPower()); //amp intake
-  m_topDriver_BButton.OnTrue(new CmdAmpSetRollerPower()); //amp eject
+  m_topDriver_XButton.OnTrue(new CmdAmpSetRollerPower(0.3)); //amp intake
+  m_topDriver_XButton.OnFalse(new CmdAmpSetRollerPower(0.0)); //amp intake stop
+
+  m_topDriver_BButton.OnTrue(new CmdAmpSetRollerPower(-0.5)); //amp eject
+  m_topDriver_BButton.OnFalse(new CmdAmpSetRollerPower(0.0)); //amp eject stop
 
   m_topDriver_RightBumper.OnTrue(new CmdAmpSetAngle()); //amp up
   m_topDriver_RightBumper.OnFalse(new CmdAmpSetAngle()); //amp down

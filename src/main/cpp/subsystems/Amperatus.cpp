@@ -3,34 +3,36 @@
 
 Amperatus::Amperatus() 
 {
+    m_ampMotor.RestoreFactoryDefaults();
     m_ampMotorPID.SetP(0.0);
     m_ampMotorPID.SetI(0.0);
     m_ampMotorPID.SetD(0.0);
 
     m_ampMotorPID.SetSmartMotionAllowedClosedLoopError(0.0);
     m_ampMotorPID.SetOutputRange(-0.3, 0.3, 0);
+
+    m_ampTOF.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
+    m_ampTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
 }
 
-void Amperatus::Periodic() {}
+void Amperatus::Periodic() 
+{
+    frc::SmartDashboard::PutBoolean("AMP TOF", GetAmpTOF());
+}
 
 void   Amperatus::SetAmpPower(double power)
 {
     m_ampMotor.Set(power);
 }
 
-void   Amperatus::SetAmpAngle(double angle)
-{
-    m_ampEncoder.SetPosition(angle);
-}
-
-void   Amperatus::SetAmpHome(bool home)
-{
-
-}
-
-void   Amperatus::HoldAmpAngle(double position)
+void   Amperatus::SetAmpAngle(double position)
 {
     m_ampMotorPID.SetReference(position, rev::CANSparkMax::ControlType::kPosition);
+}
+
+void   Amperatus::ResetAmpEncoder()
+{
+    m_ampEncoder.SetPosition(0);
 }
 
 void   Amperatus::SetAmpRollerPower(double power)
@@ -53,31 +55,6 @@ double Amperatus::GetAmpRollerPower(void)
     return m_ampRoller.Get();
 }
 
-// void Amperatus::AmpTrapDeploy(void)
-// {
-//     if (!m_ampIsDeployed && !Amperatus::GetAmpPhotoEye())
-//     {
-//     m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
-//     m_ampMotor.Set(frc::SmartDashboard::GetNumber("AMPERATUS_POWER",0.0));
-//     m_ampIsDeployed = true;
-//     }
-// } 
-
-// void Amperatus::AmpTrapRetract(void)
-// {
-//     if (m_ampIsDeployed)
-//     {
-//     m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
-//     m_ampMotor.Set(0.0);
-//     m_ampIsDeployed = false;
-//     }
-// }
-
-// bool Amperatus::AmpTrapIsDeployed(void)
-// {
-//     return m_ampIsDeployed;
-// }
-
 bool   Amperatus::GetAmpTopLimit(void)
 {
     return true;
@@ -88,7 +65,8 @@ bool   Amperatus::GetAmpBotLimit(void)
     return true;
 }
 
-bool   Amperatus::GetAmpPhotoEye(void)
+bool   Amperatus::GetAmpTOF(void)
 {
-    return m_ampPhotoEye.Get();
+    if( m_ampTOF.GetRange() < 75.0 )return true; 
+    else return false;   
 }

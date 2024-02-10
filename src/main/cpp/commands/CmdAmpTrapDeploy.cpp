@@ -27,7 +27,7 @@ std::cout<<"Amp Trap Deploy has ended"<<std::endl;
 
 bool CmdAmpDeploy::IsFinished() 
 {
-  if(robotContainer.m_amperatus.GetAmpPhotoEye())
+  if(robotContainer.m_amperatus.GetAmpTOF())
   {
     // robotContainer.m_amperatus.AmpTrapRetract();
     return true;
