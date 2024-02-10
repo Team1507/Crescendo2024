@@ -3,10 +3,10 @@
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
 
-class CmdAmpSetRollerPower
-    : public frc2::CommandHelper<frc2::Command, CmdAmpSetRollerPower> {
+class CmdAmpEject
+    : public frc2::CommandHelper<frc2::Command, CmdAmpEject> {
  public:
-  CmdAmpSetRollerPower(double power);
+  CmdAmpEject(double power);
 
   void Initialize() override;
 
