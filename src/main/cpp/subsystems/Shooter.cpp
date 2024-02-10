@@ -1,7 +1,29 @@
 #include "subsystems/Shooter.h"
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <iostream>
 
 #define FEEDER_POWER 0
+
+
+typedef struct 
+{
+   float distance;
+   float velocity;
+   float angle;
+} shooterTable_t;
+
+
+shooterTable_t shooterTable[] = 
+{
+   {10,20,30},
+   {40,50,60},
+   {70,80,90}
+};
+
+
+#define SHOOTER_TABLE_SIZE sizeof(shooterTable)/sizeof(shooterTable_t)
+
+
 
 Shooter::Shooter()
 {
@@ -54,7 +76,30 @@ void Shooter::ShooterInit()
 
 void Shooter::ShooterInterpolate(double distance)
 {
-   
+   for(unsigned int i=0; i<SHOOTER_TABLE_SIZE; i++)
+   { 
+      if(distance < shooterTable[i].distance)
+      {
+         double x2 = shooterTable[i+1].distance;
+         double x1 = shooterTable[i].distance;
+         double y2 = shooterTable[i+1].velocity;
+         double y1 = shooterTable[i].velocity;
+         
+         double shooterVelocity =y1 + (distance - x1)*((y2-y1) / (x2-x1));
+         std::cout<<"interpolation shooter Velocity="<< shooterVelocity<<std::endl;
+         SetShooterRPM(shooterVelocity);
+
+
+         y2 = shooterTable[i+1].angle;
+         y1 = shooterTable[i].angle;
+
+         double shooterAngle = y1 + (distance - x1)*((y2-y1) / (x2-x1));
+         std::cout<<"Interpolation Shooter Angle="<< shooterAngle<<std::endl;
+         SetPivotAngle(shooterAngle);
+
+         return;
+      }
+   }
 }
 
 //*************SHOOTER****************
