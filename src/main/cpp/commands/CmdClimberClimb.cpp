@@ -27,6 +27,7 @@ void CmdClimberClimb::Execute()
 void CmdClimberClimb::End(bool interrupted) 
 {
   robotContainer.m_climber.ClimberBrakeEngage();
+  robotContainer.m_climber.ClimberSetPower(0.0);
   std::cout << "Cmd Climer Climb Ended" << std::endl;
 }
 

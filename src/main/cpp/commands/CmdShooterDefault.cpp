@@ -31,15 +31,16 @@ void CmdShooterDefault::Execute()
     m_shooting = false;
   }
   
-  if((robotContainer.m_topDriver.GetLeftTriggerAxis() > 0.9) && !m_interpolation)
-  {
-    robotContainer.m_shooter.ShooterInterpolate(0.0);
-    m_interpolation = true;
-  }
-  else if((robotContainer.m_topDriver.GetLeftTriggerAxis() < 0.9) && m_interpolation)
-  {
-    m_interpolation = false;
-  }
+  // //Need to think about this one....
+  // if((robotContainer.m_topDriver.GetLeftTriggerAxis() > 0.9) && !m_interpolation)
+  // {
+  //   robotContainer.m_shooter.ShooterInterpolate(0.0);
+  //   m_interpolation = true;
+  // }
+  // else if((robotContainer.m_topDriver.GetLeftTriggerAxis() < 0.9) && m_interpolation)
+  // {
+  //   m_interpolation = false;
+  // }
 
 }
 

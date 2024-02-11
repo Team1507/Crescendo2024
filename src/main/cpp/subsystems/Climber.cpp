@@ -27,6 +27,8 @@ void Climber::ClimberBrakeEngage(void)
 
     m_climbBrake.Set(frc::DoubleSolenoid::kForward);
     m_isClimberBrakeActivated = true;
+
+    ClimberSetPower(0.0); //Safety - Motors OFF when brake set
 }
 
 void Climber::ClimberBrakeDisengage(void)
