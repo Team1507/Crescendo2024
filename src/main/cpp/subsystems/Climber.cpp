@@ -12,6 +12,17 @@ void Climber::ClimberInit(void)
 
     m_leftClimbMotor.RestoreFactoryDefaults();
     m_rightClimbMotor.RestoreFactoryDefaults();
+
+    m_leftClimbMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
+    m_rightClimbMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
+
+    //Set Follower
+    m_rightClimbMotor.Follow(m_leftClimbMotor,true);
+
+    //Limit Switches?
+    m_forwardLimit.EnableLimitSwitch(true);
+    m_reverseLimit.EnableLimitSwitch(true);
+
     
     ClimberSetPower(0);
 }
@@ -19,7 +30,7 @@ void Climber::ClimberInit(void)
 void Climber::ClimberSetPower(double power)
 {
     m_leftClimbMotor.Set(power);
-    m_rightClimbMotor.Set(power);
+    //m_rightClimbMotor.Set(power);//Following Left
 }
 
 void Climber::ClimberBrakeEngage(void) 
@@ -50,11 +61,13 @@ bool Climber::IsClimberBrakeEngaged(void)
 bool Climber::IsClimberTopLimitSwitch(void)
 {
     return m_topLimitSwitch.Get();
+    //m_forwardLimit.Get()
 }
 
 bool Climber::IsClimberBotLimitSwitch(void)
 {
     return m_botLimitSwitch.Get();
+    //m_reverseLimit.Get();
 }
 
 void Climber::Periodic()
