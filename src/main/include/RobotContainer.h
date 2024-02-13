@@ -16,7 +16,7 @@
 #include <frc/DriverStation.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/Timer.h>
-
+#include <frc2/command/button/POVButton.h>
 
 
 
@@ -51,12 +51,15 @@ class RobotContainer
   frc2::JoystickButton m_topDriver_BackButton {&m_topDriver,frc::XboxController::Button::kBack};
 
 
+  frc2::POVButton      m_topDriver_POVup      {&m_topDriver, 0};
+  frc2::POVButton      m_topDriver_POVdown    {&m_topDriver, 180};
+  frc2::POVButton      m_topDriver_POVleft    {&m_topDriver, 270};
+  frc2::POVButton      m_topDriver_POVright   {&m_topDriver, 90};
+
   //Bottom Driver Buttons
   frc2::JoystickButton m_botDriver_StartButton{&m_botDriver, frc::XboxController::Button::kStart };
   frc2::JoystickButton m_botDriver_YButton    {&m_botDriver, frc::XboxController::Button::kY };
   frc2::JoystickButton m_botDriver_BButton    {&m_botDriver, frc::XboxController::Button::kB };
-
-
 
   frc::SendableChooser<frc2::Command*> m_chooser;
 
