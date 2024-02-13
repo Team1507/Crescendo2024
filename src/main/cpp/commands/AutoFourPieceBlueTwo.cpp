@@ -5,7 +5,6 @@
 #include "commands/CmdShooterHome.h"
 #include "commands/CmdShooterSetAngle.h"
 #include "commands/CmdShooterSetPower.h"
-#include "commands/CmdSetFeederPower.h"
 #include "commands/CmdIntakeDeploy.h"
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdShooterShootNote.h"

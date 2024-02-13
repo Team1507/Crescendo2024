@@ -8,7 +8,6 @@
 #include "commands/CmdAmpEject.h"
 #include "commands/CmdAmpIntake.h"
 #include "commands/CmdAmpSetAngle.h"
-#include "commands/CmdSetFeederPower.h"
 #include "commands/CmdClimberClimb.h"
 #include "commands/CmdDriveWithGamepad.h"
 #include "commands/CmdDriveTypeToggle.h"
