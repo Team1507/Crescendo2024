@@ -10,8 +10,7 @@
 #define FEEDER_SHOOTER_POWER 0
 #define FEEDER_INTAKE_POWER 0
 
-//enum dPadPosition {DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT};
-typedef dPadPosition int;
+enum dPadPosition {DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT};
 
 
 class Shooter : public frc2::SubsystemBase {

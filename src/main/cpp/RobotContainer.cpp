@@ -19,6 +19,7 @@
 #include "commands/CmdDriveZeroGyro.h"
 #include "commands/CmdDriveAimAtTarget.h"
 #include "commands/CmdShooterDefault.h"
+#include "commands/CmdShooterDPad.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
@@ -87,6 +88,12 @@ void RobotContainer::ConfigureBindings()
 
   m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
 
+  m_topDriver_POVup.OnTrue(    new CmdShooterDPad( DPAD_UP   ) );
+  m_topDriver_POVdown.OnTrue(  new CmdShooterDPad( DPAD_DOWN ) );
+  m_topDriver_POVleft.OnTrue(  new CmdShooterDPad( DPAD_LEFT ) );
+  m_topDriver_POVright.OnTrue( new CmdShooterDPad( DPAD_RIGHT) );
+
+ 
   //Bottom Driver Mapped buttons
   m_botDriver_StartButton.OnTrue(new CmdDriveZeroGyro());           //Zero Gyro
   m_botDriver_YButton.OnTrue(new CmdDriveForceSteerAngle( 90.0));   //Straighten drive wheels

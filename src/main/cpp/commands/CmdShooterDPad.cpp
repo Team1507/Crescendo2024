@@ -1,21 +1,50 @@
 #include "commands/CmdShooterDPad.h"
-#include "subsystems/Shooter.h"
+#include "Robot.h"
+
 
 CmdShooterDPad::CmdShooterDPad(dPadPosition position) 
 {
-  // Use addRequirements() here to declare subsystem dependencies.
+  m_position = position;
 }
 
-// Called when the command is initially scheduled.
-void CmdShooterDPad::Initialize() {}
+void CmdShooterDPad::Initialize() 
+{
+  switch( m_position )
+  {
 
-// Called repeatedly when this Command is scheduled to run
+    //----------------------------
+    case DPAD_UP:
+      std::cout<< "DPAD UP" << std::endl;
+      break;
+      
+    //----------------------------
+    case DPAD_DOWN:
+      std::cout<< "DPAD DOWN" << std::endl;
+      break;
+
+    //----------------------------
+    case DPAD_LEFT:
+      std::cout<< "DPAD LEFT" << std::endl;
+      break;
+
+    //----------------------------
+    case DPAD_RIGHT:
+      std::cout<< "DPAD RIGHT" << std::endl;
+      break;
+
+    //----------------------------
+    default:
+      std::cout<< "Unknown DPAD Input" << std::endl;
+      break;
+
+  }
+}
+
 void CmdShooterDPad::Execute() {}
 
-// Called once the command ends or is interrupted.
 void CmdShooterDPad::End(bool interrupted) {}
 
-// Returns true when the command should end.
-bool CmdShooterDPad::IsFinished() {
-  return false;
+bool CmdShooterDPad::IsFinished() 
+{
+  return true;
 }
