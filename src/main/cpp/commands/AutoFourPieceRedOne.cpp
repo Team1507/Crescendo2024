@@ -1,4 +1,4 @@
-#include "commands/AutoFivePieceBlueThree.h"
+#include "commands/AutoFourPieceRedOne.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <--- drivetrain
 #include "commands/CmdShooterHome.h"
@@ -15,11 +15,13 @@
 #include "commands/CmdDriveForceSteerAngle.h"
 #include "commands/CmdDriveAimAtTarget.h"
 
-#include "commands/AutoFourPieceBlueThree.h"
-AutoFivePieceBlueThree::AutoFivePieceBlueThree() {
-  
+#include "commands/AutoFourPieceRedOne.h"
+
+
+AutoFourPieceRedOne::AutoFourPieceRedOne() {
+
   AddCommands(
-    CmdPrintText("Auto Five Piece Blue Three Started"), 
+    CmdPrintText("Auto Four Piece Red One Started"), 
     CmdShooterHome(),
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
@@ -60,23 +62,8 @@ AutoFivePieceBlueThree::AutoFivePieceBlueThree() {
 
     CmdShooterShootNote(0),
 
-    //Rotate to starting position
-    //Drive Back
-    CmdIntakeDeploy(),
-    CmdDriveToPoint(132,250,0,3000,true,10),
-
     CmdIntakeRetract(),
-
-    //drive  forwards
-    CmdDriveToPoint(132, 179,0,3000,true,10),
-
-    CmdShooterSetAngle(0),//set to correct shoting angle not 0
-
-    //rotate to speaker
-    CmdDriveTurn2Angle(.2, 45),
-
-    CmdShooterShootNote(0),
     CmdShooterSetPower(0),
-    CmdPrintText("Auto Five Piece Blue Three Ended")
+    CmdPrintText("Auto Four Piece Red One Ended")
   );
 }

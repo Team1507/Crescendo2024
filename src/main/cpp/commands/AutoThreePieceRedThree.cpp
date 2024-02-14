@@ -8,6 +8,14 @@
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdShooterShootNote.h"
 
+#include "frc2/command/WaitCommand.h"
+#include "commands/CmdPrintText.h"
+#include "commands/CmdDriveClearAll.h"
+#include "commands/CmdDriveStop.h"
+#include "commands/CmdDriveToPoint.h"
+#include "commands/CmdDriveTurn2Angle.h"
+#include "commands/CmdDriveForceSteerAngle.h"
+#include "Robot.h"
 
 AutoThreePieceRedThree::AutoThreePieceRedThree() {
 
@@ -17,18 +25,30 @@ AutoThreePieceRedThree::AutoThreePieceRedThree() {
   CmdShooterHome(),
   CmdShooterSetAngle(0),
   CmdShooterSetPower(0),
+
   // rotate to speaker
+  CmdDriveTurn2Angle(0.2,45),
+
   CmdShooterShootNote(0),
-  // Rotate to starting pos
   CmdIntakeDeploy(),
+
   // drive backwards
-  // drive forwards
+  CmdDriveToPoint(0,55,0,3000,true,10),
+
   // rotate to speaker
+  CmdDriveTurn2Angle(0.2,45),
+
   CmdShooterShootNote(0),
-  // Rotate to starting position
+
   // drive backwards
+  CmdDriveToPoint(7,212,0,3000,true,10),
+
   // drive forwards
+  CmdDriveToPoint(0,150,0,3000,true,10),
+
   // rotate to speaker
+  CmdDriveTurn2Angle(.2, 45),
+
   CmdShooterShootNote(0),
   CmdShooterSetPower(0),
   CmdIntakeRetract(),

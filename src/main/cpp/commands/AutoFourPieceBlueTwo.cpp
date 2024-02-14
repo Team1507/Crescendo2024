@@ -9,6 +9,13 @@
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdShooterShootNote.h"
 
+#include "commands/CmdDriveClearAll.h"
+#include "commands/CmdDriveStop.h"
+#include "commands/CmdDriveToPoint.h"
+#include "commands/CmdDriveTurn2Angle.h"
+#include "commands/CmdDriveForceSteerAngle.h"
+#include "commands/CmdDriveAimAtTarget.h"
+
 AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
 {
   AddCommands(
@@ -19,24 +26,41 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
     CmdShooterSetPower(0),
     CmdShooterShootNote(0),
     CmdIntakeDeploy(),
+
     //DriveBackwards
+    CmdDriveToPoint(0, 40, 0, 2000, true, 10),
+
     CmdShooterShootNote(0),
-    //Arc to note on right
     CmdIntakeDeploy(),
+
+    //Go to note on right
+    CmdDriveToPoint(-50, 40, 0, 2000, true, 10),
+    CmdDriveTurn2Angle(0.2, -45),
+
     //Rotate to speaker
+    CmdDriveTurn2Angle(0.2, 45),
+
     CmdShooterShootNote(0),
-    //Rotate back to starting position
     CmdIntakeRetract(),
+
     //Drive back
+    CmdDriveToPoint(-69, 40, 0, 2000, true, 10),
     CmdIntakeDeploy(),
+    CmdDriveToPoint(-69, -171, 0, 2000, true, 10),
+
     CmdIntakeRetract(),
+
     //Drive forwards
+    CmdDriveToPoint(-69, -75, 0, 2000, true, 10),
+
     //Rotate to speaker
+    CmdDriveTurn2Angle(0.2, -45),
+
     CmdShooterSetAngle(0),
     CmdShooterShootNote(0),
     CmdShooterSetPower(0),
     CmdPrintText("Auto Four Piece Blue Two Ended")
-
+    
   );
 }
 }
