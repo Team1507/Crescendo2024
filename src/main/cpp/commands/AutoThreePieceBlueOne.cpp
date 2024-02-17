@@ -30,7 +30,7 @@ AutoThreePieceBlueOne::AutoThreePieceBlueOne() {
   // rotate to speaker
   CmdDriveTurn2Angle(0.2,45),
 
-  CmdShooterShootNote(0),
+  CmdShooterShootNote(),
   CmdIntakeDeploy(),
 
   // drive backwards
@@ -39,7 +39,7 @@ AutoThreePieceBlueOne::AutoThreePieceBlueOne() {
   // rotate to speaker
   CmdDriveTurn2Angle(0.2,45),
 
-  CmdShooterShootNote(0),
+  CmdShooterShootNote(),
 
   // drive backwards
   CmdDriveToPoint(7,212,0,3000,true,10),
@@ -50,7 +50,7 @@ AutoThreePieceBlueOne::AutoThreePieceBlueOne() {
   // rotate to speaker
   CmdDriveTurn2Angle(.2, 45),
 
-  CmdShooterShootNote(0),
+  CmdShooterShootNote(),
   CmdShooterSetPower(0),
   CmdIntakeRetract(),
   CmdPrintText("Auto Three Piece Blue One Finished")

@@ -20,12 +20,12 @@ AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
     CmdShooterHome(),
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeDeploy(),
     //Drive Back
     CmdDriveToPoint(0, 60, 0, 2000, true, 10),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdShooterSetPower(0), 
     CmdShooterSetPower(0),
     CmdIntakeRetract(),

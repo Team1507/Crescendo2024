@@ -27,7 +27,7 @@ AutoFivePieceBlueThree::AutoFivePieceBlueThree() {
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, -45),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
 
     CmdIntakeDeploy(),
 
@@ -36,7 +36,7 @@ AutoFivePieceBlueThree::AutoFivePieceBlueThree() {
     CmdDriveToPoint(0, 50, 0, 2000, true, 10),
     CmdDriveTurn2Angle(0.2, -45),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeRetract(),
 
     //Go to Note on right
@@ -47,7 +47,7 @@ AutoFivePieceBlueThree::AutoFivePieceBlueThree() {
     //Rotate to speaker maybe middle spot
     CmdDriveTurn2Angle(0.2, -90),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeRetract(),
 
     //Go to note on right
@@ -58,7 +58,7 @@ AutoFivePieceBlueThree::AutoFivePieceBlueThree() {
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, -45),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
 
     //Rotate to starting position
     //Drive Back
@@ -75,7 +75,7 @@ AutoFivePieceBlueThree::AutoFivePieceBlueThree() {
     //rotate to speaker
     CmdDriveTurn2Angle(.2, 45),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdPrintText("Auto Five Piece Blue Three Ended")
   );

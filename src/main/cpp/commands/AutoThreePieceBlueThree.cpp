@@ -29,7 +29,7 @@ AutoThreePieceBlueThree::AutoThreePieceBlueThree() {
     // Turn Towards Speaker
     CmdDriveTurn2Angle(0.2, -45),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeDeploy(),
 
     // drive backwards
@@ -38,7 +38,7 @@ AutoThreePieceBlueThree::AutoThreePieceBlueThree() {
     // turn to shot
     CmdDriveTurn2Angle(0.2,-45),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeRetract(),
 
     // go to note on right
@@ -47,7 +47,7 @@ AutoThreePieceBlueThree::AutoThreePieceBlueThree() {
     // rotate towards speaker
     CmdDriveTurn2Angle(0.2,-45),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdIntakeRetract(),
     CmdPrintText("Auto Three Piece Blue Two Ended")

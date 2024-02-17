@@ -17,14 +17,14 @@ AutoFourPieceRedTwo::AutoFourPieceRedTwo() {
     CmdShooterHome(),
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeDeploy(),
     //DriveBackwards
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     //Arc to note on left
     CmdIntakeDeploy(),
     //Rotate to speaker
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     //Rotate back to starting position
     CmdIntakeRetract(),
     //Drive back
@@ -33,7 +33,7 @@ AutoFourPieceRedTwo::AutoFourPieceRedTwo() {
     //Drive forwards
     //Rotate to speaker
     CmdShooterSetAngle(0),
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdPrintText("Auto Four Piece Red Two Ended")
 

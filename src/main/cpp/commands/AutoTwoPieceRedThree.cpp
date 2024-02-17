@@ -18,7 +18,7 @@ AutoTwoPieceRedThree::AutoTwoPieceRedThree() {
 
   CmdShooterSetAngle(0),
   CmdShooterSetPower(0),
-  CmdShooterShootNote(0),
+  CmdShooterShootNote(),
   //Rotate to staring position
   CmdIntakeDeploy(),
   //Drive backwards

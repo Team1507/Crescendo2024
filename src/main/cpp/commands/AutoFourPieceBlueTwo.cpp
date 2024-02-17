@@ -24,13 +24,13 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
     CmdShooterHome(),
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeDeploy(),
 
     //DriveBackwards
     CmdDriveToPoint(0, 40, 0, 2000, true, 10),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeDeploy(),
 
     //Go to note on right
@@ -40,7 +40,7 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, 45),
 
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdIntakeRetract(),
 
     //Drive back
@@ -57,7 +57,7 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
     CmdDriveTurn2Angle(0.2, -45),
 
     CmdShooterSetAngle(0),
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdPrintText("Auto Four Piece Blue Two Ended")
     

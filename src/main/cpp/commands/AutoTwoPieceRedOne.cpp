@@ -20,7 +20,7 @@ AutoTwoPieceRedOne::AutoTwoPieceRedOne() {
     CmdShooterSetPower(0),
     //DriveTrain rotate 
     CmdDriveTurn2Angle( 0.2, -45.0 ),
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdShooterHome(),
     CmdIntakeDeploy(),
     //DriveTrain backward

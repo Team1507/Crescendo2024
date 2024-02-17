@@ -20,11 +20,11 @@ AutoTwoPieceBlueThree::AutoTwoPieceBlueThree() {
     CmdShooterSetPower(0),
     //DriveTrain rotate 
     CmdDriveTurn2Angle( 0.2, -45.0 ),
-    CmdShooterShootNote(0),
+    CmdShooterShootNote(),
     CmdShooterHome(),
     CmdIntakeDeploy(),
     //DriveTrain backward
-     CmdDriveToPoint( 0, 60, 0, 2000, true, 10),
+    CmdDriveToPoint( 0, 60, 0, 2000, true, 10),
     CmdShooterSetPower(0),
     CmdIntakeRetract(),
     CmdPrintText("Auto Two Piece Blue Three Completed")

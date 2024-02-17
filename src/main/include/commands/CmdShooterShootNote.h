@@ -2,12 +2,13 @@
 
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
+#include <frc/Timer.h>
 
 class CmdShooterShootNote
     : public frc2::CommandHelper<frc2::Command, CmdShooterShootNote> {
  public:
 
-  CmdShooterShootNote(bool status);
+  CmdShooterShootNote();
 
   void Initialize() override;
 
@@ -19,5 +20,5 @@ class CmdShooterShootNote
 
   private:
 
-  bool m_status;
+  frc::Timer m_timer;
 };
