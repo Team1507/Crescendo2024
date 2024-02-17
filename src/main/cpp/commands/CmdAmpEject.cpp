@@ -11,7 +11,7 @@ CmdAmpEject::CmdAmpEject(double power)
 void CmdAmpEject::Initialize() 
 {
   robotContainer.m_amperatus.SetAmpRollerPower(m_ampPower);
-  std::cout << "Amperatus Eject Started" << std::endl;
+  std::cout << "Amperatus Ejected" << std::endl;
 }
 
 
@@ -20,7 +20,7 @@ void CmdAmpEject::Execute() {}
 
 void CmdAmpEject::End(bool interrupted) 
 {
-  std::cout << "Amperatus Eject Ended" << std::endl;
+
 }
 
 

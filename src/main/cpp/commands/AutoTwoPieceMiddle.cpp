@@ -17,14 +17,15 @@ AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
     
     
     CmdPrintText("Auto Two Piece Middle Started"), 
-    CmdShooterHome(),
+    CmdShooterHome(),// <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
     CmdShooterShootNote(),
     CmdIntakeDeploy(),
+
     //Drive Back
     CmdDriveToPoint(0, 60, 0, 2000, true, 10),
-
+    CmdIntakeRetract(),
     CmdShooterShootNote(),
     CmdShooterSetPower(0), 
     CmdShooterSetPower(0),

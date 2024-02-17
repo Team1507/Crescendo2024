@@ -1,8 +1,7 @@
 #include "commands/CmdShooterHome.h"
 #include <iostream>
 #include "Robot.h"
-
-#define PIVOT_HOME_POS 0.0
+#include "Constants.h"
 
 CmdShooterHome::CmdShooterHome() 
 {

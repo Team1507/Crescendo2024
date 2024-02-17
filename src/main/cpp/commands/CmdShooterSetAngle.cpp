@@ -10,14 +10,14 @@ CmdShooterSetAngle::CmdShooterSetAngle(double shooterAngle)
 void CmdShooterSetAngle::Initialize() 
 {
   robotContainer.m_shooter.SetPivotAngle(m_shooterAngle);
-  std::cout << "Shooter Set Angle Started" << std::endl;
+  std::cout << "Shooter Set Angle" << std::endl;
 }
 
 void CmdShooterSetAngle::Execute() {}
 
 void CmdShooterSetAngle::End(bool interrupted) 
 {
-  std::cout << "Shooter Set Angle Ended" << std::endl;
+
 }
 
 bool CmdShooterSetAngle::IsFinished() 

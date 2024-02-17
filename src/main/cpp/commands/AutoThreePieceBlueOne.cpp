@@ -23,13 +23,12 @@ AutoThreePieceBlueOne::AutoThreePieceBlueOne() {
   AddCommands(
 
   CmdPrintText("Auto Three Piece Blue One Started"), 
-  CmdShooterHome(),
+  CmdShooterHome(),// <----
   CmdShooterSetAngle(0),
   CmdShooterSetPower(0),
 
   // rotate to speaker
   CmdDriveTurn2Angle(0.2,45),
-
   CmdShooterShootNote(),
   CmdIntakeDeploy(),
 
@@ -38,18 +37,19 @@ AutoThreePieceBlueOne::AutoThreePieceBlueOne() {
 
   // rotate to speaker
   CmdDriveTurn2Angle(0.2,45),
-
+  CmdIntakeRetract(),
   CmdShooterShootNote(),
+  CmdIntakeDeploy(),
 
   // drive backwards
   CmdDriveToPoint(7,212,0,3000,true,10),
+  CmdIntakeRetract(),
 
   // drive forwards
   CmdDriveToPoint(0,150,0,3000,true,10),
 
   // rotate to speaker
   CmdDriveTurn2Angle(.2, 45),
-
   CmdShooterShootNote(),
   CmdShooterSetPower(0),
   CmdIntakeRetract(),

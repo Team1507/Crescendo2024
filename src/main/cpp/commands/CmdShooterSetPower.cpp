@@ -10,7 +10,7 @@ CmdShooterSetPower::CmdShooterSetPower(double shooterPower)
 void CmdShooterSetPower::Initialize() 
 {
   robotContainer.m_shooter.SetShooterPower(m_shooterPower);
-  std::cout << "Shooter Set Power Started" << std::endl;
+  std::cout << "Shooter Set Power" << std::endl;
 }
 
 void CmdShooterSetPower::Execute() 
@@ -20,7 +20,7 @@ void CmdShooterSetPower::Execute()
 
 void CmdShooterSetPower::End(bool interrupted)
 {
- std::cout << "Shooter Set Power Ended" << std::endl;
+
 }
 
 bool CmdShooterSetPower::IsFinished() 

@@ -15,13 +15,13 @@ AutoTwoPieceRedOne::AutoTwoPieceRedOne() {
   AddCommands(
 
     CmdPrintText("Auto Two Piece Red One Started"), 
-    CmdShooterHome(),
+    CmdShooterHome(),// <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
     //DriveTrain rotate 
     CmdDriveTurn2Angle( 0.2, -45.0 ),
     CmdShooterShootNote(),
-    CmdShooterHome(),
+    CmdShooterHome(),// <----
     CmdIntakeDeploy(),
     //DriveTrain backward
      CmdDriveToPoint( 0, 60, 0, 2000, true, 10),

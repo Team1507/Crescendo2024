@@ -1,8 +1,7 @@
 #include "commands/CmdAmpHome.h"
 #include "Robot.h"
 #include <iostream>
-
-#define AMP_HOME_POS 0.0
+#include "Constants.h"
 
 CmdAmpHome::CmdAmpHome() 
 {

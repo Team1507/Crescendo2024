@@ -11,7 +11,7 @@ void CmdIntakeRetract::Initialize()
 {
   robotContainer.m_intake.IntakeRetract();
   robotContainer.m_shooter.SetFeederIntakePower(0);
-  std::cout << "Intake Retract Started" << std::endl;
+  std::cout << "Intake Retracted" << std::endl;
 }
 
 void CmdIntakeRetract::Execute() 
@@ -21,7 +21,7 @@ void CmdIntakeRetract::Execute()
 
 void CmdIntakeRetract::End(bool interrupted) 
 {
-  std::cout << "Intake Retract Ended" << std::endl;
+
 }
 
 bool CmdIntakeRetract::IsFinished() 

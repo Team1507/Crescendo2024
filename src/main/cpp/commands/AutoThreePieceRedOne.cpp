@@ -22,31 +22,30 @@ AutoThreePieceRedOne::AutoThreePieceRedOne() {
   AddCommands(
 
     CmdPrintText("Auto Three Piece Red One Started"),
-    CmdShooterHome(),
+    CmdShooterHome(),// <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
 
     // Turn Towards Speaker
     CmdDriveTurn2Angle(0.2, -45),
-
     CmdShooterShootNote(),
     CmdIntakeDeploy(),
 
     // drive backwards
     CmdDriveToPoint(0, 50, 0, 2000, true, 10),
+    CmdIntakeRetract(),
 
     // turn to shot
     CmdDriveTurn2Angle(0.2,-45),
-
     CmdShooterShootNote(),
-    CmdIntakeRetract(),
+    CmdIntakeDeploy(),
 
     // go to note on right
     CmdDriveToPoint(56.5, 55, 90, 2000, true, 10),
+    CmdIntakeRetract(),
 
     // rotate towards speaker
     CmdDriveTurn2Angle(0.2,-45),
-
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdIntakeRetract(),

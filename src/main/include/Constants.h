@@ -11,7 +11,10 @@
 // #define AMP_DEPLOY_PCM 4
 // #define AMP_RETRACT_PCM 5
 
+// Homes
 
+#define AMP_HOME_POS 0.0
+#define PIVOT_HOME_POS 0.0
 
 //CAN IDS
 #define CLIMBER_LEFT_CANID   13

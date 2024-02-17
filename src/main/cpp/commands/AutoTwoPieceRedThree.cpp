@@ -22,11 +22,12 @@ AutoTwoPieceRedThree::AutoTwoPieceRedThree() {
   //Rotate to staring position
   CmdIntakeDeploy(),
   //Drive backwards
-   CmdDriveToPoint( 0, 60, 0, 2000, true, 10),
+  CmdDriveToPoint( 0, 60, 0, 2000, true, 10),
+  CmdIntakeRetract(),
+
   //Rotate to speaker
   CmdDriveTurn2Angle( 0.2, -45.0 ),
   CmdShooterSetPower(0),
-  CmdIntakeRetract(),
   CmdPrintText("Auto Two Piece Red Three Ended")
   );
 }
