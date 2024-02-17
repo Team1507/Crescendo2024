@@ -7,6 +7,7 @@
 #include "commands/CmdIntakeDeploy.h"
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdShooterShootNote.h"
+#include "commands/CmdDriveToPoint.h"
 
 AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
  {
@@ -22,6 +23,8 @@ AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
     CmdShooterShootNote(0),
     CmdIntakeDeploy(),
     //Drive Back
+    CmdDriveToPoint(0, 60, 0, 2000, true, 10),
+
     CmdShooterShootNote(0),
     CmdShooterSetPower(0), 
     CmdShooterSetPower(0),

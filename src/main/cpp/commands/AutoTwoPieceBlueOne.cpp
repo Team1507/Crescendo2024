@@ -7,6 +7,9 @@
 #include "commands/CmdIntakeDeploy.h"
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdShooterShootNote.h"
+#include "commands/CmdDriveToPoint.h"
+#include "commands/CmdDriveTurn2Angle.h"
+
 
 AutoTwoPieceBlueOne::AutoTwoPieceBlueOne() {
   AddCommands(
@@ -19,7 +22,9 @@ AutoTwoPieceBlueOne::AutoTwoPieceBlueOne() {
   //Rotate to staring position
   CmdIntakeDeploy(),
   //Drive backwards
+   CmdDriveToPoint( 0, 60, 0, 2000, true, 10),
   //Rotate to speaker
+  CmdDriveTurn2Angle( 0.2, -45.0 ),
   CmdShooterSetPower(0),
   CmdIntakeRetract(),
   CmdPrintText("Auto Two Piece Blue One")
