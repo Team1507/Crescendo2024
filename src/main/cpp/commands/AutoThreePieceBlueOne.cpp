@@ -30,6 +30,7 @@ AutoThreePieceBlueOne::AutoThreePieceBlueOne() {
   // rotate to speaker
   CmdDriveTurn2Angle(0.2,45),
   CmdShooterShootNote(),
+  CmdShooterSetAngle(PIVOT_HOME_POS),
   CmdIntakeDeploy(),
 
   // drive backwards
@@ -39,6 +40,7 @@ AutoThreePieceBlueOne::AutoThreePieceBlueOne() {
   CmdDriveTurn2Angle(0.2,45),
   CmdIntakeRetract(),
   CmdShooterShootNote(),
+  CmdShooterSetAngle(PIVOT_HOME_POS),
   CmdIntakeDeploy(),
 
   // drive backwards

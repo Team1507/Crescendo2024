@@ -29,6 +29,7 @@ AutoFourPieceRedOne::AutoFourPieceRedOne() {
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, -45),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //Drive backwards
@@ -37,6 +38,7 @@ AutoFourPieceRedOne::AutoFourPieceRedOne() {
     CmdDriveTurn2Angle(0.2, -45),
     CmdIntakeRetract(),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //Go to Note on right
@@ -48,6 +50,7 @@ AutoFourPieceRedOne::AutoFourPieceRedOne() {
     CmdIntakeRetract(),
 
     //Go to note on right
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
     CmdDriveToPoint(115.5, 60, 90, 2000, true, 10),
 

@@ -18,20 +18,23 @@ AutoTwoPieceBlueOne::AutoTwoPieceBlueOne() {
   CmdShooterHome(),// <----
   CmdShooterSetAngle(0),
   CmdShooterSetPower(0),
+
+  CmdDriveTurn2Angle(0.2,-45.0),//Turn to speaker
+
   CmdShooterShootNote(),
-  //Rotate to staring position
+
+  CmdDriveTurn2Angle(0.2,45.0),//Turn toward note
+
+  CmdShooterSetAngle(PIVOT_HOME_POS),
   CmdIntakeDeploy(),
-  //Drive backwards
 
-  CmdDriveToPoint( 0, 60, 0, 2000, true, 10),
+  CmdDriveToPoint( 0, 60, 0, 2000, true, 10), //Drive Backwards to pick up note
 
   CmdIntakeRetract(),
-  //Rotate to speaker
 
-  CmdDriveTurn2Angle( 0.2, -45.0 ),
-  
-  CmdShooterSetPower(0),
-  CmdIntakeRetract(),
+  CmdDriveTurn2Angle(0.2,-45.0),//Rotate to speaker
+
+  CmdShooterShootNote(),
   CmdPrintText("Auto Two Piece Blue One")
   );
 }

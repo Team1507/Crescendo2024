@@ -27,6 +27,7 @@ AutoFourPieceBlueThree::AutoFourPieceBlueThree() {
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, -45),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //Drive backwards
@@ -35,6 +36,7 @@ AutoFourPieceBlueThree::AutoFourPieceBlueThree() {
     CmdDriveTurn2Angle(0.2, -45),
     CmdIntakeRetract(),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //Go to Note on right
@@ -44,6 +46,7 @@ AutoFourPieceBlueThree::AutoFourPieceBlueThree() {
     //Rotate to speaker maybe middle spot
     CmdDriveTurn2Angle(0.2, -90),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //Go to note on right

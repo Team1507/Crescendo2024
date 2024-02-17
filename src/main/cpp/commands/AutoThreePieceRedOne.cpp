@@ -29,6 +29,7 @@ AutoThreePieceRedOne::AutoThreePieceRedOne() {
     // Turn Towards Speaker
     CmdDriveTurn2Angle(0.2, -45),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     // drive backwards
@@ -38,6 +39,7 @@ AutoThreePieceRedOne::AutoThreePieceRedOne() {
     // turn to shot
     CmdDriveTurn2Angle(0.2,-45),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     // go to note on right

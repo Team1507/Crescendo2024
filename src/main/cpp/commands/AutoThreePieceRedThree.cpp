@@ -29,6 +29,7 @@ AutoThreePieceRedThree::AutoThreePieceRedThree() {
   // rotate to speaker
   CmdDriveTurn2Angle(0.2,45),
   CmdShooterShootNote(),
+  CmdShooterSetAngle(PIVOT_HOME_POS),
   CmdIntakeDeploy(),
 
   // drive backwards
@@ -38,6 +39,7 @@ AutoThreePieceRedThree::AutoThreePieceRedThree() {
   // rotate to speaker
   CmdDriveTurn2Angle(0.2,45),
   CmdShooterShootNote(),
+  CmdShooterSetAngle(PIVOT_HOME_POS),
   CmdIntakeDeploy(),
 
   // drive backwards

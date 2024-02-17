@@ -25,12 +25,14 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //DriveBackwards
     CmdDriveToPoint(0, 40, 0, 2000, true, 10),
     CmdIntakeRetract(),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //Go to note on right
@@ -44,6 +46,7 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
 
     //Drive back
     CmdDriveToPoint(-69, 40, 0, 2000, true, 10),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
     CmdDriveToPoint(-69, -171, 0, 2000, true, 10),
     CmdIntakeRetract(),

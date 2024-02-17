@@ -28,11 +28,13 @@ AutoFourPieceRedTwo::AutoFourPieceRedTwo() {
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //DriveBackwards
     CmdDriveToPoint(0, -40, 0, 2000, true, 10),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //go to note on left
@@ -45,6 +47,7 @@ AutoFourPieceRedTwo::AutoFourPieceRedTwo() {
 
     //Rotate back to starting position
     CmdDriveTurn2Angle(0.2, -45),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
     //Drive back
