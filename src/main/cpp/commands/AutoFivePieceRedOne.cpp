@@ -73,6 +73,7 @@ AutoFivePieceRedOne::AutoFivePieceRedOne() {
 
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
+    CmdDriveStop(),
     CmdPrintText("Auto Five Piece Red One Ended")
   );
 }

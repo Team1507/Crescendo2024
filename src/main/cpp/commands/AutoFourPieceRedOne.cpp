@@ -59,6 +59,7 @@ AutoFourPieceRedOne::AutoFourPieceRedOne() {
     CmdShooterShootNote(),
     CmdIntakeRetract(),
     CmdShooterSetPower(0),
+    CmdDriveStop(),
     CmdPrintText("Auto Four Piece Red One Ended")
   );
 }

@@ -9,6 +9,7 @@
 #include "commands/CmdShooterShootNote.h"
 #include "commands/CmdDriveToPoint.h"
 #include "commands/CmdDriveTurn2Angle.h"
+#include "commands/CmdDriveStop.h"
 
 
 AutoTwoPieceBlueThree::AutoTwoPieceBlueThree() {
@@ -20,21 +21,21 @@ AutoTwoPieceBlueThree::AutoTwoPieceBlueThree() {
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
 
-    CmdDriveTurn2Angle(0.2,45.0),//turn to speaker
-
+    //turn to speaker
+    CmdDriveTurn2Angle(0.2,45.0),
     CmdShooterShootNote(),
 
-    CmdDriveTurn2Angle(0.2,-45.0),//Turn to note
-
+    //Turn to note
+    CmdDriveTurn2Angle(0.2,-45.0),
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
-    CmdDriveToPoint( 0, 60, 0, 2000, true, 10),//Go to note
-
+    //Go to note
+    CmdDriveToPoint( 0, 60, 0, 2000, true, 10),
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
-
     CmdIntakeRetract(),
+    CmdDriveStop(),
     CmdPrintText("Auto Two Piece Blue Three Completed")
 
 

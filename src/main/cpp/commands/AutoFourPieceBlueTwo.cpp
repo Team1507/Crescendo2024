@@ -60,6 +60,7 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
     CmdShooterSetAngle(0),
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
+    CmdDriveStop(),
     CmdPrintText("Auto Four Piece Blue Two Ended")
     
   );

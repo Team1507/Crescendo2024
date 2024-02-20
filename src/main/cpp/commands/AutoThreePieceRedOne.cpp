@@ -51,6 +51,7 @@ AutoThreePieceRedOne::AutoThreePieceRedOne() {
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdIntakeRetract(),
+    CmdDriveStop(),
     CmdPrintText("Auto Three Piece Red One Ended")
 
   );

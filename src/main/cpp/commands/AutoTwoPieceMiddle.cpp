@@ -8,12 +8,10 @@
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdShooterShootNote.h"
 #include "commands/CmdDriveToPoint.h"
-
+#include "commands/CmdDriveStop.h"
 
 AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
  {
-  // AddCommands(FooCommand{}, BarCommand{});
-
   AddCommands(
     
     
@@ -21,17 +19,16 @@ AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
     CmdShooterHome(),// <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
-
     CmdShooterShootNote(),
-
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
-    CmdDriveToPoint(0, 60, 0, 2000, true, 10),//drive to note
-
+    //drive to note
+    CmdDriveToPoint(0, 60, 0, 2000, true, 10),
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdIntakeRetract(),
+    CmdDriveStop(),
     CmdPrintText("Auto Two Piece Middle Completed")
   );
 }

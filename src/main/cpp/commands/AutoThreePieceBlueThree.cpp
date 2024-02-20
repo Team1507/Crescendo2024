@@ -51,6 +51,7 @@ AutoThreePieceBlueThree::AutoThreePieceBlueThree() {
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdIntakeRetract(),
+    CmdDriveStop(),
     CmdPrintText("Auto Three Piece Blue Two Ended")
 
   );

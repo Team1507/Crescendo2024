@@ -9,32 +9,35 @@
 #include "commands/CmdShooterShootNote.h"
 #include "commands/CmdDriveToPoint.h"
 #include "commands/CmdDriveTurn2Angle.h"
-
+#include "commands/CmdDriveStop.h"
 
 AutoTwoPieceBlueOne::AutoTwoPieceBlueOne() {
+
   AddCommands(
 
-  CmdPrintText("Auto Two Piece Blue One Started"), 
-  CmdShooterHome(),// <----
-  CmdShooterSetAngle(0),
-  CmdShooterSetPower(0),
+    CmdPrintText("Auto Two Piece Blue One Started"), 
+    CmdShooterHome(),// <----
+    CmdShooterSetAngle(0),
+    CmdShooterSetPower(0),
 
-  CmdDriveTurn2Angle(0.2,-45.0),//Turn to speaker
+    //Turn to speaker
+    CmdDriveTurn2Angle(0.2,-45.0),
+    CmdShooterShootNote(),
 
-  CmdShooterShootNote(),
+    //Turn toward note
+    CmdDriveTurn2Angle(0.2,45.0),
+    CmdShooterSetAngle(PIVOT_HOME_POS),
+    CmdIntakeDeploy(),
 
-  CmdDriveTurn2Angle(0.2,45.0),//Turn toward note
+    //Drive Backwards to pick up note
+    CmdDriveToPoint( 0, 60, 0, 2000, true, 10), 
+    CmdIntakeRetract(),
 
-  CmdShooterSetAngle(PIVOT_HOME_POS),
-  CmdIntakeDeploy(),
-
-  CmdDriveToPoint( 0, 60, 0, 2000, true, 10), //Drive Backwards to pick up note
-
-  CmdIntakeRetract(),
-
-  CmdDriveTurn2Angle(0.2,-45.0),//Rotate to speaker
-
-  CmdShooterShootNote(),
-  CmdPrintText("Auto Two Piece Blue One")
+    //Rotate to speaker
+    CmdDriveTurn2Angle(0.2,-45.0),
+    CmdShooterShootNote(),
+    CmdShooterSetPower(0),
+    CmdDriveStop(),
+    CmdPrintText("Auto Two Piece Blue One")
   );
 }

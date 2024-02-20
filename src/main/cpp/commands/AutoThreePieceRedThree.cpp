@@ -53,6 +53,7 @@ AutoThreePieceRedThree::AutoThreePieceRedThree() {
   CmdShooterShootNote(),
   CmdShooterSetPower(0),
   CmdIntakeRetract(),
+  CmdDriveStop(),
   CmdPrintText("Auto Three Piece Red Two Finished")
 
   );

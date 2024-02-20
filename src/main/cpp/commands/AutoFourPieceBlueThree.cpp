@@ -57,6 +57,7 @@ AutoFourPieceBlueThree::AutoFourPieceBlueThree() {
     CmdDriveTurn2Angle(0.2, -45),
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
+    CmdDriveStop(),
     CmdPrintText("Auto Four Piece Blue Three Ended")
   );
 }

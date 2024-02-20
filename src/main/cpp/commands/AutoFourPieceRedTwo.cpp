@@ -63,6 +63,7 @@ AutoFourPieceRedTwo::AutoFourPieceRedTwo() {
     CmdShooterSetAngle(0),
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
+    CmdDriveStop(),
     CmdPrintText("Auto Four Piece Red Two Ended")
 
   );

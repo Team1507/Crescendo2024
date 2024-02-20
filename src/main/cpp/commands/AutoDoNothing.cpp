@@ -13,12 +13,11 @@ AutoDoNothing::AutoDoNothing()
     //Auto Setup 
     CmdPrintText("****** AutoDoNothing ******"),
     CmdDriveClearAll(),
-  //CmdGyroSetAngleOffset( 180.0),
+    //CmdGyroSetAngleOffset( 180.0),
 
 
 
     CmdDriveStop(),    // saftey
     CmdPrintText("AutoDoNothing Complete")
-
   );
 }
