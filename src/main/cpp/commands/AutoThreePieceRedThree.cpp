@@ -44,7 +44,9 @@ AutoThreePieceRedThree::AutoThreePieceRedThree() {
   CmdIntakeDeploy(),
 
   // drive backwards
-  CmdDriveToPoint(7,212,0,3000,true,10),
+  CmdDriveToPoint(7,220,0,3000,true,10),
+  CmdIntakeDeploy(),
+  CmdDriveToPoint(7,212,0,2000,true,10),
   CmdIntakeRetract(),
 
   // drive forwards
@@ -54,7 +56,6 @@ AutoThreePieceRedThree::AutoThreePieceRedThree() {
   CmdDriveTurn2Angle(.2, 45),
   CmdShooterSetAngle(0),
   CmdShooterShootNote(),
-  
   CmdShooterSetPower(0),
   CmdIntakeRetract(),
   CmdDriveStop(),

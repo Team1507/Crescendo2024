@@ -49,6 +49,7 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
     //Drive back
     CmdDriveToPoint(-69, 40, 0, 2000, true, 10),
     CmdShooterSetAngle(PIVOT_HOME_POS),
+    CmdDriveToPoint(-69, -160, 0, 2000, true, 10),
     CmdIntakeDeploy(),
     CmdDriveToPoint(-69, -171, 0, 2000, true, 10),
     CmdIntakeRetract(),

@@ -64,7 +64,9 @@ AutoFivePieceBlueOne::AutoFivePieceBlueOne() {
     //Drive Back
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
-    CmdDriveToPoint(132,250,0,3000,true,10),
+    CmdDriveToPoint(132,225,0,3000,false,10),
+    CmdIntakeDeploy(),
+    CmdDriveToPoint(132,250,0,2000,true,10),
 
     CmdIntakeRetract(),
 
