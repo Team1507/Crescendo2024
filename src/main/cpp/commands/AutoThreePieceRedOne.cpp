@@ -38,6 +38,7 @@ AutoThreePieceRedOne::AutoThreePieceRedOne() {
 
     // turn to shot
     CmdDriveTurn2Angle(0.2,-45),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
@@ -48,7 +49,9 @@ AutoThreePieceRedOne::AutoThreePieceRedOne() {
 
     // rotate towards speaker
     CmdDriveTurn2Angle(0.2,-45),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
+    
     CmdShooterSetPower(0),
     CmdIntakeRetract(),
     CmdDriveStop(),

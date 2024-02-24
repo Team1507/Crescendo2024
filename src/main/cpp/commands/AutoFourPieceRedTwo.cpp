@@ -33,6 +33,7 @@ AutoFourPieceRedTwo::AutoFourPieceRedTwo() {
 
     //DriveBackwards
     CmdDriveToPoint(0, -40, 0, 2000, true, 10),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
@@ -43,10 +44,12 @@ AutoFourPieceRedTwo::AutoFourPieceRedTwo() {
 
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, 45),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
 
     //Rotate back to starting position
     CmdDriveTurn2Angle(0.2, -45),
+    CmdShooterSetAngle(0),
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
@@ -62,6 +65,7 @@ AutoFourPieceRedTwo::AutoFourPieceRedTwo() {
     CmdDriveTurn2Angle(0.2, 45),
     CmdShooterSetAngle(0),
     CmdShooterShootNote(),
+    
     CmdShooterSetPower(0),
     CmdDriveStop(),
     CmdPrintText("Auto Four Piece Red Two Ended")

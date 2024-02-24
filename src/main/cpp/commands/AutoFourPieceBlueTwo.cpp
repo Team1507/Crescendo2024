@@ -30,14 +30,16 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
 
     //DriveBackwards
     CmdDriveToPoint(0, 40, 0, 2000, true, 10),
+    CmdShooterSetAngle(0),
     CmdIntakeRetract(),
     CmdShooterShootNote(),
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
-    //Go to note on right
+    //Go to note on left
     CmdDriveToPoint(-50, 40, 0, 2000, true, 10),
     CmdDriveTurn2Angle(0.2, -45),
+    CmdShooterSetAngle(0),
     CmdIntakeRetract(),
 
     //Rotate to speaker
@@ -56,6 +58,7 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
 
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, -45),
+    CmdShooterSetAngle(0),
 
     CmdShooterSetAngle(0),
     CmdShooterShootNote(),

@@ -15,44 +15,53 @@
 #include "commands/CmdDriveToPoint.h"
 #include "commands/CmdDriveTurn2Angle.h"
 #include "commands/CmdDriveForceSteerAngle.h"
+#include "commands/CmdDriveAimAtTarget.h"
 #include "Robot.h"
 
 AutoThreePieceBlueThree::AutoThreePieceBlueThree() {
 
   AddCommands(
 
-    CmdPrintText("Auto Three Piece Blue Two Started"),
-    CmdShooterHome(),// <----
-    CmdShooterSetAngle(0),
-    CmdShooterSetPower(0),
+  CmdPrintText("Auto Three Piece Blue Three Started"), 
+  CmdShooterHome(),// <----
+  CmdShooterSetAngle(0),
+  CmdShooterSetPower(0),
 
-    // Turn Towards Speaker
-    CmdDriveTurn2Angle(0.2, -45),
-    CmdShooterShootNote(),
-    CmdShooterSetAngle(PIVOT_HOME_POS),
-    CmdIntakeDeploy(),
+  // rotate to speaker
+  CmdDriveTurn2Angle(0.2,45),
+  CmdShooterShootNote(),
+  CmdShooterSetAngle(PIVOT_HOME_POS),
+  CmdIntakeDeploy(),
 
-    // drive backwards
-    CmdDriveToPoint(0, 50, 0, 2000, true, 10),
-    CmdIntakeRetract(),
+  // drive backwards
+  CmdDriveToPoint(0,55,0,3000,true,10),
+  CmdShooterSetAngle(0),
 
-    // turn to shot
-    CmdDriveTurn2Angle(0.2,-45),
-    CmdShooterShootNote(),
-    CmdShooterSetAngle(PIVOT_HOME_POS),
-    CmdIntakeDeploy(),
+  // rotate to speaker
+  CmdDriveTurn2Angle(0.2,45),
+  CmdShooterSetAngle(0),
+  CmdIntakeRetract(),
+  CmdShooterShootNote(),
+  CmdShooterSetAngle(PIVOT_HOME_POS),
+  CmdIntakeDeploy(),
 
-    // go to note on right
-    CmdDriveToPoint(56.5, 55, 90, 2000, true, 10),
-    CmdIntakeRetract(),
+  // drive backwards
+  CmdDriveToPoint(7,212,0,3000,true,10),
+  CmdIntakeRetract(),
 
-    // rotate towards speaker
-    CmdDriveTurn2Angle(0.2,-45),
-    CmdShooterShootNote(),
-    CmdShooterSetPower(0),
-    CmdIntakeRetract(),
-    CmdDriveStop(),
-    CmdPrintText("Auto Three Piece Blue Two Ended")
+  // drive forwards
+  CmdDriveToPoint(0,150,0,3000,true,10),
+  CmdShooterSetAngle(0),
+
+  // rotate to speaker
+  CmdDriveTurn2Angle(.2, 45),
+  CmdShooterSetAngle(0),
+  CmdShooterShootNote(),
+  
+  CmdShooterSetPower(0),
+  CmdIntakeRetract(),
+  CmdDriveStop(),
+  CmdPrintText("Auto Three Piece Blue Three Finished")
 
   );
 }

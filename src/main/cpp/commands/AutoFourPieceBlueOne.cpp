@@ -1,4 +1,5 @@
-#include "commands/AutoFourPieceRedOne.h"
+
+#include "commands/AutoFourPieceBlueOne.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <--- drivetrain
 #include "commands/CmdShooterHome.h"
@@ -15,13 +16,10 @@
 #include "commands/CmdDriveForceSteerAngle.h"
 #include "commands/CmdDriveAimAtTarget.h"
 
-#include "commands/AutoFourPieceRedOne.h"
-
-
-AutoFourPieceRedOne::AutoFourPieceRedOne() {
+AutoFourPieceBlueOne::AutoFourPieceBlueOne() {
 
   AddCommands(
-    CmdPrintText("Auto Four Piece Red One Started"), 
+    CmdPrintText("Auto Four Piece Blue One Started"), 
     CmdShooterHome(),// <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
@@ -36,30 +34,34 @@ AutoFourPieceRedOne::AutoFourPieceRedOne() {
     //Turn To Speaker
     CmdDriveToPoint(0, 50, 0, 2000, true, 10),
     CmdDriveTurn2Angle(0.2, -45),
+    CmdShooterSetAngle(0),
     CmdIntakeRetract(),
     CmdShooterShootNote(),
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 
-    //Go to Note on right
+    //Go to Note on left
     CmdDriveToPoint(56.5, 60, 90, 2000, true, 10),
+    CmdIntakeRetract(),
 
     //Rotate to speaker maybe middle spot
     CmdDriveTurn2Angle(0.2, -90),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
-    CmdIntakeRetract(),
-
-    //Go to note on right
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
+
+    //Go to note on right
     CmdDriveToPoint(115.5, 60, 90, 2000, true, 10),
+    CmdIntakeRetract(),
 
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, -45),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
-    CmdIntakeRetract(),
+    
     CmdShooterSetPower(0),
     CmdDriveStop(),
-    CmdPrintText("Auto Four Piece Red One Ended")
+    CmdPrintText("Auto Four Piece Blue One Ended")
   );
 }

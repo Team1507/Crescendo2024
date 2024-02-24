@@ -26,6 +26,7 @@ AutoTwoPieceBlueOne::AutoTwoPieceBlueOne() {
 
     //Turn toward note
     CmdDriveTurn2Angle(0.2,45.0),
+    CmdShooterSetAngle(0),
     CmdShooterSetAngle(PIVOT_HOME_POS),
     CmdIntakeDeploy(),
 

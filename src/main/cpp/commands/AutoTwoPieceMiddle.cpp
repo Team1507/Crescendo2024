@@ -25,6 +25,7 @@ AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
 
     //drive to note
     CmdDriveToPoint(0, 60, 0, 2000, true, 10),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdIntakeRetract(),

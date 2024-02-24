@@ -7,9 +7,9 @@
 #include <frc2/command/CommandHelper.h>
 #include <frc2/command/SequentialCommandGroup.h>
 
-class AutoFourPieceRedOne
+class AutoFivePieceRedThree
     : public frc2::CommandHelper<frc2::SequentialCommandGroup,
-                                 AutoFourPieceRedOne> {
+                                 AutoFivePieceRedThree> {
  public:
-  AutoFourPieceRedOne();
+  AutoFivePieceRedThree();
 };

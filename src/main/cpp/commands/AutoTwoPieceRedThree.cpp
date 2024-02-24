@@ -34,6 +34,7 @@ AutoTwoPieceRedThree::AutoTwoPieceRedThree() {
 
   //Rotate to speaker
    CmdDriveTurn2Angle(0.2,-45.0),
+   CmdShooterSetAngle(0),
    CmdShooterShootNote(),
    CmdShooterSetPower(0),
    CmdDriveStop(),

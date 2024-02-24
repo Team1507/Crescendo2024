@@ -1,4 +1,4 @@
-#include "commands/AutoFivePieceRedOne.h"
+#include "commands/AutoFourPieceRedThree.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <--- drivetrain
 #include "commands/CmdShooterHome.h"
@@ -15,10 +15,13 @@
 #include "commands/CmdDriveForceSteerAngle.h"
 #include "commands/CmdDriveAimAtTarget.h"
 
-AutoFivePieceRedOne::AutoFivePieceRedOne() {
-  
+#include "commands/AutoFourPieceRedThree.h"
+
+
+AutoFourPieceRedThree::AutoFourPieceRedThree() {
+
   AddCommands(
-    CmdPrintText("Auto Five Piece Red One Started"), 
+    CmdPrintText("Auto Four Piece Red Three Started"), 
     CmdShooterHome(),// <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
@@ -33,7 +36,7 @@ AutoFivePieceRedOne::AutoFivePieceRedOne() {
     //Turn To Speaker
     CmdDriveToPoint(0, 50, 0, 2000, true, 10),
     CmdDriveTurn2Angle(0.2, -45),
-
+    CmdShooterSetAngle(0),
     CmdIntakeRetract(),
     CmdShooterShootNote(),
     CmdShooterSetAngle(PIVOT_HOME_POS),
@@ -41,39 +44,26 @@ AutoFivePieceRedOne::AutoFivePieceRedOne() {
 
     //Go to Note on right
     CmdDriveToPoint(56.5, 60, 90, 2000, true, 10),
-    CmdIntakeRetract(),
 
     //Rotate to speaker maybe middle spot
     CmdDriveTurn2Angle(0.2, -90),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
-    CmdShooterSetAngle(PIVOT_HOME_POS),
-    CmdIntakeDeploy(),
+    CmdIntakeRetract(),
 
     //Go to note on right
+    CmdShooterSetAngle(PIVOT_HOME_POS),
+    CmdIntakeDeploy(),
     CmdDriveToPoint(115.5, 60, 90, 2000, true, 10),
-    CmdIntakeRetract(),
 
     //Rotate to speaker
     CmdDriveTurn2Angle(0.2, -45),
+    CmdShooterSetAngle(0),
     CmdShooterShootNote(),
-
-    //Rotate to starting position
-    //Drive Back
-    CmdShooterSetAngle(PIVOT_HOME_POS),
-    CmdIntakeDeploy(),
-    CmdDriveToPoint(132,250,0,3000,true,10),
+    
     CmdIntakeRetract(),
-
-    //drive  forwards
-    CmdDriveToPoint(132, 179,0,3000,true,10),
-    CmdShooterSetAngle(0),//set to correct shoting angle not 0
-
-    //rotate to speaker
-    CmdDriveTurn2Angle(.2, 45),
-
-    CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdDriveStop(),
-    CmdPrintText("Auto Five Piece Red One Ended")
+    CmdPrintText("Auto Four Piece Red Four Ended")
   );
 }
