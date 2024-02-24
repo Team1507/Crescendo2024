@@ -61,6 +61,11 @@ class RobotContainer
   frc2::JoystickButton m_botDriver_YButton    {&m_botDriver, frc::XboxController::Button::kY };
   frc2::JoystickButton m_botDriver_BButton    {&m_botDriver, frc::XboxController::Button::kB };
 
+  frc2::POVButton      m_botDriver_POVup      {&m_botDriver, 0};
+  frc2::POVButton      m_botDriver_POVdown    {&m_botDriver, 180};
+  frc2::POVButton      m_botDriver_POVleft    {&m_botDriver, 270};
+  frc2::POVButton      m_botDriver_POVright   {&m_botDriver, 90};
+
   frc::SendableChooser<frc2::Command*> m_chooser;
 
   void ConfigureBindings();

@@ -20,7 +20,7 @@
 #include "commands/CmdDriveAimAtTarget.h"
 #include "commands/CmdShooterDefault.h"
 #include "commands/CmdShooterDPad.h"
-
+#include "commands/CmdDriveForcePark.h"
 //Autos
 #include "commands/AutoDoNothing.h"
 #include "commands/AutoTwoPieceBlueOne.h"
@@ -97,7 +97,13 @@ void RobotContainer::ConfigureBindings()
   //Bottom Driver Mapped buttons
   m_botDriver_StartButton.OnTrue(new CmdDriveZeroGyro());           //Zero Gyro
   m_botDriver_YButton.OnTrue(new CmdDriveForceSteerAngle( 90.0));   //Straighten drive wheels
+  m_botDriver_BButton.OnTrue(new CmdDriveForcePark()); 
 
+
+  // m_botDriver_POVup.OnTrue(    new CmdShooterSetAngle(0) );
+  // m_botDriver_POVdown.OnTrue(  new CmdShooterSetAngle(0) );
+  // m_botDriver_POVleft.OnTrue(  new CmdShooterSetAngle(0) );
+  // m_botDriver_POVright.OnTrue( new CmdShooterSetAngle(0) );
 
 }
 

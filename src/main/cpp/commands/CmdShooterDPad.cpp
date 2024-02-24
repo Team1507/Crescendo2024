@@ -14,27 +14,66 @@ void CmdShooterDPad::Initialize()
 
     //----------------------------
     case DPAD_UP:
-      std::cout<< "DPAD UP" << std::endl;
+
+      if(robotContainer.m_topDriver.GetAButton())
+      {
+        std::cout<< "DPAD UP A" << std::endl;
+      }    
+      else
+      {
+        std::cout<< "DPAD UP" << std::endl;
+      }
+
       break;
       
     //----------------------------
     case DPAD_DOWN:
-      std::cout<< "DPAD DOWN" << std::endl;
+
+      if(robotContainer.m_topDriver.GetAButton())
+      {
+        std::cout<< "DPAD DOWN A" << std::endl;
+      }
+      else
+      {
+        std::cout<< "DPAD DOWN" << std::endl;
+      }
+
       break;
 
     //----------------------------
     case DPAD_LEFT:
-      std::cout<< "DPAD LEFT" << std::endl;
+      if(robotContainer.m_topDriver.GetAButton())
+      {
+        std::cout<< "DPAD LEFT A" << std::endl;
+      }
+      else
+      {
+        std::cout<< "DPAD LEFT" << std::endl;
+      }
       break;
 
     //----------------------------
     case DPAD_RIGHT:
-      std::cout<< "DPAD RIGHT" << std::endl;
+      if(robotContainer.m_topDriver.GetAButton())
+      {
+        std::cout<< "DPAD right A" << std::endl;
+      }
+      else
+      {
+        std::cout<< "DPAD RIght" << std::endl;
+      }
       break;
 
     //----------------------------
     default:
-      std::cout<< "Unknown DPAD Input" << std::endl;
+       if(robotContainer.m_topDriver.GetAButton())
+      {
+        std::cout<< "Unknown DPAD Input A" << std::endl;
+      }
+      else
+      {
+        std::cout<< "Unknown DPAD Input" << std::endl;
+      }
       break;
 
   }
