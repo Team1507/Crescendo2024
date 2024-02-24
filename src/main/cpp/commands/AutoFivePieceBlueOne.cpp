@@ -1,7 +1,6 @@
 #include "commands/AutoFivePieceBlueOne.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <--- drivetrain
-#include "commands/CmdShooterHome.h"
 #include "commands/CmdShooterSetAngle.h"
 #include "commands/CmdShooterSetPower.h"
 #include "commands/CmdIntakeDeploy.h"
@@ -20,7 +19,6 @@ AutoFivePieceBlueOne::AutoFivePieceBlueOne() {
   
   AddCommands(
     CmdPrintText("Auto Five Piece Blue One Started"), 
-    CmdShooterHome(), // <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
 

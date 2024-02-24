@@ -33,7 +33,7 @@ class Shooter : public frc2::SubsystemBase {
   //***********PIVOT***********
   void   SetPivotPower(double power);
 
-  void   ResetPivotEncoder(void);
+  void   ResetPivotEncoder(float angle);
 
   double GetPivotAngle(void);
   double GetPivotPower(void);
@@ -71,4 +71,8 @@ class Shooter : public frc2::SubsystemBase {
   frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
   // frc::DigitalInput         m_feederPhotoEye{SHOOTER_FEEDER_PHOTOEYE};
 
+  const float DEG_PER_ROT = 0.1;
+
+  float Deg2Rot(float deg); 
+  float Rot2Deg(float rot);
 };

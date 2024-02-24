@@ -144,19 +144,29 @@ double Shooter::GetLowerShooterRPM(void)
 
 //***********PIVOT*********************
 
+float Shooter::Deg2Rot(float deg)
+{
+   return deg * DEG_PER_ROT;
+} 
+
+float Shooter::Rot2Deg(float rot)
+{
+   return rot / DEG_PER_ROT;
+}
+
 void Shooter::SetPivotPower(double power)
 {
    m_shooterPivot.Set(power);
 }
 
-void Shooter::ResetPivotEncoder(void)
+void Shooter::ResetPivotEncoder(float angle)
 {
-   m_shooterPivotEncoder.SetPosition(0);
+   m_shooterPivotEncoder.SetPosition( Deg2Rot(angle) );
 }
 
 double Shooter::GetPivotAngle(void)
 {
-   return  m_shooterPivotEncoder.GetPosition();
+   return Rot2Deg(m_shooterPivotEncoder.GetPosition());
 }
 
 double Shooter::GetPivotPower(void)
@@ -176,7 +186,7 @@ bool Shooter::GetLowerPivotLimitSW(void)
 
 void Shooter::SetPivotAngle(float position)
 {
-   m_shooterPivotPID.SetReference(position,rev::CANSparkMax::ControlType::kPosition);
+   m_shooterPivotPID.SetReference(Deg2Rot(position),rev::CANSparkMax::ControlType::kPosition);
 }
 
 void Shooter::SetFeederShooterPower(double power)

@@ -1,7 +1,6 @@
 #include "commands/AutoTwoPieceMiddle.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <---- Drive train
-#include "commands/CmdShooterHome.h"
 #include "commands/CmdShooterSetAngle.h"
 #include "commands/CmdShooterSetPower.h"
 #include "commands/CmdIntakeDeploy.h"
@@ -16,7 +15,6 @@ AutoTwoPieceMiddle::AutoTwoPieceMiddle() //add drivetrain
     
     
     CmdPrintText("Auto Two Piece Middle Started"), 
-    CmdShooterHome(),// <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
     CmdShooterShootNote(),

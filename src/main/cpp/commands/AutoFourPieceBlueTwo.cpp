@@ -2,7 +2,6 @@
 #include "commands/AutoFourPieceBlueTwo.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <--- drivetrain
-#include "commands/CmdShooterHome.h"
 #include "commands/CmdShooterSetAngle.h"
 #include "commands/CmdShooterSetPower.h"
 #include "commands/CmdIntakeDeploy.h"
@@ -21,7 +20,6 @@ AutoFourPieceBlueTwo::AutoFourPieceBlueTwo() {
   AddCommands(
 
     CmdPrintText("Auto Four Piece Blue Two Started"), 
-    CmdShooterHome(),// <----
     CmdShooterSetAngle(0),
     CmdShooterSetPower(0),
     CmdShooterShootNote(),

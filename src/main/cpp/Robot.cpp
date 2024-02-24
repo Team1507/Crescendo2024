@@ -23,7 +23,7 @@ void Robot::RobotInit()
   robotContainer.m_drivetrain.ResetOdometry();
 
   //Subsystem Initialization
-
+  robotContainer.m_shooter.ResetPivotEncoder(0);  // Need to fix
   CheckAlliance();
 
 
