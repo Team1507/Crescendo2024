@@ -35,7 +35,7 @@ RobotContainer::RobotContainer()
 
   //******************** Subsystem Defaults ******************************
   m_drivetrain.SetDefaultCommand( CmdDriveWithGamepad() );
-  m_shooter.SetDefaultCommand(    CmdShooterDefault()   );
+  // m_shooter.SetDefaultCommand(    CmdShooterDefault()   );
 
 
 
@@ -75,23 +75,23 @@ RobotContainer::RobotContainer()
 
 void RobotContainer::ConfigureBindings() 
 {
-  m_topDriver_LeftBumper.OnTrue(new CmdIntakeDeploy());
-  m_topDriver_LeftBumper.OnFalse(new CmdIntakeRetract()); 
+  // m_topDriver_RightBumper.OnTrue(new CmdIntakeDeploy());
+  // m_topDriver_RightBumper.OnFalse(new CmdIntakeRetract()); 
   
-  m_topDriver_XButton.WhileTrue(new CmdAmpIntake(0.3)); //amp intake
+  // m_topDriver_XButton.WhileTrue(new CmdAmpIntake(0.3)); //amp intake
 
-  m_topDriver_BButton.OnTrue(new CmdAmpEject(-0.5)); //amp eject
-  m_topDriver_BButton.OnFalse(new CmdAmpEject(0.0)); //amp eject stop
+  // m_topDriver_BButton.OnTrue(new CmdAmpEject(-0.5)); //amp eject
+  // m_topDriver_BButton.OnFalse(new CmdAmpEject(0.0)); //amp eject stop
 
-  m_topDriver_RightBumper.OnTrue(new CmdAmpSetAngle()); //amp up
-  m_topDriver_RightBumper.OnFalse(new CmdAmpSetAngle()); //amp down
+  // m_topDriver_LeftBumper.OnTrue(new CmdAmpSetAngle()); //amp up
+  // m_topDriver_LeftBumper.OnFalse(new CmdAmpSetAngle()); //amp down
 
-  m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
+  // m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
 
-  m_topDriver_POVup.OnTrue(    new CmdShooterDPad( DPAD_UP   ) );
-  m_topDriver_POVdown.OnTrue(  new CmdShooterDPad( DPAD_DOWN ) );
-  m_topDriver_POVleft.OnTrue(  new CmdShooterDPad( DPAD_LEFT ) );
-  m_topDriver_POVright.OnTrue( new CmdShooterDPad( DPAD_RIGHT) );
+  // m_topDriver_POVup.OnTrue(    new CmdShooterDPad( DPAD_UP   ) );
+  // m_topDriver_POVdown.OnTrue(  new CmdShooterDPad( DPAD_DOWN ) );
+  // m_topDriver_POVleft.OnTrue(  new CmdShooterDPad( DPAD_LEFT ) );
+  // m_topDriver_POVright.OnTrue( new CmdShooterDPad( DPAD_RIGHT) );
 
  
   //Bottom Driver Mapped buttons
