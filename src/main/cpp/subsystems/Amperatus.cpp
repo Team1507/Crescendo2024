@@ -4,12 +4,12 @@
 Amperatus::Amperatus() 
 {
     m_ampMotor.RestoreFactoryDefaults();
-    m_ampMotorPID.SetP(0.0);
-    m_ampMotorPID.SetI(0.0);
-    m_ampMotorPID.SetD(0.0);
+    // m_ampMotorPID.SetP(0.0);
+    // m_ampMotorPID.SetI(0.0);
+    // m_ampMotorPID.SetD(0.0);
 
-    m_ampMotorPID.SetSmartMotionAllowedClosedLoopError(0.0);
-    m_ampMotorPID.SetOutputRange(-0.3, 0.3, 0);
+    // m_ampMotorPID.SetSmartMotionAllowedClosedLoopError(0.0);
+    // m_ampMotorPID.SetOutputRange(-0.3, 0.3, 0);
 
     m_ampTOF.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
     m_ampTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
@@ -25,15 +25,15 @@ void   Amperatus::SetAmpPower(double power)
     m_ampMotor.Set(power);
 }
 
-void   Amperatus::SetAmpAngle(double position)
-{
-    m_ampMotorPID.SetReference(position, rev::CANSparkMax::ControlType::kPosition);
-}
+// void   Amperatus::SetAmpAngle(double position)
+// {
+//     m_ampMotorPID.SetReference(position, rev::CANSparkMax::ControlType::kPosition);
+// }
 
-void   Amperatus::ResetAmpEncoder()
-{
-    m_ampEncoder.SetPosition(0);
-}
+// void   Amperatus::ResetAmpEncoder()
+// {
+//     m_ampEncoder.SetPosition(0);
+// }
 
 void   Amperatus::SetAmpRollerPower(double power)
 {
@@ -45,10 +45,20 @@ double Amperatus::GetAmpPower(void)
     return m_ampMotor.Get();
 }
 
-double Amperatus::GetAmpAngle(void)
+void   Amperatus::AmpTrapDeploy(bool status)
 {
-    return m_ampEncoder.GetPosition();
+
 }
+
+void   Amperatus::AmpTrapRetract(bool status)
+{
+
+}
+
+// double Amperatus::GetAmpAngle(void)
+// {
+//     return m_ampEncoder.GetPosition();
+// }
 
 double Amperatus::GetAmpRollerPower(void)
 {
