@@ -37,7 +37,7 @@ void   Amperatus::SetAmpPower(double power)
 
 void   Amperatus::SetAmpRollerPower(double power)
 {
-    m_ampRoller.Set(power);
+    // m_ampRoller.Set(power);
 }
 
 double Amperatus::GetAmpPower(void)
@@ -62,7 +62,8 @@ void   Amperatus::AmpTrapRetract(bool status)
 
 double Amperatus::GetAmpRollerPower(void)
 {
-    return m_ampRoller.Get();
+    return 0;
+    // return m_ampRoller.Get();
 }
 
 bool   Amperatus::GetAmpTopLimit(void)

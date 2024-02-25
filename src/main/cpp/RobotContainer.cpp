@@ -21,6 +21,7 @@
 #include "commands/CmdShooterDefault.h"
 #include "commands/CmdShooterDPad.h"
 #include "commands/CmdDriveForcePark.h"
+
 //Autos
 #include "commands/AutoDoNothing.h"
 #include "commands/AutoTwoPieceBlueOne.h"
@@ -34,8 +35,8 @@ RobotContainer::RobotContainer()
 {
 
   //******************** Subsystem Defaults ******************************
-  m_drivetrain.SetDefaultCommand( CmdDriveWithGamepad() );
-  // m_shooter.SetDefaultCommand(    CmdShooterDefault()   );
+  m_drivetrain.SetDefaultCommand(  CmdDriveWithGamepad());
+  m_shooter.SetDefaultCommand   (  CmdShooterDefault());
 
 
 

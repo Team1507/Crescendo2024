@@ -8,8 +8,8 @@
 
 #define CLIMBER_BRAKE_ENGAGE_PCM 2
 #define CLIMBER_BRAKE_DISENGAGE_PCM 3
-// #define AMP_DEPLOY_PCM 4
-// #define AMP_RETRACT_PCM 5
+#define AMP_DEPLOY_PCM 4
+#define AMP_RETRACT_PCM 5
 
 // Homes
 

@@ -7,5 +7,5 @@ CmdShooterSetTargetID::CmdShooterSetTargetID(int id)
 }
 void CmdShooterSetTargetID::Initialize() 
 {
-  robotContainer.m_photonvision.SetTargetId(m_id);
+  //robotContainer.m_photonvision.SetTargetId(m_id);
 }

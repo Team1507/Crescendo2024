@@ -12,8 +12,11 @@ void Robot::RobotInit()
 {
   //*************************** INIT ******************************
   std::cout<<"RobotInit"<<std::endl;
-  std::cout<<"FRC2024: Decibel"<<std::endl;
+  std::cout<<"FRC2024: Big Treble"<<std::endl;
   std::cout<<"Version: " << __DATE__ <<"  "<<__TIME__<<std::endl<<std::endl; 
+
+  //Shooter Init
+  robotContainer.m_shooter.ShooterInit();
 
   //Drivetrain Init
   robotContainer.m_drivetrain.Stop();

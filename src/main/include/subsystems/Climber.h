@@ -38,8 +38,8 @@ class Climber : public frc2::SubsystemBase {
   rev::SparkLimitSwitch m_reverseLimit = m_leftClimbMotor.GetReverseLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
   
   frc::DoubleSolenoid m_climbBrake        {PCM_CANID, frc::PneumaticsModuleType::CTREPCM, CLIMBER_BRAKE_ENGAGE_PCM, CLIMBER_BRAKE_DISENGAGE_PCM};
-  frc::DigitalInput   m_topLimitSwitch    {0};
-  frc::DigitalInput   m_botLimitSwitch    {0};
+  // frc::DigitalInput   m_topLimitSwitch    {0};
+  // frc::DigitalInput   m_botLimitSwitch    {0};
 
   bool                m_isClimberActivated;
   bool                m_isClimberBrakeActivated;

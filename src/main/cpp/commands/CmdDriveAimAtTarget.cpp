@@ -14,10 +14,10 @@ void CmdDriveAimAtTarget::Initialize()
 {
   m_count = 0;  
 
-  if( robotContainer.m_photonvision.IsTargetValid())
-    m_calcAngle = robotContainer.m_drivetrain.GetGyroAngle() + robotContainer.m_photonvision.GetTargetYaw();
-  else
-    std::cout<< "CmdDriveAimAtTarget: Target Not found" << std::endl;
+  // if( robotContainer.m_photonvision.IsTargetValid())
+  //   m_calcAngle = robotContainer.m_drivetrain.GetGyroAngle() + robotContainer.m_photonvision.GetTargetYaw();
+  // else
+  //   std::cout<< "CmdDriveAimAtTarget: Target Not found" << std::endl;
 }
 
 void CmdDriveAimAtTarget::Execute() 

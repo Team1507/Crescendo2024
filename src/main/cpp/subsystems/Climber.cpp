@@ -60,13 +60,13 @@ bool Climber::IsClimberBrakeEngaged(void)
 
 bool Climber::IsClimberTopLimitSwitch(void)
 {
-    return m_topLimitSwitch.Get();
+    return false;
     //m_forwardLimit.Get()
 }
 
 bool Climber::IsClimberBotLimitSwitch(void)
 {
-    return m_botLimitSwitch.Get();
+    return false;
     //m_reverseLimit.Get();
 }
 

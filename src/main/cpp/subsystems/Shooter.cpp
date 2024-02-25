@@ -27,6 +27,11 @@ shooterTable_t shooterTable[] =
 
 Shooter::Shooter()
 {
+
+}
+
+void Shooter::ShooterInit()
+{
    m_shooterPivot.RestoreFactoryDefaults();
    m_shooterUpper.RestoreFactoryDefaults();
    m_shooterLower.RestoreFactoryDefaults();
@@ -43,11 +48,11 @@ Shooter::Shooter()
    m_shooterUpperPID.SetSmartMotionAllowedClosedLoopError(0.0);
    m_shooterUpperPID.SetOutputRange(-0.3,0.3,0);
 
-   m_shooterPivotPID.SetP(0.0);
-   m_shooterPivotPID.SetI(0.0);
-   m_shooterPivotPID.SetD(0.0);
-   m_shooterPivotPID.SetSmartMotionAllowedClosedLoopError(0.0);
-   m_shooterPivotPID.SetOutputRange(-0.3,0.3,0);
+   // m_shooterPivotPID.SetP(0.0);
+   // m_shooterPivotPID.SetI(0.0);
+   // m_shooterPivotPID.SetD(0.0);
+   // m_shooterPivotPID.SetSmartMotionAllowedClosedLoopError(0.0);
+   // m_shooterPivotPID.SetOutputRange(-0.3,0.3,0);
 
    m_shooterLower.SetClosedLoopRampRate(0.0);
    m_shooterLower.SetInverted(false);
@@ -66,12 +71,6 @@ Shooter::Shooter()
 
    m_feederTOF.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
    m_feederTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
-
-}
-
-void Shooter::ShooterInit()
-{
-
 }
 
 void Shooter::ShooterInterpolate(double distance)
