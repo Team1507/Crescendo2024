@@ -3,11 +3,12 @@
 #include <frc2/command/SubsystemBase.h>
 #include <frc/XboxController.h>
 #include <frc/AddressableLED.h>
+#include "ctre/phoenix/led/CANdle.h"
 #include "Constants.h"
 
-#define COLOR_RED   50, 0, 0
+#define COLOR_RED   255, 0, 0
 #define COLOR_GREEN 0, 255, 0
-#define COLOR_BLUE  0, 0, 50
+#define COLOR_BLUE  0, 0, 255
 
 #define COLOR_WHITE 255, 255, 255 
 
@@ -30,5 +31,8 @@ class DriverFeedback : public frc2::SubsystemBase {
 
  private:
 
+
+  ctre::phoenix::led::CANdle m_frontCandle {CANDLE_LED_1_CANID, ""};
+  ctre::phoenix::led::CANdle m_rearCandle  {CANDLE_LED_2_CANID, ""};
 
 };

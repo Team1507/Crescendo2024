@@ -60,7 +60,7 @@ void CmdShooterDefault::Execute()
     robotContainer.m_shooter.SetPivotPower(PIVOT_SLOW_POWER);
     //robotContainer.m_shooter.SetPivotAngle(robotContainer.m_shooter.GetPivotAngle());
   }
-  else if (-robotContainer.m_topDriver.GetRightY() < -PIVOT_DEADBAND_CONSTANT)
+  else if (robotContainer.m_topDriver.GetRightY() < -PIVOT_DEADBAND_CONSTANT)
   {
     robotContainer.m_shooter.SetPivotPower(-PIVOT_SLOW_POWER);
     //robotContainer.m_shooter.SetPivotAngle(robotContainer.m_shooter.GetPivotAngle());

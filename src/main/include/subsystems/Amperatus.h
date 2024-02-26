@@ -52,7 +52,7 @@ class Amperatus : public frc2::SubsystemBase {
   // rev::SparkPIDController   m_ampMotorPID = m_ampMotor.GetPIDController();
   // rev::SparkRelativeEncoder m_ampEncoder  = m_ampMotor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor); 
 
-  frc::DoubleSolenoid       m_ampDoubleSolenoid  {PCM_CANID, frc::PneumaticsModuleType::CTREPCM, AMP_DEPLOY_PCM, AMP_RETRACT_PCM}; 
+  frc::DoubleSolenoid       m_ampDoubleSolenoid  {PCM_CANID, frc::PneumaticsModuleType::REVPH, AMP_DEPLOY_PCM, AMP_RETRACT_PCM}; 
 
   // bool m_ampIsDeployed;
 };

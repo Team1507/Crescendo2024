@@ -37,11 +37,10 @@ class Shooter : public frc2::SubsystemBase {
 
   double GetPivotAngle(void);
   double GetPivotPower(void);
-
-  bool   GetUpperPivotLimitSW(void);
-  bool   GetLowerPivotLimitSW(void);
+  double GetPivotEncoder(void);
 
   void   SetPivotAngle(float position);
+
 
   // ***********FEEDER***********
 
@@ -49,7 +48,9 @@ class Shooter : public frc2::SubsystemBase {
   double GetFeederIntakePower(void);
   void   SetFeederShooterPower(double power);
   double GetFeederShooterPower(void);
-  bool   GetFeederTOF(void);
+
+  bool   GetFeederTOFDetect(void);
+  float  GetFeederTOFRange(void);
 
  private:
 
@@ -61,11 +62,10 @@ class Shooter : public frc2::SubsystemBase {
   rev::SparkPIDController   m_shooterLowerPID     = m_shooterLower.GetPIDController();
   rev::SparkRelativeEncoder m_shooterLowerEncoder = m_shooterLower.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
 
-  rev::CANSparkMax          m_shooterPivot {SHOOTER_PIVOT_CANID, rev::CANSparkMax::MotorType::kBrushless};
+  rev::CANSparkMax          m_shooterPivot {SHOOTER_PIVOT_CANID, rev::CANSparkMax::MotorType::kBrushed};
+  rev::SparkRelativeEncoder m_shooterPivotEncoder = m_shooterPivot.GetEncoder(rev::SparkRelativeEncoder::Type::kQuadrature, 4096); //VeraPlanitary encoder=4096
   rev::SparkPIDController   m_shooterPivotPID     = m_shooterPivot.GetPIDController();
-  rev::SparkRelativeEncoder m_shooterPivotEncoder = m_shooterPivot.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
-  rev::SparkLimitSwitch     m_shooterPivotFwLimit = m_shooterPivot.GetForwardLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
-  rev::SparkLimitSwitch     m_shooterPivotRvLimit = m_shooterPivot.GetReverseLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
+
 
   rev::CANSparkMax          m_feederMotor{SHOOTER_FEEDER_CANID, rev::CANSparkMax::MotorType::kBrushless};
   frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};

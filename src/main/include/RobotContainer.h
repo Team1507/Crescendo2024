@@ -10,6 +10,8 @@
 #include "subsystems/Amperatus.h"
 #include "subsystems/Drivetrain.h"
 #include "subsystems/PhotonVision.h"
+#include "subsystems/DriverFeedback.h"
+
 #include <frc/XboxController.h>
 #include <frc2/command/button/JoystickButton.h>
 #include <frc/smartdashboard/SendableChooser.h>
@@ -17,6 +19,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/Timer.h>
 #include <frc2/command/button/POVButton.h>
+#include "subsystems/DriverFeedback.h"
 
 
 
@@ -31,12 +34,13 @@ class RobotContainer
 
 
   //****************Subsystems*******************
-  Shooter      m_shooter;
-  Climber      m_climber;
-  Intake       m_intake;
-  Amperatus    m_amperatus;
-  Drivetrain   m_drivetrain;
-  //PhotonVision m_photonvision;
+  Shooter        m_shooter;
+  Climber        m_climber;
+  Intake         m_intake;
+  Amperatus      m_amperatus;
+  Drivetrain     m_drivetrain;
+  //PhotonVision   m_photonvision;
+  DriverFeedback m_driverfeedback;
 
 
   frc::Timer   m_timer;

@@ -29,6 +29,7 @@ void Robot::RobotInit()
   robotContainer.m_shooter.ResetPivotEncoder(0);  // Need to fix
   CheckAlliance();
 
+  robotContainer.m_driverfeedback.FeedbackLED( COLOR_RED );
 
 }
 

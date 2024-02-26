@@ -32,9 +32,9 @@
 
 #define AMP_TOF_CANID        22
 
-#define CANDLE_LED_1_CANID   23
-#define CANDLE_LED_2_CANID   24
-#define CANDLE_LED_3_CANID   25
+#define CANDLE_LED_1_CANID   23 //Front
+#define CANDLE_LED_2_CANID   24 //Rear
+#define CANDLE_LED_3_CANID   25 //Unused
 
 #define PCM_CANID            26
 #define PDH_CANID            27

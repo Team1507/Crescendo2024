@@ -20,7 +20,7 @@ void CmdClimberClimb::Initialize()
 void CmdClimberClimb::Execute()
 {
   double leftY = robotContainer.m_topDriver.GetLeftY();
-  robotContainer.m_climber.ClimberSetPower(leftY);
+  robotContainer.m_climber.ClimberSetPower(-leftY);       //Y axis is inverted.
 }
 
 

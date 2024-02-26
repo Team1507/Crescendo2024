@@ -160,7 +160,8 @@ void Shooter::SetPivotPower(double power)
 
 void Shooter::ResetPivotEncoder(float angle)
 {
-   m_shooterPivotEncoder.SetPosition( Deg2Rot(angle) );
+   //Disable for now...
+   //m_shooterPivotEncoder.SetPosition( Deg2Rot(angle) );
 }
 
 double Shooter::GetPivotAngle(void)
@@ -168,20 +169,17 @@ double Shooter::GetPivotAngle(void)
    return Rot2Deg(m_shooterPivotEncoder.GetPosition());
 }
 
+double Shooter::GetPivotEncoder(void)
+{
+   return m_shooterPivotEncoder.GetPosition();
+}
+
+
 double Shooter::GetPivotPower(void)
 {
    return m_shooterPivot.Get();
 }
 
-bool Shooter::GetUpperPivotLimitSW(void)
-{
-   return m_shooterPivotFwLimit.Get();
-}
-
-bool Shooter::GetLowerPivotLimitSW(void)
-{
-   return m_shooterPivotRvLimit.Get();
-}
 
 void Shooter::SetPivotAngle(float position)
 {
@@ -208,15 +206,25 @@ double Shooter::GetFeederIntakePower(void)
    return m_feederMotor.Get();
 }
 
-bool Shooter::GetFeederTOF(void)
+bool Shooter::GetFeederTOFDetect(void)
 {
    if( m_feederTOF.GetRange() < 75.0 ) return true; 
    else return false;
 }
 
+float  Shooter::GetFeederTOFRange(void)
+{
+   return m_feederTOF.GetRange();
+}
+
+
 
 // This method will be called once per scheduler run
 void Shooter::Periodic() 
 {
-   frc::SmartDashboard::PutBoolean("FEEDER TOF", GetFeederTOF());
+   frc::SmartDashboard::PutBoolean("FEEDER TOF DETECT", GetFeederTOFDetect());
+   frc::SmartDashboard::PutNumber("FEEDER TOF RANGE", GetFeederTOFRange());
+
+   frc::SmartDashboard::PutNumber("Pivot Encoder", GetPivotEncoder());
+
 }

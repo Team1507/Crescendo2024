@@ -16,7 +16,7 @@ void CmdIntakeDefault::Initialize()
 
 void CmdIntakeDefault::Execute() 
 {
-  if(robotContainer.m_intake.IntakeIsDeployed() && robotContainer.m_shooter.GetFeederTOF())
+  if(robotContainer.m_intake.IntakeIsDeployed() && robotContainer.m_shooter.GetFeederTOFDetect())
   {
     if(!frc::DriverStation::IsAutonomous())
     {

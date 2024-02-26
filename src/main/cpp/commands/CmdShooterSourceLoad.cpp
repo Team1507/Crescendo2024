@@ -33,12 +33,11 @@ void CmdShooterSourceLoad::End(bool interrupted)
 // Returns true when the command should end.
 bool CmdShooterSourceLoad::IsFinished() 
 {
-  if (robotContainer.m_shooter.GetFeederTOF()) 
+  if (robotContainer.m_shooter.GetFeederTOFDetect()) 
   {
     return true;
   }
-  else
-  {
-    return false;
-  } 
+
+  return false;
+
 }
