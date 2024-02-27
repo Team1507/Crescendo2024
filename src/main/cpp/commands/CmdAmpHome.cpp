@@ -12,7 +12,7 @@ CmdAmpHome::CmdAmpHome()
 void CmdAmpHome::Initialize() 
 {
   std::cout << "Amperatus Home Start" << std::endl;
-  robotContainer.m_amperatus.SetAmpPower(-0.2);  
+  //robotContainer.m_amperatus.SetAmpPower(-0.2);  
 }
 
 
@@ -32,5 +32,6 @@ void CmdAmpHome::End(bool interrupted)
 
 bool CmdAmpHome::IsFinished() 
 {
-  return robotContainer.m_amperatus.GetAmpBotLimit();
+  //return robotContainer.m_amperatus.GetAmpBotLimit();
+  return true;    //Amp has potentiometer encoder.  No need to home 
 }

@@ -30,7 +30,7 @@ void CmdAmpSourceLoad::End(bool interrupted)
 // Returns true when the command should end.
 bool CmdAmpSourceLoad::IsFinished() 
 {
-  if (robotContainer.m_amperatus.GetAmpTOF()) 
+  if (  false  )     // <<<--- Needs to be fixed with new PhotoDetector 
   {
     return true;
   }

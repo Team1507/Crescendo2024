@@ -19,9 +19,9 @@ class Amperatus : public frc2::SubsystemBase {
 
   void   SetAmpRollerPower(double power);
 
-  void   AmpTrapDeploy(bool status);
+  void   AmpTrapDeploy(void);
 
-  void   AmpTrapRetract(bool status);
+  void   AmpTrapRetract(void);
 
   double GetAmpPower(void);
 
@@ -29,11 +29,6 @@ class Amperatus : public frc2::SubsystemBase {
 
   double GetAmpRollerPower(void);
 
-  bool   GetAmpTopLimit(void);
-
-  bool   GetAmpBotLimit(void);
-
-  bool   GetAmpTOF(void);
 
   void   Periodic() override;
 
@@ -41,8 +36,6 @@ class Amperatus : public frc2::SubsystemBase {
 
   // frc::DigitalInput         m_ampTopLimit{AMP_UPPER_LIMIT};
   // frc::DigitalInput         m_ampBotLimit{AMP_LOWER_LIMIT};
-
-  frc::TimeOfFlight         m_ampTOF{AMP_TOF_CANID};  
 
   // rev::CANSparkMax          m_ampRoller{AMP_ROLLER_CANID, rev::CANSparkMax::MotorType::kBrushed};
   // rev::SparkPIDController   m_ampRollerPID     = m_ampRoller.GetPIDController();

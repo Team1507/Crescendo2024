@@ -26,5 +26,6 @@ void CmdAmpIntake::End(bool interrupted)
 
 
 bool CmdAmpIntake::IsFinished() {
-  return robotContainer.m_amperatus.GetAmpTOF();
+  //return robotContainer.m_amperatus.GetAmpTOF();
+  return false;    //<<---   This needs to be fixed with new photo sensor
 }

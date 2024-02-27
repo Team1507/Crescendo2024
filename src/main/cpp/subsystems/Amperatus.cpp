@@ -11,13 +11,13 @@ Amperatus::Amperatus()
     // m_ampMotorPID.SetSmartMotionAllowedClosedLoopError(0.0);
     // m_ampMotorPID.SetOutputRange(-0.3, 0.3, 0);
 
-    m_ampTOF.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
-    m_ampTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
+    m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);   //Make sure not set to deploy
+
 }
 
 void Amperatus::Periodic() 
 {
-    frc::SmartDashboard::PutBoolean("AMP TOF", GetAmpTOF());
+
 }
 
 void   Amperatus::SetAmpPower(double power)
@@ -45,14 +45,15 @@ double Amperatus::GetAmpPower(void)
     return m_ampMotor.Get();
 }
 
-void   Amperatus::AmpTrapDeploy(bool status)
+void   Amperatus::AmpTrapDeploy(void)
 {
-
+    m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
 }
 
-void   Amperatus::AmpTrapRetract(bool status)
+void   Amperatus::AmpTrapRetract(void)
 {
-
+    //SHOULD NEVER RETRACT EVER!!
+    //This should be done manually
 }
 
 // double Amperatus::GetAmpAngle(void)
@@ -66,18 +67,5 @@ double Amperatus::GetAmpRollerPower(void)
     // return m_ampRoller.Get();
 }
 
-bool   Amperatus::GetAmpTopLimit(void)
-{
-    return true;
-}
 
-bool   Amperatus::GetAmpBotLimit(void)
-{
-    return true;
-}
 
-bool   Amperatus::GetAmpTOF(void)
-{
-    if( m_ampTOF.GetRange() < 75.0 )return true; 
-    else return false;   
-}
