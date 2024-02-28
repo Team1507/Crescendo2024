@@ -1,6 +1,8 @@
 #include "commands/CmdShooterDPad.h"
 #include "Robot.h"
 
+#define SPEAKER_POWER 0.4
+#define IDLE_POWER 0.1
 
 CmdShooterDPad::CmdShooterDPad(dPadPosition position) 
 {
@@ -22,6 +24,7 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD UP" << std::endl;
+        robotContainer.m_shooter.SetShooterPower(SPEAKER_POWER);
       }
 
       break;
@@ -36,6 +39,7 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD DOWN" << std::endl;
+        robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
       }
 
       break;

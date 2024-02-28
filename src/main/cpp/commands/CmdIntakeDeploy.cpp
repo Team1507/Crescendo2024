@@ -5,14 +5,21 @@
 
 CmdIntakeDeploy::CmdIntakeDeploy() 
 {
-  AddRequirements(&robotContainer.m_intake);
+  //AddRequirements(&robotContainer.m_intake);
 }
 
 void CmdIntakeDeploy::Initialize()
 {
-  robotContainer.m_intake.IntakeDeploy();
-  robotContainer.m_shooter.SetFeederIntakePower(FEEDER_INTAKE_POWER);
-  std::cout << "Intake Deployed" << std::endl;
+  if (!robotContainer.m_shooter.GetFeederPhotoeye())
+  {  
+    robotContainer.m_intake.IntakeDeploy();
+    robotContainer.m_shooter.SetFeederIntakePower(FEEDER_INTAKE_POWER);
+    std::cout << "Intake Deployed" << std::endl;
+  }
+  else
+  {
+    std::cout << "Note Already In Robot" << std::endl;
+  }
 }
 
 void CmdIntakeDeploy::Execute() 

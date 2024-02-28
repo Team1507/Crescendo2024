@@ -35,12 +35,18 @@ void Shooter::ShooterInit()
    m_shooterPivot.RestoreFactoryDefaults();
    m_shooterUpper.RestoreFactoryDefaults();
    m_shooterLower.RestoreFactoryDefaults();
+   m_feederMotor. RestoreFactoryDefaults();
+
+   m_feederMotor.SetInverted(true);
+   m_feederMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
+   m_forwardLimit.EnableLimitSwitch(false);
 
    m_shooterLowerPID.SetP(0.0);
    m_shooterLowerPID.SetI(0.0);
    m_shooterLowerPID.SetD(0.0);
    m_shooterLowerPID.SetSmartMotionAllowedClosedLoopError(0.0);
    m_shooterLowerPID.SetOutputRange(-0.3,0.3,0);
+
 
    m_shooterUpperPID.SetP(0.0);
    m_shooterUpperPID.SetI(0.0);
@@ -55,7 +61,7 @@ void Shooter::ShooterInit()
    // m_shooterPivotPID.SetOutputRange(-0.3,0.3,0);
 
    m_shooterLower.SetClosedLoopRampRate(0.0);
-   m_shooterLower.SetInverted(false);
+   m_shooterLower.SetInverted(true);
 
    m_shooterUpper.SetClosedLoopRampRate(0.0);
    m_shooterUpper.SetInverted(false);
@@ -107,8 +113,8 @@ void Shooter::SetShooterPower(double power)
 {
    double testPower = frc::SmartDashboard::GetNumber("SHOOTER_POWER",0.0);
 
-    m_shooterUpper.Set(testPower);
-    m_shooterLower.Set(testPower);
+    m_shooterUpper.Set(power);
+    m_shooterLower.Set(power);
 }
 
 void Shooter::SetShooterRPM(double rpm)
@@ -188,7 +194,14 @@ void Shooter::SetPivotAngle(float position)
 
 void Shooter::SetFeederShooterPower(double power)
 {
-   m_feederMotor.Set( frc::SmartDashboard::GetNumber("FEEDER_SHOOTER_POWER",FEEDER_SHOOTER_POWER) );
+   if (power == 0)
+   {
+      m_feederMotor.Set(0);
+   }
+   else
+   {
+      m_feederMotor.Set( frc::SmartDashboard::GetNumber("FEEDER_SHOOTER_POWER",FEEDER_SHOOTER_POWER) );
+   }
 }
 
 double Shooter::GetFeederShooterPower(void)
@@ -198,7 +211,14 @@ double Shooter::GetFeederShooterPower(void)
 
 void Shooter::SetFeederIntakePower(double power)
 {
-   m_feederMotor.Set( frc::SmartDashboard::GetNumber("FEEDER_INTAKE_POWER",FEEDER_INTAKE_POWER) );
+   if(power == 0)
+   {
+      m_feederMotor.Set(0);
+   }
+   else
+   {
+      m_feederMotor.Set( frc::SmartDashboard::GetNumber("FEEDER_INTAKE_POWER",FEEDER_INTAKE_POWER) );
+   }
 }
 
 double Shooter::GetFeederIntakePower(void)
@@ -208,7 +228,7 @@ double Shooter::GetFeederIntakePower(void)
 
 bool Shooter::GetFeederTOFDetect(void)
 {
-   if( m_feederTOF.GetRange() < 75.0 ) return true; 
+   if( m_feederTOF.GetRange() < 110.0 ) return true; 
    else return false;
 }
 
@@ -217,14 +237,21 @@ float  Shooter::GetFeederTOFRange(void)
    return m_feederTOF.GetRange();
 }
 
+bool Shooter::GetFeederPhotoeye(void)
+{
+  return !m_forwardLimit.Get();
+}
+
 
 
 // This method will be called once per scheduler run
 void Shooter::Periodic() 
 {
-   frc::SmartDashboard::PutBoolean("FEEDER TOF DETECT", GetFeederTOFDetect());
-   frc::SmartDashboard::PutNumber("FEEDER TOF RANGE", GetFeederTOFRange());
+   frc::SmartDashboard::PutBoolean ("FEEDER PHOTOEYE DETECT", GetFeederPhotoeye());
 
-   frc::SmartDashboard::PutNumber("Pivot Encoder", GetPivotEncoder());
+   frc::SmartDashboard::PutBoolean ("FEEDER TOF DETECT", GetFeederTOFDetect());
+   frc::SmartDashboard::PutNumber  ("FEEDER TOF RANGE", GetFeederTOFRange());
+
+   frc::SmartDashboard::PutNumber  ("Pivot Encoder", GetPivotEncoder());
 
 }

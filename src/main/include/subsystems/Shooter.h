@@ -7,8 +7,8 @@
 #include <frc/DigitalInput.h>
 #include "TimeOfFlight.h"
 
-#define FEEDER_SHOOTER_POWER 0
-#define FEEDER_INTAKE_POWER 0
+#define FEEDER_SHOOTER_POWER 0.2
+#define FEEDER_INTAKE_POWER -0.2
 
 enum dPadPosition {DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT};
 
@@ -52,6 +52,8 @@ class Shooter : public frc2::SubsystemBase {
   bool   GetFeederTOFDetect(void);
   float  GetFeederTOFRange(void);
 
+  bool   GetFeederPhotoeye(void);
+
  private:
 
   rev::CANSparkMax          m_shooterUpper {SHOOTER_UPPER_CANID, rev::CANSparkMax::MotorType::kBrushless};
@@ -68,8 +70,8 @@ class Shooter : public frc2::SubsystemBase {
 
 
   rev::CANSparkMax          m_feederMotor{SHOOTER_FEEDER_CANID, rev::CANSparkMax::MotorType::kBrushless};
+  rev::SparkLimitSwitch     m_forwardLimit = m_feederMotor.GetForwardLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
   frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
-  // frc::DigitalInput         m_feederPhotoEye{SHOOTER_FEEDER_PHOTOEYE};
 
   const float DEG_PER_ROT = 0.1;
 

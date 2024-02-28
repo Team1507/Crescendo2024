@@ -16,15 +16,14 @@ void CmdIntakeDefault::Initialize()
 
 void CmdIntakeDefault::Execute() 
 {
-  if(robotContainer.m_intake.IntakeIsDeployed() && robotContainer.m_shooter.GetFeederTOFDetect())
+  if(robotContainer.m_intake.IntakeIsDeployed() && robotContainer.m_shooter.GetFeederPhotoeye())
   {
     if(!frc::DriverStation::IsAutonomous())
     {
       robotContainer.m_intake.IntakeRetract();
     }
-
     robotContainer.m_shooter.SetFeederIntakePower(0);
-  } 
+  }
 }
 
 

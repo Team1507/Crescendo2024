@@ -21,6 +21,7 @@
 #include "commands/CmdShooterDefault.h"
 #include "commands/CmdShooterDPad.h"
 #include "commands/CmdDriveForcePark.h"
+#include "commands/CmdIntakeDefault.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
@@ -37,7 +38,7 @@ RobotContainer::RobotContainer()
   //******************** Subsystem Defaults ******************************
   m_drivetrain.SetDefaultCommand(  CmdDriveWithGamepad());
   m_shooter.SetDefaultCommand   (  CmdShooterDefault());
-
+  m_intake.SetDefaultCommand    (  CmdIntakeDefault());
 
 
   //******************** Dashboard Buttons *******************************
@@ -76,8 +77,8 @@ RobotContainer::RobotContainer()
 
 void RobotContainer::ConfigureBindings() 
 {
-  // m_topDriver_RightBumper.OnTrue(new CmdIntakeDeploy());
-  // m_topDriver_RightBumper.OnFalse(new CmdIntakeRetract()); 
+  m_topDriver_RightBumper.OnTrue(new CmdIntakeDeploy());
+  m_topDriver_RightBumper.OnFalse(new CmdIntakeRetract()); 
   
   // m_topDriver_XButton.WhileTrue(new CmdAmpIntake(0.3)); //amp intake
 
@@ -89,10 +90,10 @@ void RobotContainer::ConfigureBindings()
 
   m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
 
-  // m_topDriver_POVup.OnTrue(    new CmdShooterDPad( DPAD_UP   ) );
-  // m_topDriver_POVdown.OnTrue(  new CmdShooterDPad( DPAD_DOWN ) );
-  // m_topDriver_POVleft.OnTrue(  new CmdShooterDPad( DPAD_LEFT ) );
-  // m_topDriver_POVright.OnTrue( new CmdShooterDPad( DPAD_RIGHT) );
+  m_topDriver_POVup.OnTrue(    new CmdShooterDPad( DPAD_UP   ) );
+  m_topDriver_POVdown.OnTrue(  new CmdShooterDPad( DPAD_DOWN ) );
+  m_topDriver_POVleft.OnTrue(  new CmdShooterDPad( DPAD_LEFT ) );
+  m_topDriver_POVright.OnTrue( new CmdShooterDPad( DPAD_RIGHT) );
 
  
   //Bottom Driver Mapped buttons
