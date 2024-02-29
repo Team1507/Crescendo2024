@@ -23,6 +23,7 @@
 #include "commands/CmdDriveForcePark.h"
 #include "commands/CmdIntakeDefault.h"
 #include "commands/CmdShooterSourceLoad.h"
+#include "commands/CmdAmperatusDefault.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
