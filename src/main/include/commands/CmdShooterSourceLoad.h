@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <frc/Timer.h>
+
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
 
@@ -26,4 +28,6 @@ class CmdShooterSourceLoad
   void End(bool interrupted) override;
 
   bool IsFinished() override;
+
+  frc::Timer m_timer;
 };

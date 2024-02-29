@@ -111,8 +111,6 @@ void Shooter::ShooterInterpolate(double distance)
 
 void Shooter::SetShooterPower(double power) 
 {
-   double testPower = frc::SmartDashboard::GetNumber("SHOOTER_POWER",0.0);
-
     m_shooterUpper.Set(power);
     m_shooterLower.Set(power);
 }
