@@ -38,7 +38,7 @@ bool CmdShooterSourceLoad::IsFinished()
 
   if (robotContainer.m_shooter.GetFeederPhotoeye()) 
   {
-    robotContainer.m_shooter.SetFeederIntakePower(0.25);
+    robotContainer.m_shooter.SetFeederIntakePower(-0.25);
     m_timer.Start();
     if (m_timer.Get() >= timeout)
     {

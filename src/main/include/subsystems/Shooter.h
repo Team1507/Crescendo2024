@@ -8,7 +8,7 @@
 #include "TimeOfFlight.h"
 
 #define FEEDER_SHOOTER_POWER 0.2
-#define FEEDER_INTAKE_POWER -0.2
+#define FEEDER_INTAKE_POWER  0.2
 
 enum dPadPosition {DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT};
 

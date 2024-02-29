@@ -61,7 +61,7 @@ m_feederMotor. RestoreFactoryDefaults();
    // m_shooterPivotPID.SetOutputRange(-0.3,0.3,0);
 
    m_shooterLower.SetClosedLoopRampRate(0.0);
-   m_shooterLower.SetInverted(false);
+   m_shooterLower.SetInverted(true);
 
    m_shooterUpper.SetClosedLoopRampRate(0.0);
    m_shooterUpper.SetInverted(false);
@@ -212,11 +212,16 @@ void Shooter::SetFeederIntakePower(double power)
    if(power == 0)
    {
       m_feederMotor.Set(0);
+   
+   }
+   else if (power < 0)
+   {
+      m_feederMotor.Set(power);
    }
    else
-{
-   m_feederMotor.Set( frc::SmartDashboard::GetNumber("FEEDER_INTAKE_POWER",FEEDER_INTAKE_POWER) );
-}
+   {
+      m_feederMotor.Set( frc::SmartDashboard::GetNumber("FEEDER_INTAKE_POWER",FEEDER_INTAKE_POWER) );
+   }
 }
 
 double Shooter::GetFeederIntakePower(void)
