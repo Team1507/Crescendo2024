@@ -10,7 +10,7 @@ CmdAmpIntake::CmdAmpIntake(double power)
 
 void CmdAmpIntake::Initialize() 
 {
-  robotContainer.m_amperatus.SetAmpRollerPower(m_ampPower);
+  robotContainer.m_amperatus.SetAmpRollerPower(-0.3);
   std::cout << "Amperatus Intake Started" << std::endl;
 }
 
@@ -21,7 +21,7 @@ void CmdAmpIntake::Execute() {}
 void CmdAmpIntake::End(bool interrupted) 
 {
   std::cout << "Amperatus Intake Ended" << std::endl;
-  robotContainer.m_amperatus.SetAmpRollerPower(0);
+  robotContainer.m_amperatus.SetAmpRollerPower(0.0);
 }
 
 

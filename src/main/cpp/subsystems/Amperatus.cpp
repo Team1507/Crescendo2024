@@ -37,7 +37,7 @@ void   Amperatus::SetAmpPower(double power)
 
 void   Amperatus::SetAmpRollerPower(double power)
 {
-    // m_ampRoller.Set(power);
+     m_ampRoller.Set(power);
 }
 
 double Amperatus::GetAmpPower(void)

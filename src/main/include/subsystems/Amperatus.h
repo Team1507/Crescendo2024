@@ -37,7 +37,7 @@ class Amperatus : public frc2::SubsystemBase {
   // frc::DigitalInput         m_ampTopLimit{AMP_UPPER_LIMIT};
   // frc::DigitalInput         m_ampBotLimit{AMP_LOWER_LIMIT};
 
-  // rev::CANSparkMax          m_ampRoller{AMP_ROLLER_CANID, rev::CANSparkMax::MotorType::kBrushed};
+   rev::CANSparkMax          m_ampRoller{AMP_ROLLER_CANID, rev::CANSparkMax::MotorType::kBrushed};
   // rev::SparkPIDController   m_ampRollerPID     = m_ampRoller.GetPIDController();
   // rev::SparkRelativeEncoder m_ampRollerEncoder = m_ampRoller.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
 
