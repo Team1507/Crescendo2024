@@ -10,6 +10,11 @@
 
 #include "commands/CmdDriveToPoint.h"
 #include "commands/CmdDriveTurn2Angle.h"
+#include "commands/CmdShooterSetPower.h"
+#include "commands/CmdIntakeDeploy.h"
+#include "commands/CmdShooterShootNote.h"
+#include "commands/CmdIntakeRetract.h"
+#include "commands/CmdWaitShooterSpeed.h"
 
 GrpTest1::GrpTest1() {
   AddCommands
@@ -19,8 +24,11 @@ GrpTest1::GrpTest1() {
     CmdDriveClearAll(),
     frc2::WaitCommand(0.5_s),
     //---------------------------------------
-
-
+    CmdShooterSetPower(0.2),
+    CmdWaitShooterSpeed(),
+    CmdShooterShootNote(),
+    CmdIntakeDeploy(),
+    CmdIntakeRetract(),
 
 
     //---------------------------------------

@@ -66,6 +66,8 @@ RobotContainer::RobotContainer()
   //Red Autos
   m_chooser.AddOption("Red-AutoTwoPieceRedOne",    new AutoTwoPieceRedOne() );
 
+  m_chooser.AddOption("Debug Test Auto",           new GrpTest1()           );
+
 
 
   m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
