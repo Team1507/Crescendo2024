@@ -1,6 +1,7 @@
 #include "commands/CmdShooterSourceLoad.h"
 #include "commands/CmdShooterSetAngle.h"
 #include "commands/CmdShooterSetPower.h"
+
 #include <iostream>
 #include "Robot.h"
 
@@ -13,9 +14,9 @@ CmdShooterSourceLoad::CmdShooterSourceLoad()
 void CmdShooterSourceLoad::Initialize() 
 {
   std::cout << "Shooter Source Load Start" << std::endl;
+  m_timer.Reset();
   robotContainer.m_shooter.SetShooterPower(-.1); 
   robotContainer.m_shooter.SetPivotAngle(3); 
-  robotContainer.m_shooter.SetFeederIntakePower(-.1); 
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -33,11 +34,25 @@ void CmdShooterSourceLoad::End(bool interrupted)
 // Returns true when the command should end.
 bool CmdShooterSourceLoad::IsFinished() 
 {
-  if (robotContainer.m_shooter.GetFeederTOFDetect()) 
-  {
-    return true;
-  }
+  const units::second_t timeout = units::second_t(0.2);
 
-  return false;
+  if (robotContainer.m_shooter.GetFeederPhotoeye()) 
+  {
+    robotContainer.m_shooter.SetFeederIntakePower(0.25);
+    m_timer.Start();
+    if (m_timer.Get() >= timeout)
+    {
+      m_timer.Stop();
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  else
+  {
+    return false;
+  }
 
 }

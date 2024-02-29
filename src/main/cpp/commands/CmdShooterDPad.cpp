@@ -1,7 +1,8 @@
 #include "commands/CmdShooterDPad.h"
 #include "Robot.h"
 
-#define SPEAKER_POWER 0.4
+#define DEBUG_HIGH 0.8
+#define DEBUG_LOW 0.4
 #define IDLE_POWER 0.1
 
 CmdShooterDPad::CmdShooterDPad(dPadPosition position) 
@@ -11,6 +12,8 @@ CmdShooterDPad::CmdShooterDPad(dPadPosition position)
 
 void CmdShooterDPad::Initialize() 
 {
+  double testPower = frc::SmartDashboard::GetNumber("SHOOTER_POWER",0.0);
+
   switch( m_position )
   {
 
@@ -24,7 +27,7 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD UP" << std::endl;
-        robotContainer.m_shooter.SetShooterPower(SPEAKER_POWER);
+        robotContainer.m_shooter.SetShooterPower(testPower); //ONLY FOR DEBUGGING, CHANGE LATER
       }
 
       break;
@@ -53,6 +56,7 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD LEFT" << std::endl;
+        robotContainer.m_shooter.SetShooterPower(DEBUG_HIGH);
       }
       break;
 
@@ -65,6 +69,7 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD RIght" << std::endl;
+        robotContainer.m_shooter.SetShooterPower(DEBUG_LOW);
       }
       break;
 
