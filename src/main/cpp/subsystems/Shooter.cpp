@@ -44,21 +44,19 @@ void Shooter::ShooterInit()
    m_shooterLowerPID.SetP(0.0);
    m_shooterLowerPID.SetI(0.0);
    m_shooterLowerPID.SetD(0.0);
-   m_shooterLowerPID.SetSmartMotionAllowedClosedLoopError(0.0);
    m_shooterLowerPID.SetOutputRange(-0.3,0.3,0);
 
 
    m_shooterUpperPID.SetP(0.0);
    m_shooterUpperPID.SetI(0.0);
    m_shooterUpperPID.SetD(0.0);
-   m_shooterUpperPID.SetSmartMotionAllowedClosedLoopError(0.0);
    m_shooterUpperPID.SetOutputRange(-0.3,0.3,0);
 
-   // m_shooterPivotPID.SetP(0.0);
-   // m_shooterPivotPID.SetI(0.0);
-   // m_shooterPivotPID.SetD(0.0);
-   // m_shooterPivotPID.SetSmartMotionAllowedClosedLoopError(0.0);
-   // m_shooterPivotPID.SetOutputRange(-0.3,0.3,0);
+   m_shooterPivotPID.SetP(1.0);   // .1 rotation = .1 power 
+   m_shooterPivotPID.SetI(0.0);
+   m_shooterPivotPID.SetD(0.0);
+   m_shooterPivotPID.SetOutputRange(-0.3,0.3,0);
+   m_shooterPivotPID.SetFeedbackDevice(m_shooterPivotEncoder);
 
    m_shooterLower.SetClosedLoopRampRate(0.0);
    m_shooterLower.SetInverted(true);
@@ -67,7 +65,9 @@ void Shooter::ShooterInit()
    m_shooterUpper.SetInverted(false);
 
    m_shooterPivot.SetClosedLoopRampRate(0.0);
-   m_shooterPivot.SetInverted(false);
+   m_shooterPivot.SetInverted(true);
+
+   m_startingPivotAngle = 30;
 
    frc::SmartDashboard::PutNumber("FEEDER_SHOOTER_POWER",FEEDER_SHOOTER_POWER);
    frc::SmartDashboard::PutNumber("FEEDER_INTAKE_POWER",FEEDER_INTAKE_POWER);
@@ -149,12 +149,12 @@ double Shooter::GetLowerShooterRPM(void)
 
 float Shooter::Deg2Rot(float deg)
 {
-   return deg * DEG_PER_ROT;
+   return (deg - m_startingPivotAngle) / DEG_PER_ROT;
 } 
 
 float Shooter::Rot2Deg(float rot)
 {
-   return rot / DEG_PER_ROT;
+   return (rot * DEG_PER_ROT) + m_startingPivotAngle;
 }
 
 void Shooter::SetPivotPower(double power)
@@ -251,5 +251,6 @@ void Shooter::Periodic()
    frc::SmartDashboard::PutNumber  ("FEEDER TOF RANGE", GetFeederTOFRange());
 
    frc::SmartDashboard::PutNumber  ("Pivot Encoder", GetPivotEncoder());
+   frc::SmartDashboard::PutNumber  ("Pivot Angle  ", Rot2Deg( GetPivotEncoder() ) );
 
 }
