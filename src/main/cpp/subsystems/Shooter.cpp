@@ -35,7 +35,7 @@ void Shooter::ShooterInit()
    m_shooterPivot.RestoreFactoryDefaults();
    m_shooterUpper.RestoreFactoryDefaults();
    m_shooterLower.RestoreFactoryDefaults();
-m_feederMotor. RestoreFactoryDefaults();
+   m_feederMotor. RestoreFactoryDefaults();
 
    m_feederMotor.SetInverted(true);
    m_feederMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);

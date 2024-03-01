@@ -3,7 +3,9 @@
 
 Amperatus::Amperatus() 
 {
+    m_photoeye.EnableLimitSwitch(false);
     m_ampMotor.RestoreFactoryDefaults();
+    m_ampMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
     // m_ampMotorPID.SetP(0.0);
     // m_ampMotorPID.SetI(0.0);
     // m_ampMotorPID.SetD(0.0);
@@ -17,7 +19,7 @@ Amperatus::Amperatus()
 
 void Amperatus::Periodic() 
 {
-
+    frc::SmartDashboard::PutBoolean ("AMP PHOTOEYE DETECT", GetAmpPhotoeye());
 }
 
 void   Amperatus::SetAmpPower(double power)
@@ -38,6 +40,11 @@ void   Amperatus::SetAmpPower(double power)
 void   Amperatus::SetAmpRollerPower(double power)
 {
      m_ampRoller.Set(power);
+}
+
+bool   Amperatus::GetAmpPhotoeye(void)
+{
+    return !m_photoeye.Get();
 }
 
 double Amperatus::GetAmpPower(void)

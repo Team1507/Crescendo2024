@@ -10,7 +10,7 @@ CmdAmpIntake::CmdAmpIntake(double power)
 
 void CmdAmpIntake::Initialize() 
 {
-  robotContainer.m_amperatus.SetAmpRollerPower(-0.3);
+  robotContainer.m_amperatus.SetAmpRollerPower(-0.6);
   std::cout << "Amperatus Intake Started" << std::endl;
 }
 
@@ -25,7 +25,7 @@ void CmdAmpIntake::End(bool interrupted)
 }
 
 
-bool CmdAmpIntake::IsFinished() {
-  //return robotContainer.m_amperatus.GetAmpTOF();
-  return false;    //<<---   This needs to be fixed with new photo sensor
+bool CmdAmpIntake::IsFinished() 
+{
+  return robotContainer.m_amperatus.GetAmpPhotoeye();
 }

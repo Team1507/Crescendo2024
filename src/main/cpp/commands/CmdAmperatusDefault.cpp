@@ -2,9 +2,9 @@
 #include <iostream>
 #include "Robot.h"
 
-#define MANUAL_DEADBAND 0.5
+#define MANUAL_DEADBAND 0.8
 
-#define AMP_SLOW_POWER 0.3
+#define AMP_SLOW_POWER 0.1
 
 CmdAmperatusDefault::CmdAmperatusDefault() 
 {
@@ -23,7 +23,7 @@ void CmdAmperatusDefault::Execute()
     robotContainer.m_amperatus.SetAmpPower(AMP_SLOW_POWER);
     //robotContainer.m_amperatus.SetAmpAngle(robotContainer.m_amperatus.GetAmpAngle());
   }
-  else if (-robotContainer.m_topDriver.GetRightX() < -MANUAL_DEADBAND)
+  else if (robotContainer.m_topDriver.GetRightX() < -MANUAL_DEADBAND)
   {
     robotContainer.m_amperatus.SetAmpPower(-AMP_SLOW_POWER);
     //robotContainer.m_amperatus.SetAmpAngle(robotContainer.m_amperatus.GetAmpAngle())
