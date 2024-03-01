@@ -73,7 +73,9 @@ class Shooter : public frc2::SubsystemBase {
   rev::SparkLimitSwitch     m_forwardLimit = m_feederMotor.GetForwardLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
   frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
 
-  const float DEG_PER_ROT = 0.1;
+  const float DEG_PER_ROT =  ( 1.0 / 0.52595 ); 
+  
+  float m_startingPivotAngle;
 
   float Deg2Rot(float deg); 
   float Rot2Deg(float rot);

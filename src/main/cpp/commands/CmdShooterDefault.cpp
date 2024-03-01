@@ -18,8 +18,10 @@ CmdShooterDefault::CmdShooterDefault()
 
 void CmdShooterDefault::Initialize() 
 {
-  m_shooting = false;
-  m_interpolation = false;
+  m_shooting          = false;
+  m_interpolation     = false;
+  m_manualPivotEnable = false;
+
   std:: cout << "Shooter default started" << std::endl;
 }
 
@@ -57,17 +59,22 @@ void CmdShooterDefault::Execute()
 
   if (robotContainer.m_topDriver.GetRightY() > PIVOT_DEADBAND_CONSTANT)
   {
-    robotContainer.m_shooter.SetPivotPower(PIVOT_SLOW_POWER);
+    robotContainer.m_shooter.SetPivotPower(-PIVOT_SLOW_POWER);
     //robotContainer.m_shooter.SetPivotAngle(robotContainer.m_shooter.GetPivotAngle());
+    m_manualPivotEnable = true;
   }
   else if (robotContainer.m_topDriver.GetRightY() < -PIVOT_DEADBAND_CONSTANT)
   {
-    robotContainer.m_shooter.SetPivotPower(-PIVOT_SLOW_POWER);
+    robotContainer.m_shooter.SetPivotPower(PIVOT_SLOW_POWER);
     //robotContainer.m_shooter.SetPivotAngle(robotContainer.m_shooter.GetPivotAngle());
+    m_manualPivotEnable = true;
+
   }
-  else
+  else if( m_manualPivotEnable )
   {
-    robotContainer.m_shooter.SetPivotPower(0); //CHANGE LATER, ADD HAND OFFS!!!!!
+    robotContainer.m_shooter.SetPivotPower(0);
+    robotContainer.m_shooter.SetPivotAngle(robotContainer.m_shooter.GetPivotAngle());
+    m_manualPivotEnable = false;
   }
 
 }

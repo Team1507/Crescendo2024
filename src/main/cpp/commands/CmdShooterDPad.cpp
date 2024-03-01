@@ -23,6 +23,7 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD UP A" << std::endl;
+        robotContainer.m_shooter.SetPivotAngle(40.0);
       }    
       else
       {
@@ -38,6 +39,7 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD DOWN A" << std::endl;
+        robotContainer.m_shooter.SetPivotAngle(20.0);
       }
       else
       {
@@ -52,6 +54,8 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD LEFT A" << std::endl;
+        robotContainer.m_shooter.SetPivotAngle(30.0);
+
       }
       else
       {
