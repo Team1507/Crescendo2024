@@ -49,8 +49,8 @@ class Shooter : public frc2::SubsystemBase {
   void   SetFeederShooterPower(double power);
   double GetFeederShooterPower(void);
 
-  bool   GetFeederTOFDetect(void);
-  float  GetFeederTOFRange(void);
+  // bool   GetFeederTOFDetect(void);
+  // float  GetFeederTOFRange(void);
 
   bool   GetFeederPhotoeye(void);
 
@@ -71,7 +71,7 @@ class Shooter : public frc2::SubsystemBase {
 
   rev::CANSparkMax          m_feederMotor{SHOOTER_FEEDER_CANID, rev::CANSparkMax::MotorType::kBrushless};
   rev::SparkLimitSwitch     m_forwardLimit = m_feederMotor.GetForwardLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
-  frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
+  // frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
 
   const float DEG_PER_ROT =  ( 1.0 / 0.52595 ); 
   

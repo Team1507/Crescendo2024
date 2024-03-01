@@ -75,8 +75,8 @@ void Shooter::ShooterInit()
    frc::SmartDashboard::PutNumber("SHOOTER_POWER",0.0);
    frc::SmartDashboard::PutNumber("SHOOTER_RPM",0.0);
 
-   m_feederTOF.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
-   m_feederTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
+   // m_feederTOF.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
+   // m_feederTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
 }
 
 void Shooter::ShooterInterpolate(double distance)
@@ -229,16 +229,16 @@ double Shooter::GetFeederIntakePower(void)
    return m_feederMotor.Get();
 }
 
-bool Shooter::GetFeederTOFDetect(void)
-{
-   if( m_feederTOF.GetRange() < 110.0 ) return true; 
-   else return false;
-}
+// bool Shooter::GetFeederTOFDetect(void)
+// {
+//    if( m_feederTOF.GetRange() < 110.0 ) return true; 
+//    else return false;
+// }
 
-float  Shooter::GetFeederTOFRange(void)
-{
-   return m_feederTOF.GetRange();
-}
+// float  Shooter::GetFeederTOFRange(void)
+// {
+//    return m_feederTOF.GetRange();
+// }
 
 bool Shooter::GetFeederPhotoeye(void)
 {
@@ -252,8 +252,8 @@ void Shooter::Periodic()
 {
    frc::SmartDashboard::PutBoolean ("FEEDER PHOTOEYE DETECT", GetFeederPhotoeye());
 
-   frc::SmartDashboard::PutBoolean ("FEEDER TOF DETECT", GetFeederTOFDetect());
-   frc::SmartDashboard::PutNumber  ("FEEDER TOF RANGE", GetFeederTOFRange());
+   // frc::SmartDashboard::PutBoolean ("FEEDER TOF DETECT", GetFeederTOFDetect());
+   // frc::SmartDashboard::PutNumber  ("FEEDER TOF RANGE", GetFeederTOFRange());
 
    frc::SmartDashboard::PutNumber  ("Pivot Encoder", GetPivotEncoder());
    frc::SmartDashboard::PutNumber  ("Pivot Angle  ", Rot2Deg( GetPivotEncoder() ) );
