@@ -31,6 +31,8 @@ void Robot::RobotInit()
 
   robotContainer.m_driverfeedback.FeedbackLED( COLOR_RED );
 
+  robotContainer.m_shooter.SetPivotEncoderCal();
+
 }
 
 void Robot::RobotPeriodic()

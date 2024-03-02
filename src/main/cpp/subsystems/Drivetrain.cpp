@@ -22,8 +22,8 @@
 #define RR_INDEX 3
 
 
-#define DRIVEBASE_WIDTH     22.25  // size in X-axis in inches
-#define DRIVEBASE_HEIGHT    26.75  // size in Y-axis in inches
+#define DRIVEBASE_WIDTH     21.5  // size in X-axis in inches
+#define DRIVEBASE_HEIGHT    21.5  // size in Y-axis in inches
 
 #define W_DIV_2  (DRIVEBASE_WIDTH/2.0)
 #define H_DIV_2  (DRIVEBASE_HEIGHT/2.0)
