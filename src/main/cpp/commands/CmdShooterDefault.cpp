@@ -8,7 +8,7 @@
 
 #define PIVOT_DEADBAND_CONSTANT 0.5
 
-#define PIVOT_SLOW_POWER 0.3
+#define PIVOT_SLOW_POWER 0.4
 
 CmdShooterDefault::CmdShooterDefault() 
 {

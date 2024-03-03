@@ -16,4 +16,7 @@ class CmdIntakeDefault
   void End(bool interrupted) override;
 
   bool IsFinished() override;
+
+  private:
+   int m_noteCount;
 };

@@ -14,10 +14,10 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class CmdAmpRetract
-    : public frc2::CommandHelper<frc2::Command, CmdAmpRetract> {
+class CmdAmpTrapRetract
+    : public frc2::CommandHelper<frc2::Command, CmdAmpTrapRetract> {
  public:
-  CmdAmpRetract();
+  CmdAmpTrapRetract();
 
   void Initialize() override;
 

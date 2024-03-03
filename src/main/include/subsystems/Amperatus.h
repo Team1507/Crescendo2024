@@ -13,7 +13,7 @@ class Amperatus : public frc2::SubsystemBase {
 
   void   SetAmpPower(double power);
 
-  // void   SetAmpAngle(double position);
+  void   SetAmpAngle(double position);
 
   // void   ResetAmpEncoder(void);
 

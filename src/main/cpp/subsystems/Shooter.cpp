@@ -173,6 +173,9 @@ void Shooter:: SetPivotEncoderCal(void)
    //Cal Pivot encoder from Pot value
    std::cout << "Pivot Pot Cal = " << Pot2Deg() << std::endl;
    m_startingPivotAngle = Pot2Deg();
+
+   //m_shooterPivotEncoder.SetPosition(0);
+
 }
 
 

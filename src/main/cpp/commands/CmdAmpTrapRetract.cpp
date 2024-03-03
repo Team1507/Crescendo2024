@@ -4,28 +4,28 @@
 #include "Robot.h"
 #include "Constants.h"
 
-CmdAmpRetract::CmdAmpRetract() 
+CmdAmpTrapRetract::CmdAmpTrapRetract() 
 {
   AddRequirements(&robotContainer.m_amperatus);
 }
 
-void CmdAmpRetract::Initialize() 
+void CmdAmpTrapRetract::Initialize() 
 {
   robotContainer.m_amperatus.AmpTrapRetract();
   std::cout<<"Amp Trap Retract has started"<<std::endl;
 }
 
-void CmdAmpRetract::Execute() 
+void CmdAmpTrapRetract::Execute() 
 {
 
 }
 
-void CmdAmpRetract::End(bool interrupted) 
+void CmdAmpTrapRetract::End(bool interrupted) 
 {
   std::cout<<"Amp Trap Retract has ended"<<std::endl;
 }
 
-bool CmdAmpRetract::IsFinished() 
+bool CmdAmpTrapRetract::IsFinished() 
 {
   return true;
 }

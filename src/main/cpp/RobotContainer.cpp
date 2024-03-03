@@ -24,12 +24,15 @@
 #include "commands/CmdIntakeDefault.h"
 #include "commands/CmdShooterSourceLoad.h"
 #include "commands/CmdAmperatusDefault.h"
+#include "commands/CmdAmpTrapDeploy.h"
+#include "commands/CmdAmpTrapRetract.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
 #include "commands/AutoTwoPieceBlueOne.h"
 #include "commands/AutoTwoPieceRedOne.h"
-
+#include "commands/AutoTwoPieceMiddle.h"
+#include "commands/AutoThreePieceMiddle.h"
 
 
 
@@ -48,6 +51,8 @@ RobotContainer::RobotContainer()
   frc::SmartDashboard::PutData( "CmdDriveClearAll",      new CmdDriveClearAll());
   frc::SmartDashboard::PutData( "GrpTest1",              new GrpTest1());
   frc::SmartDashboard::PutData( "GrpTest2",              new GrpTest2());
+  frc::SmartDashboard::PutData( "AmpTrapDeploy",         new CmdAmpTrapDeploy());
+  frc::SmartDashboard::PutData( "AmpTrapRetract",        new CmdAmpTrapRetract());
 
 
   //Smartdashboard SwerveDrive test/calibration buttons
@@ -68,9 +73,11 @@ RobotContainer::RobotContainer()
   //Red Autos
   m_chooser.AddOption("Red-AutoTwoPieceRedOne",    new AutoTwoPieceRedOne() );
 
+  m_chooser.AddOption("Two Piece Middle",          new AutoTwoPieceMiddle());
+
   m_chooser.AddOption("Debug Test Auto",           new GrpTest1()           );
 
-
+  m_chooser.AddOption("Three Piece Middle",        new AutoThreePieceMiddle());
 
   m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
 
@@ -90,8 +97,8 @@ void RobotContainer::ConfigureBindings()
 
    m_topDriver_BButton.WhileTrue(new CmdAmpEject(0)); //amp eject
 
-   //m_topDriver_LeftBumper.OnTrue(new CmdAmpSetAngle()); //amp up
-   //m_topDriver_LeftBumper.OnFalse(new CmdAmpSetAngle()); //amp down
+   m_topDriver_LeftBumper.OnTrue(new CmdAmpSetAngle()); //amp up
+   m_topDriver_LeftBumper.OnFalse(new CmdAmpSetAngle()); //amp down
 
   m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
 
