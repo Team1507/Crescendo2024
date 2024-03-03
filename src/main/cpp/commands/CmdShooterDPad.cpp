@@ -1,6 +1,8 @@
 #include "commands/CmdShooterDPad.h"
 #include "Robot.h"
 
+//*********NON-MODE SHIFT CONSTANTS*********
+
 #define IDLE_POWER    0.1
 #define IDLE_ANGLE    52
 
@@ -11,7 +13,15 @@
 #define PODIUM_ANGLE  36
 
 #define GENERAL_POWER 0.8
-#define GENERAL_ANGLE 48
+#define GENERAL_ANGLE 40
+
+//**************MODE SHIFT CONSTANTS*************
+
+#define AMP_ANGLE     25
+
+#define TRAP_ANGLE    25
+
+#define SOURCE_ANGLE  46
 
 CmdShooterDPad::CmdShooterDPad(dPadPosition position) 
 {
@@ -31,6 +41,8 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD UP A" << std::endl;
+        robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
+        robotContainer.m_shooter.SetPivotAngle(AMP_ANGLE);
       }    
       else
       {
@@ -47,6 +59,8 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD DOWN A" << std::endl;
+        robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
+        robotContainer.m_shooter.SetPivotAngle(TRAP_ANGLE);
       }
       else
       {
@@ -76,6 +90,7 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD right A" << std::endl;
+        robotContainer.m_shooter.SetPivotAngle(SOURCE_ANGLE);
       }
       else
       {
