@@ -1,9 +1,17 @@
 #include "commands/CmdShooterDPad.h"
 #include "Robot.h"
 
-#define DEBUG_HIGH 0.8
-#define DEBUG_LOW 0.4
-#define IDLE_POWER 0.1
+#define IDLE_POWER    0.1
+#define IDLE_ANGLE    52
+
+#define SPEAKER_POWER 0.8
+#define SPEAKER_ANGLE 52
+
+#define PODIUM_POWER  0.8
+#define PODIUM_ANGLE  36
+
+#define GENERAL_POWER 0.8
+#define GENERAL_ANGLE 48
 
 CmdShooterDPad::CmdShooterDPad(dPadPosition position) 
 {
@@ -23,12 +31,12 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD UP A" << std::endl;
-        robotContainer.m_shooter.SetPivotAngle(40.0);
       }    
       else
       {
         std::cout<< "DPAD UP" << std::endl;
-        robotContainer.m_shooter.SetShooterPower(testPower); //ONLY FOR DEBUGGING, CHANGE LATER
+        robotContainer.m_shooter.SetShooterPower(SPEAKER_POWER);
+        robotContainer.m_shooter.SetPivotAngle(SPEAKER_ANGLE);
       }
 
       break;
@@ -39,12 +47,12 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD DOWN A" << std::endl;
-        robotContainer.m_shooter.SetPivotAngle(20.0);
       }
       else
       {
         std::cout<< "DPAD DOWN" << std::endl;
         robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
+        robotContainer.m_shooter.SetPivotAngle(IDLE_ANGLE);
       }
 
       break;
@@ -54,13 +62,12 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD LEFT A" << std::endl;
-        robotContainer.m_shooter.SetPivotAngle(30.0);
-
       }
       else
       {
         std::cout<< "DPAD LEFT" << std::endl;
-        robotContainer.m_shooter.SetShooterPower(DEBUG_HIGH);
+        robotContainer.m_shooter.SetShooterPower(PODIUM_POWER);
+        robotContainer.m_shooter.SetPivotAngle(PODIUM_ANGLE);
       }
       break;
 
@@ -73,7 +80,8 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD RIght" << std::endl;
-        robotContainer.m_shooter.SetShooterPower(DEBUG_LOW);
+        robotContainer.m_shooter.SetShooterPower(GENERAL_POWER);
+        robotContainer.m_shooter.SetPivotAngle(GENERAL_ANGLE);
       }
       break;
 
