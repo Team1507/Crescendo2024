@@ -4,28 +4,28 @@
 #include "Robot.h"
 #include "Constants.h"
 
-CmdAmpDeploy::CmdAmpDeploy() 
+CmdAmpTrapDeploy::CmdAmpTrapDeploy() 
 {
   AddRequirements(&robotContainer.m_amperatus);
 }
 
-void CmdAmpDeploy::Initialize() 
+void CmdAmpTrapDeploy::Initialize() 
 {
-robotContainer.m_amperatus.AmpTrapDeploy();
-std::cout<<"Amp Trap Deploy has started"<<std::endl;
+  robotContainer.m_amperatus.AmpTrapDeploy();
+  std::cout<<"Amp Trap Deploy has started"<<std::endl;
 }
 
-void CmdAmpDeploy::Execute() 
+void CmdAmpTrapDeploy::Execute() 
 {
 
 }
 
-void CmdAmpDeploy::End(bool interrupted) 
+void CmdAmpTrapDeploy::End(bool interrupted) 
 {
 std::cout<<"Amp Trap Deploy has ended"<<std::endl;
 }
 
-bool CmdAmpDeploy::IsFinished() 
+bool CmdAmpTrapDeploy::IsFinished() 
 {
   return true; 
 }

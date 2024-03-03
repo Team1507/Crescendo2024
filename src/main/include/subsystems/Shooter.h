@@ -6,8 +6,9 @@
 #include <rev/CANSparkBase.h>
 #include <frc/DigitalInput.h>
 #include "TimeOfFlight.h"
+#include <frc/AnalogInput.h>
 
-#define FEEDER_SHOOTER_POWER 0.2
+#define FEEDER_SHOOTER_POWER 0.8
 #define FEEDER_INTAKE_POWER  0.2
 
 enum dPadPosition {DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT};
@@ -40,6 +41,8 @@ class Shooter : public frc2::SubsystemBase {
   double GetPivotEncoder(void);
 
   void   SetPivotAngle(float position);
+  bool   GetPivotBotLimit(void);
+  void   SetPivotEncoderCal(void);
 
 
   // ***********FEEDER***********
@@ -67,11 +70,15 @@ class Shooter : public frc2::SubsystemBase {
   rev::CANSparkMax          m_shooterPivot {SHOOTER_PIVOT_CANID, rev::CANSparkMax::MotorType::kBrushed};
   rev::SparkRelativeEncoder m_shooterPivotEncoder = m_shooterPivot.GetEncoder(rev::SparkRelativeEncoder::Type::kQuadrature, 4096); //VeraPlanitary encoder=4096
   rev::SparkPIDController   m_shooterPivotPID     = m_shooterPivot.GetPIDController();
+  rev::SparkLimitSwitch     m_shooterPivotBotLimit= m_shooterPivot.GetReverseLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
 
 
   rev::CANSparkMax          m_feederMotor{SHOOTER_FEEDER_CANID, rev::CANSparkMax::MotorType::kBrushless};
   rev::SparkLimitSwitch     m_forwardLimit = m_feederMotor.GetForwardLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
   // frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
+
+
+  frc::AnalogInput          m_pivotAnglePot{3};
 
   const float DEG_PER_ROT =  ( 1.0 / 0.52595 ); 
   
@@ -79,4 +86,7 @@ class Shooter : public frc2::SubsystemBase {
 
   float Deg2Rot(float deg); 
   float Rot2Deg(float rot);
+
+  float Pot2Deg(void);
+
 };

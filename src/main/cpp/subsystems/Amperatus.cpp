@@ -27,10 +27,10 @@ void   Amperatus::SetAmpPower(double power)
     m_ampMotor.Set(power);
 }
 
-// void   Amperatus::SetAmpAngle(double position)
-// {
-//     m_ampMotorPID.SetReference(position, rev::CANSparkMax::ControlType::kPosition);
-// }
+void   Amperatus::SetAmpAngle(double position)
+{
+    m_ampMotor.Set(position);
+}
 
 // void   Amperatus::ResetAmpEncoder()
 // {
@@ -59,8 +59,7 @@ void   Amperatus::AmpTrapDeploy(void)
 
 void   Amperatus::AmpTrapRetract(void)
 {
-    //SHOULD NEVER RETRACT EVER!!
-    //This should be done manually
+    m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
 }
 
 // double Amperatus::GetAmpAngle(void)

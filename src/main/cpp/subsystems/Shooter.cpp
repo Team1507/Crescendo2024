@@ -66,6 +66,8 @@ void Shooter::ShooterInit()
 
    m_shooterPivot.SetClosedLoopRampRate(0.0);
    m_shooterPivot.SetInverted(true);
+   m_shooterPivotBotLimit.EnableLimitSwitch(true);
+
 
    m_startingPivotAngle = 30;
 
@@ -157,6 +159,26 @@ float Shooter::Rot2Deg(float rot)
    return (rot * DEG_PER_ROT) + m_startingPivotAngle;
 }
 
+float Shooter::Pot2Deg(void)
+{
+   //y=mx+b;
+   const float m = 22.559;   //Calc from pot Calibration
+   const float b = 2633.36;
+
+   return ( m_pivotAnglePot.GetValue() -b ) / m;
+}
+
+void Shooter:: SetPivotEncoderCal(void)
+{
+   //Cal Pivot encoder from Pot value
+   std::cout << "Pivot Pot Cal = " << Pot2Deg() << std::endl;
+   m_startingPivotAngle = Pot2Deg();
+
+   //m_shooterPivotEncoder.SetPosition(0);
+
+}
+
+
 void Shooter::SetPivotPower(double power)
 {
    m_shooterPivot.Set(power);
@@ -189,6 +211,12 @@ void Shooter::SetPivotAngle(float position)
 {
    m_shooterPivotPID.SetReference(Deg2Rot(position),rev::CANSparkMax::ControlType::kPosition);
 }
+
+bool Shooter::GetPivotBotLimit(void)
+{
+   return m_shooterPivotBotLimit.Get();
+}
+
 
 void Shooter::SetFeederShooterPower(double power)
 {
@@ -257,5 +285,13 @@ void Shooter::Periodic()
 
    frc::SmartDashboard::PutNumber  ("Pivot Encoder", GetPivotEncoder());
    frc::SmartDashboard::PutNumber  ("Pivot Angle  ", Rot2Deg( GetPivotEncoder() ) );
+   frc::SmartDashboard::PutBoolean ("Pivot Bot Sw", GetPivotBotLimit() );
+
+
+   frc::SmartDashboard::PutNumber  ("Pivot Angle Pot V", m_pivotAnglePot.GetValue() );
+   frc::SmartDashboard::PutNumber  ("Pivot Angle Pot Deg", Pot2Deg() );
+   frc::SmartDashboard::PutNumber  ("Pivot Angle Start Deg", m_startingPivotAngle );
+
+
 
 }

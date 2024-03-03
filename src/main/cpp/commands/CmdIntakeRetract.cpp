@@ -4,7 +4,7 @@
 
 CmdIntakeRetract::CmdIntakeRetract() 
 {
-  AddRequirements(&robotContainer.m_intake);
+  // AddRequirements(&robotContainer.m_intake);
 }
 
 void CmdIntakeRetract::Initialize() 

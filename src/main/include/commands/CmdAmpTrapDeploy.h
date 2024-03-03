@@ -14,10 +14,10 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class CmdAmpDeploy
-    : public frc2::CommandHelper<frc2::Command, CmdAmpDeploy> {
+class CmdAmpTrapDeploy
+    : public frc2::CommandHelper<frc2::Command, CmdAmpTrapDeploy> {
  public:
-  CmdAmpDeploy();
+  CmdAmpTrapDeploy();
 
   void Initialize() override;
 

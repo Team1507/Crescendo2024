@@ -10,7 +10,7 @@ CmdAmpEject::CmdAmpEject(double power)
 
 void CmdAmpEject::Initialize() 
 {
-  robotContainer.m_amperatus.SetAmpRollerPower(0.6);
+  robotContainer.m_amperatus.SetAmpRollerPower(1.0);
   std::cout << "Amperatus Ejected" << std::endl;
 }
 

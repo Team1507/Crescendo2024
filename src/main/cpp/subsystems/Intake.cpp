@@ -4,7 +4,7 @@
 #include "Constants.h"
 
 
-#define INTAKE_POWER 0
+#define INTAKE_POWER 1.0
 
 Intake::Intake() 
 {
@@ -13,7 +13,6 @@ Intake::Intake()
   m_isIntaking = false;
 
   frc::SmartDashboard::PutNumber("INTAKE_POWER",INTAKE_POWER);
-  frc::SmartDashboard::PutNumber("FEEDER_INTAKE_POWER",FEEDER_INTAKE_POWER);
 }
 
 void Intake::IntakeDeploy(void)

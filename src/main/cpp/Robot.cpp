@@ -31,6 +31,8 @@ void Robot::RobotInit()
 
   robotContainer.m_driverfeedback.FeedbackLED( COLOR_RED );
 
+  robotContainer.m_shooter.SetPivotEncoderCal();
+
 }
 
 void Robot::RobotPeriodic()
@@ -105,6 +107,9 @@ void WriteToSmartDashboard(void)
   frc::SmartDashboard::PutNumber("odo_X",         robotContainer.m_drivetrain.GetOdometryX()       );
   frc::SmartDashboard::PutNumber("odo_Y",         robotContainer.m_drivetrain.GetOdometryY()       );
   frc::SmartDashboard::PutNumber("odo_H",         robotContainer.m_drivetrain.GetOdometryHeading() );
+  frc::SmartDashboard::PutNumber("Upper Shooter Velocity", robotContainer.m_shooter.GetUpperShooterRPM() );
+  frc::SmartDashboard::PutNumber("Lower Shooter Velocity", robotContainer.m_shooter.GetLowerShooterRPM() );
+
 
   //Time
   frc::SmartDashboard::PutNumber("MatchTime",  (double)robotContainer.m_timer.GetMatchTime() );       //Match Time

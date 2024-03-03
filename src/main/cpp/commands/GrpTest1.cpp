@@ -22,17 +22,7 @@ GrpTest1::GrpTest1() {
 
     CmdPrintText("GrpTest1 Start"),
     CmdDriveClearAll(),
-    frc2::WaitCommand(0.5_s),
-    //---------------------------------------
-    CmdShooterSetPower(0.2),
-    CmdWaitShooterSpeed(),
-    CmdShooterShootNote(),
-    CmdIntakeDeploy(),
-    CmdIntakeRetract(),
-
-
-    //---------------------------------------
-    //All Done
+    CmdDriveToPoint(0, 230, 0, 2000, true, 10),
     CmdPrintText("GrpTest1 Finished"),
     CmdDriveStop()
   );

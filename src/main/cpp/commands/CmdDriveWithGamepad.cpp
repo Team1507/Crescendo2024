@@ -43,7 +43,7 @@ void CmdDriveWithGamepad::Execute()
 
 
   const float xyScaleValue  = 0.5;
-  const float rScaleValue   = 0.5;
+  const float rScaleValue   = -0.5;    //**** Rotating wrong way.  Quick Fix until the real reason is discovered.
 
   const float DEADBAND  = 0.20;
 

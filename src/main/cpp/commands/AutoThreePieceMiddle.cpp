@@ -1,4 +1,5 @@
-#include "commands/AutoTwoPieceMiddle.h"
+
+
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <---- Drive train
 #include "commands/CmdShooterSetAngle.h"
@@ -11,13 +12,13 @@
 #include "commands/CmdWaitShooterSpeed.h"
 #include "commands/CmdDriveClearAll.h"
 #include <frc2/command/WaitCommand.h>
+#include "commands/AutoThreePieceMiddle.h"
 
-AutoTwoPieceMiddle::AutoTwoPieceMiddle() 
- {
+
+AutoThreePieceMiddle::AutoThreePieceMiddle() {
+
   AddCommands(
-    
-    
-    CmdPrintText("Auto Two Piece Middle Started"), 
+        CmdPrintText("Auto Three Piece Middle Started"), 
     CmdDriveClearAll(),
     //Shooting Starting Note
     // CmdShooterSetAngle(52),
@@ -33,8 +34,14 @@ AutoTwoPieceMiddle::AutoTwoPieceMiddle()
     //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
+  
+    //Go To Third Note
+    CmdIntakeDeploy(),
+    CmdDriveToPoint(57, 37, 25, 2000, true, 10),
+    CmdDriveToPoint(30, -5, 25, 2000, true, 10),  
+    CmdShooterShootNote(),
     CmdShooterSetPower(0),
     CmdDriveStop(),
-    CmdPrintText("Auto Two Piece Middle Completed")
+    CmdPrintText("Auto Three Piece Middle Completed")
   );
 }
