@@ -44,6 +44,8 @@ class Shooter : public frc2::SubsystemBase {
   bool   GetPivotBotLimit(void);
   void   SetPivotEncoderCal(void);
 
+  bool   CheckPotVsRotAngle(void);
+
 
   // ***********FEEDER***********
 
@@ -82,7 +84,9 @@ class Shooter : public frc2::SubsystemBase {
 
   const float DEG_PER_ROT =  ( 1.0 / 0.52595 ); 
   
+  //Pivot Angle Calibration
   float m_startingPivotAngle;
+  float m_startingPivotEncoder;
 
   float Deg2Rot(float deg); 
   float Rot2Deg(float rot);
