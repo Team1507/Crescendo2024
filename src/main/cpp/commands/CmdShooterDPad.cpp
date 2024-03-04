@@ -19,7 +19,7 @@
 
 #define AMP_ANGLE     25
 
-#define TRAP_ANGLE    25
+#define TRAP_ANGLE    20
 
 #define SOURCE_ANGLE  46
 

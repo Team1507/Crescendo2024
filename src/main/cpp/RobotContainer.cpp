@@ -102,6 +102,8 @@ void RobotContainer::ConfigureBindings()
 
   m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
 
+  m_topDriver_StartButton.OnTrue(new CmdAmpTrapDeploy());
+
   m_topDriver_POVup.OnTrue(    new CmdShooterDPad( DPAD_UP   ) );
   m_topDriver_POVdown.OnTrue(  new CmdShooterDPad( DPAD_DOWN ) );
   m_topDriver_POVleft.OnTrue(  new CmdShooterDPad( DPAD_LEFT ) );
