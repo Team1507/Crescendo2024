@@ -89,9 +89,9 @@ void CmdDriveToPoint::Execute()
   //Write answers to drivetrain.....
 
   if( delta_angle > 0)
-    robotContainer.m_drivetrain.FieldcentricDriveVelocity( vy, vx, vr);
+    robotContainer.m_drivetrain.FieldcentricDriveVelocity( vy, vx, -vr);
   else
-    robotContainer.m_drivetrain.FieldcentricDriveVelocity( vy, vx,  -vr);
+    robotContainer.m_drivetrain.FieldcentricDriveVelocity( vy, vx,  vr);
 
 
 

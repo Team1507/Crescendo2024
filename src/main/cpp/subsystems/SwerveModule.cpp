@@ -34,7 +34,7 @@ const double DRIVE_PID_kD = 0.0;
 
 //Steer PID
 const double STEER_PID_kF = 0.0;
-const double STEER_PID_kP = 0.125;      //0.075;
+const double STEER_PID_kP = 0.6;     //0.125;      //0.075;
 const double STEER_PID_kI = 0.0;
 const double STEER_PID_kD = 0.0;
 
@@ -83,12 +83,17 @@ SwerveModule::SwerveModule(int driveMotorCanID, int steerMotorCanID, int steerEn
     m_steerMotor.Config_kI(0, STEER_PID_kI, 10);
     m_steerMotor.Config_kD(0, STEER_PID_kD, 10);
 
-    m_steerMotor.ConfigAllowableClosedloopError( 0, 0.25 * STEER_ENCODER_TICKS_PER_DEGREE, 10 );
+    //m_steerMotor.ConfigAllowableClosedloopError( 0, 0.05 * STEER_ENCODER_TICKS_PER_DEGREE, 10 );
+    m_steerMotor.ConfigAllowableClosedloopError( 0, 0.0, 10 );
+
+    m_steerMotor.ConfigNominalOutputForward(0.0, 0);
+    m_steerMotor.ConfigNominalOutputReverse(0.0, 0);
+    m_steerMotor.ConfigPeakOutputForward(0.5, 0);
+    m_steerMotor.ConfigPeakOutputReverse(-0.5, 0);
 
     //Initialise Steer Encoder
     m_steerEncoder.ConfigAbsoluteSensorRange(AbsoluteSensorRange::Signed_PlusMinus180 );    //Sets angle range as -180 to + 180
     m_steerEncoder.ConfigSensorDirection(false);                                            //+angle CounterClockwise turn
-
 
 
     //Limit CAN bus utilization (and stale frame errors)
@@ -106,8 +111,9 @@ SwerveModule::SwerveModule(int driveMotorCanID, int steerMotorCanID, int steerEn
     m_driveMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_4_AinTempVbat, 101); 
 
     //All others we don't care about
-    m_steerMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_3_Quadrature,   202); 
-    m_driveMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_3_Quadrature,   203); 
+    m_steerMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_3_Quadrature,   20); 
+    m_driveMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_3_Quadrature,   20); 
+
     m_steerMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_8_PulseWidth,   204); 
     m_driveMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_8_PulseWidth,   205); 
     m_steerMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_10_MotionMagic, 206); 
@@ -118,8 +124,8 @@ SwerveModule::SwerveModule(int driveMotorCanID, int steerMotorCanID, int steerEn
     m_driveMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_13_Base_PIDF0,  211); 
     m_steerMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_14_Turn_PIDF1,  212); 
     m_driveMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_14_Turn_PIDF1,  213); 
-    m_steerMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_21_FeedbackIntegrated,  214); 
-    m_driveMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_21_FeedbackIntegrated,  215); 
+    m_steerMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_21_FeedbackIntegrated,  20); 
+    m_driveMotor.SetStatusFramePeriod(StatusFrameEnhanced::Status_21_FeedbackIntegrated,  20); 
 
 
     //Init members
@@ -130,6 +136,8 @@ SwerveModule::SwerveModule(int driveMotorCanID, int steerMotorCanID, int steerEn
 
     std::cout << "Module Debug ID= " << m_dbgID << std::endl;
 
+    std::cout << "Close Loop Target= " << m_steerMotor.GetClosedLoopTarget();
+
 }
 
 // This method will be called once per scheduler run
@@ -137,10 +145,10 @@ void SwerveModule::Periodic()
 {
 
     //Debug Output
-    // frc::SmartDashboard::PutNumber(m_dbgID + "-EncAbs",  GetSteerEncoderAbsoutePosition() ); 
-    // frc::SmartDashboard::PutNumber(m_dbgID + "-EncPos",  GetSteerEncoderPosition() ); 
-    // frc::SmartDashboard::PutNumber(m_dbgID + "-MotPos",  GetSteerMotorPosition() ); 
-    // frc::SmartDashboard::PutNumber(m_dbgID + "-AngReq",  m_desired_steer_angle ); 
+    frc::SmartDashboard::PutNumber(m_dbgID + "-EncAbs",  GetSteerEncoderAbsoutePosition() ); 
+    frc::SmartDashboard::PutNumber(m_dbgID + "-EncPos",  GetSteerEncoderPosition() ); 
+    frc::SmartDashboard::PutNumber(m_dbgID + "-MotPos",  GetSteerMotorPosition() ); 
+    frc::SmartDashboard::PutNumber(m_dbgID + "-AngReq",  m_desired_steer_angle ); 
 
     frc::SmartDashboard::PutNumber(m_dbgID + "-DrvEnc",  GetDriveEncoder() ); 
     // frc::SmartDashboard::PutBoolean(m_dbgID+ "-DrvInv",  m_invert_drive ); 
@@ -179,7 +187,14 @@ void SwerveModule::SetSteerAngle( float angle )
 
     //Update steer motor positional PID controller
     m_steerMotor.Set(ControlMode::Position,  target_position );
-    m_invert_drive = false;    
+    m_invert_drive = false;   
+
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-currSteerAngle",  curr_steer_angle ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-angleError",      angle_error ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-currSteerPos",    curr_steer_position ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-targerPos",       target_position ); 
+    
+
 }
 
 
