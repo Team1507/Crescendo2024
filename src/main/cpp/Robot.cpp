@@ -12,7 +12,7 @@ void Robot::RobotInit()
 {
   //*************************** INIT ******************************
   std::cout<<"RobotInit"<<std::endl;
-  std::cout<<"FRC2024: Big Treble"<<std::endl;
+  std::cout<<"FRC2024: Decibel"<<std::endl;
   std::cout<<"Version: " << __DATE__ <<"  "<<__TIME__<<std::endl<<std::endl; 
 
   //Shooter Init
@@ -133,7 +133,7 @@ void CheckAlliance( void )
   {
     std::cout << "RED Alliance" << std::endl;
     robotContainer.m_driverfeedback.FeedbackLED( COLOR_RED );
-    
+
   }
   else if(frc::DriverStation::GetAlliance() == frc::DriverStation::kBlue)
   {
