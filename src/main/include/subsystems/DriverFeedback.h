@@ -13,8 +13,10 @@
 #define COLOR_WHITE 255, 255, 255 
 
 #define COLOR_YELLOW 255, 255, 0
-#define COLOR_PURPLE 128, 0, 128
-#define COLOR_ORANGE 255, 160, 0 //NO Used looks like yellow
+#define COLOR_PURPLE 128,   0, 128
+#define COLOR_ORANGE 255, 160, 0      //NO Used looks like yellow
+#define COLOR_TEAL     0, 255, 255
+
 
 #define COLOR_BLACK 0, 0, 0
 
@@ -27,6 +29,9 @@ class DriverFeedback : public frc2::SubsystemBase {
 
   void FeedbackLED(int r, int g, int b);
 
+  void BlinkLED(int r, int g, int b);
+  void DisableBlink(void);
+
   void Periodic() override;
 
  private:
@@ -34,5 +39,16 @@ class DriverFeedback : public frc2::SubsystemBase {
 
   ctre::phoenix::led::CANdle m_frontCandle {CANDLE_LED_1_CANID, ""};
   ctre::phoenix::led::CANdle m_rearCandle  {CANDLE_LED_2_CANID, ""};
+
+  bool m_blinkEnable;
+  int  m_blink_count;
+  int  m_blink_r;
+  int  m_blink_g;
+  int  m_blink_b;
+
+  int  m_pulseCount;
+
+  bool m_prevFeederNote;
+
 
 };

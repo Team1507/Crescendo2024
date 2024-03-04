@@ -27,10 +27,6 @@ void Robot::RobotInit()
 
   //Subsystem Initialization
   robotContainer.m_shooter.ResetPivotEncoder(0);  // Need to fix
-  CheckAlliance();
-
-  robotContainer.m_driverfeedback.FeedbackLED( COLOR_RED );
-
   robotContainer.m_shooter.SetPivotEncoderCal();
 
 }
@@ -45,6 +41,10 @@ void Robot::RobotPeriodic()
 void Robot::DisabledInit() 
 {
   std::cout<<"Disabled Init"<<std::endl;
+  robotContainer.m_driverfeedback.DisableBlink();
+
+    CheckAlliance();
+
 }
 
 void Robot::DisabledPeriodic() {}
@@ -67,6 +67,11 @@ void Robot::TeleopInit()
   if (m_autonomousCommand) {
       m_autonomousCommand->Cancel();
   }
+
+  CheckAlliance();
+
+
+
 }
 
 void Robot::TeleopPeriodic() {}
@@ -126,15 +131,19 @@ void CheckAlliance( void )
   //Set Panel LEDs
   if( frc::DriverStation::GetAlliance() == frc::DriverStation::kRed)
   {
-      std::cout << "RED Alliance" << std::endl;
+    std::cout << "RED Alliance" << std::endl;
+    robotContainer.m_driverfeedback.FeedbackLED( COLOR_RED );
+    
   }
   else if(frc::DriverStation::GetAlliance() == frc::DriverStation::kBlue)
   {
-      std::cout << "BLUE Alliance" << std::endl;
+    std::cout << "BLUE Alliance" << std::endl;
+    robotContainer.m_driverfeedback.FeedbackLED( COLOR_BLUE );
   }
   else
   {
-     std::cout << "UNKNOWN Alliance" << std::endl;
+    std::cout << "UNKNOWN Alliance" << std::endl;
+    robotContainer.m_driverfeedback.FeedbackLED( COLOR_YELLOW );
   }
 
 }
