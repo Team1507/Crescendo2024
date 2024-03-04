@@ -136,8 +136,6 @@ SwerveModule::SwerveModule(int driveMotorCanID, int steerMotorCanID, int steerEn
 
     std::cout << "Module Debug ID= " << m_dbgID << std::endl;
 
-    std::cout << "Close Loop Target= " << m_steerMotor.GetClosedLoopTarget();
-
 }
 
 // This method will be called once per scheduler run
