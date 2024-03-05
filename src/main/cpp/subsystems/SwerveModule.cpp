@@ -143,16 +143,16 @@ void SwerveModule::Periodic()
 {
 
     //Debug Output
-    frc::SmartDashboard::PutNumber(m_dbgID + "-EncAbs",  GetSteerEncoderAbsoutePosition() ); 
-    frc::SmartDashboard::PutNumber(m_dbgID + "-EncPos",  GetSteerEncoderPosition() ); 
-    frc::SmartDashboard::PutNumber(m_dbgID + "-MotPos",  GetSteerMotorPosition() ); 
-    frc::SmartDashboard::PutNumber(m_dbgID + "-AngReq",  m_desired_steer_angle ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-EncAbs",  GetSteerEncoderAbsoutePosition() ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-EncPos",  GetSteerEncoderPosition() ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-MotPos",  GetSteerMotorPosition() ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-AngReq",  m_desired_steer_angle ); 
 
-    frc::SmartDashboard::PutNumber(m_dbgID + "-DrvEnc",  GetDriveEncoder() ); 
-    // frc::SmartDashboard::PutBoolean(m_dbgID+ "-DrvInv",  m_invert_drive ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-DrvEnc",  GetDriveEncoder() ); 
+    // // frc::SmartDashboard::PutBoolean(m_dbgID+ "-DrvInv",  m_invert_drive ); 
 
-    frc::SmartDashboard::PutNumber(m_dbgID + "-DrvPwr",     m_driveMotor.GetMotorOutputPercent() ); 
-    frc::SmartDashboard::PutNumber(m_dbgID + "-DrvVel",     m_driveMotor.GetSelectedSensorVelocity(0) ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-DrvPwr",     m_driveMotor.GetMotorOutputPercent() ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-DrvVel",     m_driveMotor.GetSelectedSensorVelocity(0) ); 
 
     //Drive Motor Temperature
     frc::SmartDashboard::PutNumber(m_dbgID + "-DrvTemp",    m_driveMotor.GetTemperature() ); 
