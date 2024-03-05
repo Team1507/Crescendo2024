@@ -15,6 +15,7 @@
 PhotonVision::PhotonVision()
 {
     frc::SmartDashboard::PutNumber("PV-MT Id",    4 );
+    m_targetId = 4;
 };
 
 
@@ -31,7 +32,6 @@ void PhotonVision::Periodic()
 
     bool hasTargets = result.HasTargets();
 
- // frc::SmartDashboard::PutBoolean("PV HasTarget", hasTargets);
 
     std::string strTargetList = "";
 
@@ -47,8 +47,6 @@ void PhotonVision::Periodic()
         //---- All Target List --------------------------
 
         std::span<const photon::PhotonTrackedTarget> targetList = result.GetTargets();
-
- //     frc::SmartDashboard::PutNumber("PV Tsize",  targetList.size() );
 
         for( unsigned int i=0; i<targetList.size(); i++ )
         {
@@ -119,6 +117,7 @@ void PhotonVision::Periodic()
   void  PhotonVision::SetTargetId(int id)
   {
     //Using smartdashboard to pick target ID
+    frc::SmartDashboard::PutNumber("PV-MT Id",    id );
     //m_targetId = id;
   }
   int   PhotonVision::GetTargetId(void)
