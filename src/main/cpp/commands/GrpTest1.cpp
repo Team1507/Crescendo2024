@@ -15,6 +15,9 @@
 #include "commands/CmdShooterShootNote.h"
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdWaitShooterSpeed.h"
+#include <frc2/command/WaitCommand.h>
+
+
 
 GrpTest1::GrpTest1() {
   AddCommands
@@ -22,7 +25,22 @@ GrpTest1::GrpTest1() {
 
     CmdPrintText("GrpTest1 Start"),
     CmdDriveClearAll(),
-    CmdDriveToPoint(0, 230, 0, 2000, true, 10),
+
+    frc2::WaitCommand(1.0_s),
+
+    CmdDriveToPoint(0, 60, 0, 2000, true, 10),
+
+    frc2::WaitCommand(1.0_s),
+
+    CmdDriveToPoint(-40, 60, 0, 2000, true, 10),
+
+    frc2::WaitCommand(1.0_s),
+
+
+    CmdDriveToPoint(0, 0, 0, 2000, true, 10),
+
+
+
     CmdPrintText("GrpTest1 Finished"),
     CmdDriveStop()
   );

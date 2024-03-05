@@ -52,10 +52,10 @@ void Shooter::ShooterInit()
    m_shooterUpperPID.SetD(0.0);
    m_shooterUpperPID.SetOutputRange(-0.3,0.3,0);
 
-   m_shooterPivotPID.SetP(1.0);   // .1 rotation = .1 power 
+   m_shooterPivotPID.SetP(2.0);   // .1 rotation = .2 power 
    m_shooterPivotPID.SetI(0.0);
    m_shooterPivotPID.SetD(0.0);
-   m_shooterPivotPID.SetOutputRange(-0.3,0.3,0);
+   m_shooterPivotPID.SetOutputRange(-0.5, 0.5 ,0);
    m_shooterPivotPID.SetFeedbackDevice(m_shooterPivotEncoder);
 
    m_shooterLower.SetClosedLoopRampRate(0.0);
@@ -68,8 +68,8 @@ void Shooter::ShooterInit()
    m_shooterPivot.SetInverted(true);
    m_shooterPivotBotLimit.EnableLimitSwitch(true);
 
-
-   m_startingPivotAngle = 30;
+   m_startingPivotAngle   = 50;
+   m_startingPivotEncoder = 0;
 
    frc::SmartDashboard::PutNumber("FEEDER_SHOOTER_POWER",FEEDER_SHOOTER_POWER);
    frc::SmartDashboard::PutNumber("FEEDER_INTAKE_POWER",FEEDER_INTAKE_POWER);
@@ -151,12 +151,12 @@ double Shooter::GetLowerShooterRPM(void)
 
 float Shooter::Deg2Rot(float deg)
 {
-   return (deg - m_startingPivotAngle) / DEG_PER_ROT;
+   return ( (deg - m_startingPivotAngle) / DEG_PER_ROT) + m_startingPivotEncoder;
 } 
 
 float Shooter::Rot2Deg(float rot)
 {
-   return (rot * DEG_PER_ROT) + m_startingPivotAngle;
+   return ( (rot - m_startingPivotEncoder) * DEG_PER_ROT) + m_startingPivotAngle;
 }
 
 float Shooter::Pot2Deg(void)
@@ -172,10 +172,21 @@ void Shooter:: SetPivotEncoderCal(void)
 {
    //Cal Pivot encoder from Pot value
    std::cout << "Pivot Pot Cal = " << Pot2Deg() << std::endl;
-   m_startingPivotAngle = Pot2Deg();
 
-   //m_shooterPivotEncoder.SetPosition(0);
 
+   //Store known starting angle (from POT voltage) -and- starting SparkMax encoder value
+   //  Aligning these values allows us to use pid encoder to control pivot angle
+   //   Note: For some reson, SparkMax will not reset encoder value, so we need to store.
+   m_startingPivotAngle   = Pot2Deg();
+   m_startingPivotEncoder = GetPivotEncoder();
+
+}
+
+bool Shooter::CheckPotVsRotAngle(void)
+{
+   //Compare pot to Encoder pivot angle and return if out of spec
+   const float maxDelta = 1.0;
+   return   fabs( Rot2Deg(GetPivotEncoder()) - Pot2Deg() ) <= maxDelta;
 }
 
 
@@ -279,19 +290,18 @@ bool Shooter::GetFeederPhotoeye(void)
 void Shooter::Periodic() 
 {
    frc::SmartDashboard::PutBoolean ("FEEDER PHOTOEYE DETECT", GetFeederPhotoeye());
-
+    frc::SmartDashboard::PutBoolean ("Pivot Bot Sw", GetPivotBotLimit() );
+  
    // frc::SmartDashboard::PutBoolean ("FEEDER TOF DETECT", GetFeederTOFDetect());
    // frc::SmartDashboard::PutNumber  ("FEEDER TOF RANGE", GetFeederTOFRange());
 
-   frc::SmartDashboard::PutNumber  ("Pivot Encoder", GetPivotEncoder());
+   // frc::SmartDashboard::PutNumber  ("Pivot Encoder", GetPivotEncoder());
    frc::SmartDashboard::PutNumber  ("Pivot Angle  ", Rot2Deg( GetPivotEncoder() ) );
-   frc::SmartDashboard::PutBoolean ("Pivot Bot Sw", GetPivotBotLimit() );
-
 
    frc::SmartDashboard::PutNumber  ("Pivot Angle Pot V", m_pivotAnglePot.GetValue() );
    frc::SmartDashboard::PutNumber  ("Pivot Angle Pot Deg", Pot2Deg() );
-   frc::SmartDashboard::PutNumber  ("Pivot Angle Start Deg", m_startingPivotAngle );
+   // frc::SmartDashboard::PutNumber  ("Pivot Angle Start Deg", m_startingPivotAngle   );
+   // frc::SmartDashboard::PutNumber  ("Pivot Angle Start Enc", m_startingPivotEncoder );
 
-
-
+   frc::SmartDashboard::PutBoolean ("Pivot PotVsEnc", CheckPotVsRotAngle() );
 }

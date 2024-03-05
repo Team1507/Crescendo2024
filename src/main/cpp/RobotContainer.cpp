@@ -26,6 +26,7 @@
 #include "commands/CmdAmperatusDefault.h"
 #include "commands/CmdAmpTrapDeploy.h"
 #include "commands/CmdAmpTrapRetract.h"
+#include "commands/CmdDriverDPad.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
@@ -116,10 +117,11 @@ void RobotContainer::ConfigureBindings()
   m_botDriver_BButton.OnTrue(new CmdDriveForcePark()); 
 
 
-  // m_botDriver_POVup.OnTrue(    new CmdShooterSetAngle(0) );
-  // m_botDriver_POVdown.OnTrue(  new CmdShooterSetAngle(0) );
-  // m_botDriver_POVleft.OnTrue(  new CmdShooterSetAngle(0) );
-  // m_botDriver_POVright.OnTrue( new CmdShooterSetAngle(0) );
+  m_botDriver_POVup.OnTrue(    new CmdDriverDPad( DPAD_UP   ) );
+  m_botDriver_POVdown.OnTrue(  new CmdDriverDPad( DPAD_DOWN ) );
+  m_botDriver_POVleft.OnTrue(  new CmdDriverDPad( DPAD_LEFT ) );
+  m_botDriver_POVright.OnTrue( new CmdDriverDPad( DPAD_RIGHT) );
+
 
 }
 

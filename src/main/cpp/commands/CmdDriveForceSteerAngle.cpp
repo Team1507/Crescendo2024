@@ -16,10 +16,12 @@ void CmdDriveForceSteerAngle::Initialize()
   m_timer.Reset();
   m_timer.Start();
 
-  robotContainer.m_drivetrain.ForceSteerAngle(m_angle);
 }
 
-void CmdDriveForceSteerAngle::Execute() {}
+void CmdDriveForceSteerAngle::Execute() 
+{
+  robotContainer.m_drivetrain.ForceSteerAngle(m_angle);
+}
 
 void CmdDriveForceSteerAngle::End(bool interrupted) 
 {
@@ -29,7 +31,7 @@ void CmdDriveForceSteerAngle::End(bool interrupted)
 bool CmdDriveForceSteerAngle::IsFinished() 
 {
 
-  if ( m_timer.HasElapsed( units::second_t( 2.0 )  ) )
+  if ( m_timer.HasElapsed( units::second_t( 1.0 )  ) )
   {
     m_timer.Stop();
     return true;
