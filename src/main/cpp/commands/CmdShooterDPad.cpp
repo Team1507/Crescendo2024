@@ -4,7 +4,6 @@
 //*********NON-MODE SHIFT CONSTANTS*********
 
 #define IDLE_POWER    0.1
-#define IDLE_ANGLE    52
 
 #define SPEAKER_POWER 0.8
 #define SPEAKER_ANGLE 52
@@ -19,9 +18,7 @@
 
 #define AMP_ANGLE     25
 
-#define TRAP_ANGLE    20
-
-#define SOURCE_ANGLE  46
+#define SOURCE_ANGLE  36
 
 CmdShooterDPad::CmdShooterDPad(dPadPosition position) 
 {
@@ -43,6 +40,7 @@ void CmdShooterDPad::Initialize()
         std::cout<< "DPAD UP A" << std::endl;
         robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
         robotContainer.m_shooter.SetPivotAngle(AMP_ANGLE);
+        robotContainer.m_driverfeedback.BlinkLED(COLOR_YELLOW);
       }    
       else
       {
@@ -60,13 +58,14 @@ void CmdShooterDPad::Initialize()
       {
         std::cout<< "DPAD DOWN A" << std::endl;
         robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
-        robotContainer.m_shooter.SetPivotAngle(TRAP_ANGLE);
+        robotContainer.m_shooter.SetPivotAngle(SOURCE_ANGLE);
+        robotContainer.m_driverfeedback.BlinkLED(COLOR_TEAL);
       }
       else
       {
         std::cout<< "DPAD DOWN" << std::endl;
         robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
-        robotContainer.m_shooter.SetPivotAngle(IDLE_ANGLE);
+        robotContainer.m_driverfeedback.BlinkLED(COLOR_PURPLE);
       }
 
       break;
@@ -80,8 +79,8 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD LEFT" << std::endl;
-        robotContainer.m_shooter.SetShooterPower(PODIUM_POWER);
-        robotContainer.m_shooter.SetPivotAngle(PODIUM_ANGLE);
+        robotContainer.m_shooter.SetShooterPower(GENERAL_POWER);
+        robotContainer.m_shooter.SetPivotAngle(GENERAL_ANGLE);
       }
       break;
 
@@ -89,14 +88,13 @@ void CmdShooterDPad::Initialize()
     case DPAD_RIGHT:
       if(robotContainer.m_topDriver.GetAButton())
       {
-        std::cout<< "DPAD right A" << std::endl;
-        robotContainer.m_shooter.SetPivotAngle(SOURCE_ANGLE);
+        std::cout<< "DPAD RIGHT A" << std::endl;
       }
       else
       {
-        std::cout<< "DPAD RIght" << std::endl;
-        robotContainer.m_shooter.SetShooterPower(GENERAL_POWER);
-        robotContainer.m_shooter.SetPivotAngle(GENERAL_ANGLE);
+        std::cout<< "DPAD RIGHT" << std::endl;
+        robotContainer.m_shooter.SetShooterPower(PODIUM_POWER);
+        robotContainer.m_shooter.SetPivotAngle(PODIUM_ANGLE);
       }
       break;
 

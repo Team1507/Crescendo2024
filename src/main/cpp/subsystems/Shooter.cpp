@@ -55,7 +55,7 @@ void Shooter::ShooterInit()
    m_shooterPivotPID.SetP(2.0);   // .1 rotation = .2 power 
    m_shooterPivotPID.SetI(0.0);
    m_shooterPivotPID.SetD(0.0);
-   m_shooterPivotPID.SetOutputRange(-0.5, 0.5 ,0);
+   m_shooterPivotPID.SetOutputRange(-0.6, 0.6 ,0);
    m_shooterPivotPID.SetFeedbackDevice(m_shooterPivotEncoder);
 
    m_shooterLower.SetClosedLoopRampRate(0.0);
@@ -304,4 +304,10 @@ void Shooter::Periodic()
    // frc::SmartDashboard::PutNumber  ("Pivot Angle Start Enc", m_startingPivotEncoder );
 
    frc::SmartDashboard::PutBoolean ("Pivot PotVsEnc", CheckPotVsRotAngle() );
+
+   frc::SmartDashboard::PutNumber  ("Upper Motor Temp", m_shooterUpper.GetMotorTemperature() );
+   frc::SmartDashboard::PutNumber  ("Lower Motor Temp", m_shooterLower.GetMotorTemperature() );
+
+
+   
 }

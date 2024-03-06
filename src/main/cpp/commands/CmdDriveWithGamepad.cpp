@@ -42,10 +42,10 @@ void CmdDriveWithGamepad::Execute()
   const float rMaxVelocity  = 13000; //
 
 
-  const float xyScaleValue  = 0.5;
-  const float rScaleValue   = 0.5;  
+  const float xyScaleValue  = 0.9;
+  const float rScaleValue   = 0.9;  
 
-  const float DEADBAND  = 0.20;
+  const float DEADBAND  = 0.10;
 
   // //Square Inputs???
   // leftY  = ( leftY  < 0 ) ? -pow(  leftY,  2) : pow(  leftY,  2);

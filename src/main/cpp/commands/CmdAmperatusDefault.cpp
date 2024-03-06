@@ -4,7 +4,7 @@
 
 #define MANUAL_DEADBAND 0.8
 
-#define AMP_SLOW_POWER 0.1
+#define AMP_SLOW_POWER 0.3
 
 CmdAmperatusDefault::CmdAmperatusDefault() 
 {
