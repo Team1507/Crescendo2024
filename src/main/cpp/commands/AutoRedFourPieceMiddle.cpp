@@ -1,4 +1,4 @@
-#include "commands/AutoTwoPieceMiddle.h"
+#include "commands/AutoRedFourPieceMiddle.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <---- Drive train
 #include "commands/CmdShooterSetAngle.h"
@@ -11,16 +11,14 @@
 #include "commands/CmdWaitShooterSpeed.h"
 #include "commands/CmdDriveClearAll.h"
 #include <frc2/command/WaitCommand.h>
+AutoRedFourPieceMiddle::AutoRedFourPieceMiddle() 
+{
 
-AutoTwoPieceMiddle::AutoTwoPieceMiddle() 
- {
   AddCommands(
-    
-    
-    CmdPrintText("Auto Two Piece Middle Started"), 
+    CmdPrintText("Auto Four Piece Red Middle Started"), 
     CmdDriveClearAll(),
     //Shooting Starting Note
-    // CmdShooterSetAngle(52),
+    CmdShooterSetAngle(50),
     CmdShooterSetPower(0.8),
     CmdWaitShooterSpeed(),
     CmdShooterShootNote(),
@@ -33,8 +31,40 @@ AutoTwoPieceMiddle::AutoTwoPieceMiddle()
     //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(36),
+  
+  
+    //Go To Third Note
+    CmdIntakeDeploy(),
+    CmdDriveToPoint(50, 40, 25, 5000, false, 10),
+
+    CmdDriveToPoint(50, 55, 20, 2000, true, 10),
+
+    // CmdDriveToPoint(30, -5, 25, 4000, true, 10),  
+
+    //Wait just a hair to let intake to come up
+    //frc2::WaitCommand(2.00_s),
+
+    CmdShooterShootNote(),
+
+
+    //Go get 4th note!
+    CmdDriveToPoint(70, 176, 0, 12000, false, 10),
+    CmdIntakeDeploy(),
+    CmdDriveToPoint(74, 225, 0, 6000, true, 10),
+
+
+   //Drive to score fourth
+   CmdShooterSetPower(0.85),
+   CmdDriveToPoint(12, 70, 0, 12000, true, 10),
+   CmdShooterShootNote(),
+ 
+
+
+
     CmdShooterSetPower(0),
     CmdDriveStop(),
-    CmdPrintText("Auto Two Piece Middle Completed")
+    CmdPrintText("Auto Four Piece Red Middle Completed")
   );
+
 }

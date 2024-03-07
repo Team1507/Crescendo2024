@@ -30,11 +30,8 @@
 
 //Autos
 #include "commands/AutoDoNothing.h"
-#include "commands/AutoTwoPieceBlueOne.h"
-#include "commands/AutoTwoPieceRedOne.h"
-#include "commands/AutoTwoPieceMiddle.h"
 #include "commands/AutoThreePieceMiddle.h"
-
+#include "commands/AutoRedFourPieceMiddle.h"
 
 
 
@@ -67,22 +64,19 @@ RobotContainer::RobotContainer()
   //*************************************Auto**********************************************
 
   m_chooser.AddOption("Auto Do Nothing",           new AutoDoNothing() );
-
-  //Blue Autos
-  m_chooser.AddOption("Blue-AutoTwoPieceBlueOne",  new AutoTwoPieceBlueOne() );
-
-  //Red Autos
-  m_chooser.AddOption("Red-AutoTwoPieceRedOne",    new AutoTwoPieceRedOne() );
-
-  m_chooser.AddOption("Two Piece Middle",          new AutoTwoPieceMiddle());
-
-  m_chooser.AddOption("Debug Test Auto",           new GrpTest1()           );
-
-  m_chooser.AddOption("Three Piece Middle",        new AutoThreePieceMiddle());
-
+  
   m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
 
   frc::SmartDashboard::PutData("Auto Mode", &m_chooser);
+  
+  //Red Autos
+  m_chooser.AddOption("Four Piece Red Middle",     new AutoRedFourPieceMiddle());
+
+  m_chooser.AddOption("Three Piece Middle",        new AutoThreePieceMiddle());
+
+  //Blue Autos
+
+  
 
   ConfigureBindings();
 }

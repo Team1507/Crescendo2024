@@ -51,21 +51,6 @@ AutoThreePieceMiddle::AutoThreePieceMiddle() {
 
     CmdShooterShootNote(),
 
-
-    //Go get 4th note!
-    CmdDriveToPoint(70, 176, 0, 12000, false, 10),
-    CmdIntakeDeploy(),
-    CmdDriveToPoint(74, 225, 0, 6000, true, 10),
-
-
-   //Drive to score fourth
-   CmdShooterSetPower(0.85),
-   CmdDriveToPoint(12, 70, 0, 12000, true, 10),
-   CmdShooterShootNote(),
- 
-
-
-
     CmdShooterSetPower(0),
     CmdDriveStop(),
     CmdPrintText("Auto Three Piece Middle Completed")
