@@ -2,14 +2,14 @@
 #include <iostream>
 #include "Robot.h"
 
-CmdAmpSetPower::CmdAmpSetPower() 
+CmdAmpSetPower::CmdAmpSetPower(double power) 
 {
-
+  m_power = power;
 }
 
 void CmdAmpSetPower::Initialize() 
 {
-  robotContainer.m_amperatus.SetAmpPower(0.0);
+  robotContainer.m_amperatus.SetAmpPower(m_power);
   std::cout << "Amperatus Power Set" << std::endl;
 }
 

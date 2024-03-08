@@ -27,6 +27,7 @@
 #include "commands/CmdAmpTrapDeploy.h"
 #include "commands/CmdAmpTrapRetract.h"
 #include "commands/CmdDriverDPad.h"
+#include "commands/CmdAmpSetPower.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
@@ -94,8 +95,7 @@ void RobotContainer::ConfigureBindings()
 
    m_topDriver_BButton.WhileTrue(new CmdAmpEject(0)); //amp eject
 
-   m_topDriver_LeftBumper.OnTrue(new CmdAmpSetAngle()); //amp up
-   m_topDriver_LeftBumper.OnFalse(new CmdAmpSetAngle()); //amp down
+   m_topDriver_LeftBumper.WhileTrue(new CmdAmpSetPower(0.3)); //amp up
 
   m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
 

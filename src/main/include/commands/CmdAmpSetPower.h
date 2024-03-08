@@ -17,7 +17,7 @@
 class CmdAmpSetPower
     : public frc2::CommandHelper<frc2::Command, CmdAmpSetPower> {
  public:
-  CmdAmpSetPower();
+  CmdAmpSetPower(double power);
 
   void Initialize() override;
 
@@ -26,4 +26,7 @@ class CmdAmpSetPower
   void End(bool interrupted) override;
 
   bool IsFinished() override;
+
+ private:
+  double m_power;
 };
