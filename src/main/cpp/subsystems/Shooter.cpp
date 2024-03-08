@@ -279,13 +279,13 @@ double Shooter::GetFeederIntakePower(void)
 
 bool Shooter::GetFeederPhotoeye(void)
 {
-  return !m_forwardLimit.Get();
+  return m_feederPhotoeye.Get();
 }
 
-bool Shooter::GetFeederPhotoeye2(void)
-{
-   return m_feederPhotoeye.Get();
-}
+// bool Shooter::GetFeederPhotoeye2(void)
+// {
+//    return m_feederPhotoeye.Get();
+// }
 
 
 
@@ -293,7 +293,7 @@ bool Shooter::GetFeederPhotoeye2(void)
 void Shooter::Periodic() 
 {
    frc::SmartDashboard::PutBoolean ("FEEDER PHOTOEYE DETECT", GetFeederPhotoeye());
-   frc::SmartDashboard::PutBoolean ("***FEEDER PHOTOEYE 2***", GetFeederPhotoeye2());
+   // frc::SmartDashboard::PutBoolean ("***FEEDER PHOTOEYE 2***", GetFeederPhotoeye2());
    frc::SmartDashboard::PutBoolean ("Pivot Bot Sw", GetPivotBotLimit() );
   
    // frc::SmartDashboard::PutBoolean ("FEEDER TOF DETECT", GetFeederTOFDetect());
