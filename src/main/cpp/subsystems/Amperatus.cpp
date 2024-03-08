@@ -62,10 +62,10 @@ void   Amperatus::AmpTrapRetract(void)
     m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
 }
 
-// double Amperatus::GetAmpAngle(void)
-// {
-//     return m_ampEncoder.GetPosition();
-// }
+double Amperatus::GetAmpAngle(void)
+{
+    return m_ampEncoder.GetPosition();
+}
 
 double Amperatus::GetAmpRollerPower(void)
 {
