@@ -27,16 +27,14 @@ shooterTable_t shooterTable[] =
 
 Shooter::Shooter()
 {
-
-}
-
-void Shooter::ShooterInit()
-{
    m_shooterPivot.RestoreFactoryDefaults();
    m_shooterUpper.RestoreFactoryDefaults();
    m_shooterLower.RestoreFactoryDefaults();
    m_feederMotor. RestoreFactoryDefaults();
+}
 
+void Shooter::ShooterInit()
+{
    m_feederMotor.SetInverted(true);
    m_feederMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
    m_forwardLimit.EnableLimitSwitch(false);

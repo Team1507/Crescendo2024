@@ -32,6 +32,7 @@
 #include "commands/AutoDoNothing.h"
 #include "commands/AutoThreePieceMiddle.h"
 #include "commands/AutoRedFourPieceMiddle.h"
+#include "commands/AutoRedThreePieceRight.h"
 
 
 
@@ -74,6 +75,7 @@ RobotContainer::RobotContainer()
 
   m_chooser.AddOption("Three Piece Middle",        new AutoThreePieceMiddle());
 
+  m_chooser.AddOption("Three Piece Right Red", new AutoRedThreePieceRight);
   //Blue Autos
 
   
