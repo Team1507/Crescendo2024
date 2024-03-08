@@ -51,7 +51,7 @@ AutoRedFourPieceMiddle::AutoRedFourPieceMiddle()
     //Go get 4th note!
     CmdDriveToPoint(70, 176, 0, 12000, false, 10),
     CmdIntakeDeploy(),
-    CmdDriveToPoint(74, 225, 0, 6000, true, 10),
+    CmdDriveToPoint(74, 249, 0, 6000, true, 10),
 
 
    //Drive to score fourth

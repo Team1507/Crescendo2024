@@ -1,6 +1,5 @@
 #include "commands/AutoRedThreePieceRight.h"
 #include "commands/CmdPrintText.h"
-//#include "subsystems/Subway.h" <---- Drive train
 #include "commands/CmdShooterSetAngle.h"
 #include "commands/CmdShooterSetPower.h"
 #include "commands/CmdIntakeDeploy.h"
@@ -40,7 +39,7 @@ AutoRedThreePieceRight::AutoRedThreePieceRight()
     // Drive Back Home
     CmdDriveToPoint(-105, 145, 0, 8000, false, 10),
     CmdIntakeRetract(),
-    // CmdShooterSetAngle(33),
+    CmdShooterSetAngle(40),
     CmdDriveToPoint(-30, 43, -50, 10000, false, 10),
     CmdDriveToPoint(0, 0, -50, 5000, true, 10),
     CmdShooterShootNote(),

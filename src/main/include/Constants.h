@@ -44,6 +44,7 @@
 //Digital I/O
 // #define AMP_UPPER_LIMIT 0
 // #define AMP_LOWER_LIMIT 0
+#define FEEDER_PHOTO_EYE 9
 
 #define CLIMBER_LIMIT_TOP    0
 #define CLIMBER_LIMIT_BOTTOM 1

@@ -32,6 +32,8 @@
 #include "commands/AutoDoNothing.h"
 #include "commands/AutoRedFourPieceMiddle.h"
 #include "commands/AutoRedThreePieceRight.h"
+#include "commands/AutoRedFourPieceRight.h"
+#include "commands/AutoJustShoot.h"
 
 
 
@@ -64,6 +66,8 @@ RobotContainer::RobotContainer()
   //*************************************Auto**********************************************
 
   m_chooser.AddOption("Auto Do Nothing",           new AutoDoNothing() );
+
+  m_chooser.AddOption("Auto Just Shoot",           new AutoJustShoot());
   
   m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
 
@@ -73,7 +77,10 @@ RobotContainer::RobotContainer()
   m_chooser.AddOption("Four Piece Red Middle",     new AutoRedFourPieceMiddle());
 
 
-  m_chooser.AddOption("Three Piece Right Red", new AutoRedThreePieceRight);
+  m_chooser.AddOption("Three Piece Right Red",     new AutoRedThreePieceRight);
+
+  m_chooser.AddOption("Four Piece Right Red",      new AutoRedFourPieceRight());
+
   //Blue Autos
 
   
