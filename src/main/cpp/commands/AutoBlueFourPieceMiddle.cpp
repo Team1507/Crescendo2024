@@ -1,5 +1,4 @@
-
-
+#include "commands/AutoBlueFourPieceMiddle.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <---- Drive train
 #include "commands/CmdShooterSetAngle.h"
@@ -12,26 +11,28 @@
 #include "commands/CmdWaitShooterSpeed.h"
 #include "commands/CmdDriveClearAll.h"
 #include <frc2/command/WaitCommand.h>
-#include "commands/AutoThreePieceMiddle.h"
-#include "frc2/command/WaitCommand.h"
-
-
-AutoThreePieceMiddle::AutoThreePieceMiddle() {
+AutoBlueFourPieceMiddle::AutoBlueFourPieceMiddle() 
+{
 
   AddCommands(
-        CmdPrintText("Auto Three Piece Middle Started"), 
+    CmdPrintText("Auto Four Piece Blue Middle Started"), 
     CmdDriveClearAll(),
+
     //Shooting Starting Note
     CmdShooterSetAngle(50),
     CmdShooterSetPower(0.8),
     CmdWaitShooterSpeed(),
     CmdShooterShootNote(),
+
     //Deploying Intake to pick up second note
     CmdIntakeDeploy(),
+
     //drive to note
     CmdDriveToPoint(0, 37, 0, 4000, true, 10),
+
     //Driving To Speaker
     CmdDriveToPoint(0, 0, 0, 4000, true, 10),
+
     //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
@@ -40,9 +41,9 @@ AutoThreePieceMiddle::AutoThreePieceMiddle() {
   
     //Go To Third Note
     CmdIntakeDeploy(),
-    CmdDriveToPoint(50, 40, 25, 5000, false, 10),
+    CmdDriveToPoint(-50, 40, -25, 5000, false, 10),
 
-    CmdDriveToPoint(50, 55, 20, 2000, true, 10),
+    CmdDriveToPoint(-50, 55, -20, 2000, true, 10),
 
     // CmdDriveToPoint(30, -5, 25, 4000, true, 10),  
 
@@ -51,8 +52,21 @@ AutoThreePieceMiddle::AutoThreePieceMiddle() {
 
     CmdShooterShootNote(),
 
+
+    //Go get 4th note!
+    CmdDriveToPoint(-70, 176, 0, 12000, false, 10),
+    CmdIntakeDeploy(),
+    CmdDriveToPoint(-74, 225, 0, 6000, true, 10),
+
+
+    //Drive to score fourth
+    CmdShooterSetPower(0.85),
+    CmdDriveToPoint(-12, 70, 0, 12000, true, 10),
+    CmdShooterShootNote(),
+
     CmdShooterSetPower(0),
     CmdDriveStop(),
-    CmdPrintText("Auto Three Piece Middle Completed")
+    CmdPrintText("Auto Four Piece Blue Middle Completed")
   );
+
 }
