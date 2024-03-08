@@ -40,8 +40,9 @@ AutoRedThreePieceRight::AutoRedThreePieceRight()
     // Drive Back Home
     CmdDriveToPoint(-105, 145, 0, 8000, false, 10),
     CmdIntakeRetract(),
-    CmdShooterSetAngle(33),
-    CmdDriveToPoint(-30, 43, -50, 10000, true, 10),
+    // CmdShooterSetAngle(33),
+    CmdDriveToPoint(-30, 43, -50, 10000, false, 10),
+    CmdDriveToPoint(0, 0, -50, 5000, true, 10),
     CmdShooterShootNote(),
 
     CmdShooterSetPower(0),

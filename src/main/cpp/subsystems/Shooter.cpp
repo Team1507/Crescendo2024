@@ -282,13 +282,19 @@ bool Shooter::GetFeederPhotoeye(void)
   return !m_forwardLimit.Get();
 }
 
+bool Shooter::GetFeederPhotoeye2(void)
+{
+   return m_feederPhotoeye.Get();
+}
+
 
 
 // This method will be called once per scheduler run
 void Shooter::Periodic() 
 {
    frc::SmartDashboard::PutBoolean ("FEEDER PHOTOEYE DETECT", GetFeederPhotoeye());
-    frc::SmartDashboard::PutBoolean ("Pivot Bot Sw", GetPivotBotLimit() );
+   frc::SmartDashboard::PutBoolean ("***FEEDER PHOTOEYE 2***", GetFeederPhotoeye2());
+   frc::SmartDashboard::PutBoolean ("Pivot Bot Sw", GetPivotBotLimit() );
   
    // frc::SmartDashboard::PutBoolean ("FEEDER TOF DETECT", GetFeederTOFDetect());
    // frc::SmartDashboard::PutNumber  ("FEEDER TOF RANGE", GetFeederTOFRange());
