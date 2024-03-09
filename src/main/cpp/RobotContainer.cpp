@@ -27,6 +27,7 @@
 #include "commands/CmdAmpTrapDeploy.h"
 #include "commands/CmdAmpTrapRetract.h"
 #include "commands/CmdDriverDPad.h"
+#include "commands/CmdShooterSetAngle.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
@@ -37,7 +38,7 @@
 #include "commands/AutoJustShoot.h"
 #include "commands/AutoBlueFourPieceMiddle.h"
 #include "commands/AutoBlueThreePieceMiddle.h"
-#include "commands/AutoBlueThreePieceRight.h"
+#include "commands/AutoBlueThreePieceLeft.h"
 #include "commands/AutoBlueFourPieceLeft.h"
 
 
@@ -56,8 +57,10 @@ RobotContainer::RobotContainer()
   frc::SmartDashboard::PutData( "CmdDriveClearAll",      new CmdDriveClearAll());
   frc::SmartDashboard::PutData( "GrpTest1",              new GrpTest1());
   frc::SmartDashboard::PutData( "GrpTest2",              new GrpTest2());
-  frc::SmartDashboard::PutData( "AmpTrapDeploy",         new CmdAmpTrapDeploy());
-  frc::SmartDashboard::PutData( "AmpTrapRetract",        new CmdAmpTrapRetract());
+  // frc::SmartDashboard::PutData( "AmpTrapDeploy",         new CmdAmpTrapDeploy());
+  // frc::SmartDashboard::PutData( "AmpTrapRetract",        new CmdAmpTrapRetract());
+  frc::SmartDashboard::PutData( "SetStartAngle",         new CmdShooterSetAngle(45.0));
+
 
 
   //Smartdashboard SwerveDrive test/calibration buttons
@@ -94,7 +97,7 @@ RobotContainer::RobotContainer()
 
   m_chooser.AddOption("Blue Four Piece Left",      new AutoBlueFourPieceLeft());
 
-  m_chooser.AddOption("Blue Four Piece Right",     new AutoBlueThreePieceRight());
+  m_chooser.AddOption("Blue Three Piece Left",     new AutoBlueThreePieceLeft());
 
   ConfigureBindings();
 }

@@ -64,6 +64,7 @@ void DriverFeedback::Periodic()
         m_pulseCount--;
         if(m_pulseCount == 0 )
             FeedbackLED(COLOR_BLACK);
+        return;
     }
 
     //--Blink--
@@ -78,15 +79,7 @@ void DriverFeedback::Periodic()
         m_blink_count = 0;
 
 
-    //--LED Logic--
-
-    if( robotContainer.m_intake.IntakeIsDeployed() )
-    {
-        FeedbackLED(COLOR_RED);
-        m_blink_count=0;
-        m_blinkEnable=false;
-    }
-
+    //--Pulse--
     bool currFeederNote = robotContainer.m_shooter.GetFeederPhotoeye();
 
     if( currFeederNote != m_prevFeederNote )
@@ -98,6 +91,38 @@ void DriverFeedback::Periodic()
         }
         m_prevFeederNote = currFeederNote;
     }
+
+
+
+    //--LED Logic--
+
+    if( robotContainer.m_intake.IntakeIsDeployed() )
+    {
+        FeedbackLED(COLOR_RED);
+        m_blink_count=0;
+        m_blinkEnable=false;
+    }
+    else
+    if( robotContainer.m_photonvision.IsTargetValid() && fabs( robotContainer.m_photonvision.GetTargetYaw() ) < 1.5 )
+    {
+        FeedbackLED(COLOR_GREEN);
+    }
+    else
+    if( robotContainer.m_photonvision.IsTargetValid() )
+    {
+        FeedbackLED(COLOR_YELLOW);
+    }
+    else
+    {
+        //Turn LED OFF
+        if( !m_blinkEnable )
+            FeedbackLED(COLOR_BLACK);
+    }
+
+
+
+
+
 
     
 
