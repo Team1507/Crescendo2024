@@ -33,7 +33,12 @@
 #include "commands/AutoRedFourPieceMiddle.h"
 #include "commands/AutoRedThreePieceRight.h"
 #include "commands/AutoRedFourPieceRight.h"
+#include "commands/AutoRedThreePieceMiddle.h"
 #include "commands/AutoJustShoot.h"
+#include "commands/AutoBlueFourPieceMiddle.h"
+#include "commands/AutoBlueThreePieceMiddle.h"
+#include "commands/AutoBlueThreePieceRight.h"
+#include "commands/AutoBlueFourPieceLeft.h"
 
 
 
@@ -74,16 +79,22 @@ RobotContainer::RobotContainer()
   frc::SmartDashboard::PutData("Auto Mode", &m_chooser);
   
   //Red Autos
-  m_chooser.AddOption("Four Piece Red Middle",     new AutoRedFourPieceMiddle());
+  m_chooser.AddOption("Red Four Piece Middle",     new AutoRedFourPieceMiddle());
 
+  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceRight);
 
-  m_chooser.AddOption("Three Piece Right Red",     new AutoRedThreePieceRight);
+  m_chooser.AddOption("Red Four Piece Right",      new AutoRedFourPieceRight());
 
-  m_chooser.AddOption("Four Piece Right Red",      new AutoRedFourPieceRight());
+  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle); 
 
   //Blue Autos
-
+  m_chooser.AddOption("Blue Four Piece Middle",    new AutoBlueFourPieceMiddle());
   
+  m_chooser.AddOption("Blue Three Piece Middle",   new AutoBlueThreePieceMiddle);
+
+  m_chooser.AddOption("Blue Four Piece Left",      new AutoBlueFourPieceLeft());
+
+  m_chooser.AddOption("Blue Four Piece Right",     new AutoBlueThreePieceRight());
 
   ConfigureBindings();
 }

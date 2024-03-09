@@ -11,6 +11,7 @@
 #include "commands/CmdWaitShooterSpeed.h"
 #include "commands/CmdDriveClearAll.h"
 #include <frc2/command/WaitCommand.h>
+
 AutoBlueFourPieceMiddle::AutoBlueFourPieceMiddle() 
 {
 
@@ -36,14 +37,14 @@ AutoBlueFourPieceMiddle::AutoBlueFourPieceMiddle()
     //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
-    CmdShooterSetAngle(36),
+    CmdShooterSetAngle(34),
   
   
     //Go To Third Note
     CmdIntakeDeploy(),
-    CmdDriveToPoint(-50, 40, -25, 5000, false, 10),
+    CmdDriveToPoint(-57, 40, -25, 5000, false, 10),
 
-    CmdDriveToPoint(-50, 55, -20, 2000, true, 10),
+    CmdDriveToPoint(-57, 55, -30, 2000, true, 10),
 
     // CmdDriveToPoint(30, -5, 25, 4000, true, 10),  
 
@@ -51,18 +52,20 @@ AutoBlueFourPieceMiddle::AutoBlueFourPieceMiddle()
     //frc2::WaitCommand(2.00_s),
 
     CmdShooterShootNote(),
-
-
+    CmdIntakeRetract(),
+    CmdShooterSetAngle(36),
+    
     //Go get 4th note!
     CmdDriveToPoint(-70, 176, 0, 12000, false, 10),
     CmdIntakeDeploy(),
-    CmdDriveToPoint(-74, 225, 0, 6000, true, 10),
+    CmdDriveToPoint(-74, 249, 0, 6000, true, 10),
 
 
     //Drive to score fourth
     CmdShooterSetPower(0.85),
     CmdDriveToPoint(-12, 70, 0, 12000, true, 10),
     CmdShooterShootNote(),
+    CmdIntakeRetract(),
 
     CmdShooterSetPower(0),
     CmdDriveStop(),
