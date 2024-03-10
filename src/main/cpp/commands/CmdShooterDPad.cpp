@@ -16,7 +16,7 @@
 
 //**************MODE SHIFT CONSTANTS*************
 
-#define AMP_ANGLE     25
+#define AMP_ANGLE     23
 
 #define SOURCE_ANGLE  36
 

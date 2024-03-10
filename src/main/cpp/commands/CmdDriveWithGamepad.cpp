@@ -98,7 +98,7 @@ void CmdDriveWithGamepad::Execute()
   if( rightTrigger > 0.9 )
   {
     float delta_angle = robotContainer.m_photonvision.GetTargetYaw();
-    float turn_Velocity = delta_angle * 300.0;
+    float turn_Velocity = delta_angle * 200.0;
 
     if( turn_Velocity >  2000.0 ) turn_Velocity =  2000.0;
     if( turn_Velocity < -2000.0 ) turn_Velocity = -2000.0;
