@@ -1,5 +1,4 @@
-
-
+#include "commands/AutoRedFourPieceMiddle.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <---- Drive train
 #include "commands/CmdShooterSetAngle.h"
@@ -12,16 +11,14 @@
 #include "commands/CmdWaitShooterSpeed.h"
 #include "commands/CmdDriveClearAll.h"
 #include <frc2/command/WaitCommand.h>
-#include "commands/AutoThreePieceMiddle.h"
-
-
-AutoThreePieceMiddle::AutoThreePieceMiddle() {
+AutoRedFourPieceMiddle::AutoRedFourPieceMiddle() 
+{
 
   AddCommands(
-        CmdPrintText("Auto Three Piece Middle Started"), 
+    CmdPrintText("Auto Four Piece Red Middle Started"), 
     CmdDriveClearAll(),
     //Shooting Starting Note
-    // CmdShooterSetAngle(52),
+    CmdShooterSetAngle(50),
     CmdShooterSetPower(0.8),
     CmdWaitShooterSpeed(),
     CmdShooterShootNote(),
@@ -34,11 +31,20 @@ AutoThreePieceMiddle::AutoThreePieceMiddle() {
     //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
+    CmdShooterSetAngle(36),
+  
   
     //Go To Third Note
     CmdIntakeDeploy(),
-    CmdDriveToPoint(57, 37, 25, 2000, true, 10),
-    CmdDriveToPoint(30, -5, 25, 2000, true, 10),  
+    CmdDriveToPoint(50, 40, 25, 5000, false, 10),
+
+    CmdDriveToPoint(50, 55, 20, 2000, true, 10),
+
+    // CmdDriveToPoint(30, -5, 25, 4000, true, 10),  
+
+    //Wait just a hair to let intake to come up
+    //frc2::WaitCommand(2.00_s),
+
     CmdShooterShootNote(),
 
 

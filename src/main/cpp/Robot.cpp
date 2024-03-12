@@ -45,6 +45,8 @@ void Robot::DisabledInit()
 
     CheckAlliance();
 
+    robotContainer.m_shooter.SetShooterPower(0);   //Turn off shooter when Disabled (Auto->Teleop)
+
 }
 
 void Robot::DisabledPeriodic() {}
@@ -133,12 +135,15 @@ void CheckAlliance( void )
   {
     std::cout << "RED Alliance" << std::endl;
     robotContainer.m_driverfeedback.FeedbackLED( COLOR_RED );
+    robotContainer.m_photonvision.SetTargetId(4);   //Red=4
 
   }
   else if(frc::DriverStation::GetAlliance() == frc::DriverStation::kBlue)
   {
     std::cout << "BLUE Alliance" << std::endl;
     robotContainer.m_driverfeedback.FeedbackLED( COLOR_BLUE );
+    robotContainer.m_photonvision.SetTargetId(7);   //Blue=7
+
   }
   else
   {

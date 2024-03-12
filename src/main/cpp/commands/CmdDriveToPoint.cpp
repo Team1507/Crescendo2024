@@ -73,7 +73,7 @@ void CmdDriveToPoint::Execute()
   //Min turn power is 0.0625.
   //  Set Kp to reach min turn power at 2 deg error  (Kp = min/error = 0.0625/2  )
   float const TURN_MAX_VELOCITY = 5300;   // .25 power
-  float const TURN_Kp           = 300 ;   //0.0175;
+  float const TURN_Kp           = 225 ;   //0.0175;    //was 300 with turn overshoot, make 225
 
   float delta_angle   = m_finalH - robotContainer.m_drivetrain.GetGyroAngle();
 

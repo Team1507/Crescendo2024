@@ -27,6 +27,7 @@
 #include "commands/CmdAmpTrapDeploy.h"
 #include "commands/CmdAmpTrapRetract.h"
 #include "commands/CmdDriverDPad.h"
+#include "commands/CmdShooterSetAngle.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
@@ -56,8 +57,10 @@ RobotContainer::RobotContainer()
   frc::SmartDashboard::PutData( "CmdDriveClearAll",      new CmdDriveClearAll());
   frc::SmartDashboard::PutData( "GrpTest1",              new GrpTest1());
   frc::SmartDashboard::PutData( "GrpTest2",              new GrpTest2());
-  frc::SmartDashboard::PutData( "AmpTrapDeploy",         new CmdAmpTrapDeploy());
-  frc::SmartDashboard::PutData( "AmpTrapRetract",        new CmdAmpTrapRetract());
+  // frc::SmartDashboard::PutData( "AmpTrapDeploy",         new CmdAmpTrapDeploy());
+  // frc::SmartDashboard::PutData( "AmpTrapRetract",        new CmdAmpTrapRetract());
+  frc::SmartDashboard::PutData( "SetStartAngle",         new CmdShooterSetAngle(45.0));
+
 
 
   //Smartdashboard SwerveDrive test/calibration buttons
@@ -72,18 +75,8 @@ RobotContainer::RobotContainer()
 
   m_chooser.AddOption("Auto Do Nothing",           new AutoDoNothing() );
 
-  //Blue Autos
-  m_chooser.AddOption("Blue-AutoTwoPieceBlueOne",  new AutoTwoPieceBlueOne() );
-
-  //Red Autos
-  m_chooser.AddOption("Red-AutoTwoPieceRedOne",    new AutoTwoPieceRedOne() );
-
-  m_chooser.AddOption("Two Piece Middle",          new AutoTwoPieceMiddle());
-
-  m_chooser.AddOption("Debug Test Auto",           new GrpTest1()           );
-
-  m_chooser.AddOption("Three Piece Middle",        new AutoThreePieceMiddle());
-
+  m_chooser.AddOption("Auto Just Shoot",           new AutoJustShoot());
+  
   m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
 
   frc::SmartDashboard::PutData("Auto Mode", &m_chooser);

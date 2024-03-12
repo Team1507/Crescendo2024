@@ -7,9 +7,9 @@
 #include <frc2/command/CommandHelper.h>
 #include <frc2/command/SequentialCommandGroup.h>
 
-class AutoThreePieceMiddle
+class AutoJustShoot
     : public frc2::CommandHelper<frc2::SequentialCommandGroup,
-                                 AutoThreePieceMiddle> {
+                                 AutoJustShoot> {
  public:
-  AutoThreePieceMiddle();
+  AutoJustShoot();
 };

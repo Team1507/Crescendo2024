@@ -27,16 +27,14 @@ shooterTable_t shooterTable[] =
 
 Shooter::Shooter()
 {
-
-}
-
-void Shooter::ShooterInit()
-{
    m_shooterPivot.RestoreFactoryDefaults();
    m_shooterUpper.RestoreFactoryDefaults();
    m_shooterLower.RestoreFactoryDefaults();
    m_feederMotor. RestoreFactoryDefaults();
+}
 
+void Shooter::ShooterInit()
+{
    m_feederMotor.SetInverted(true);
    m_feederMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
    m_forwardLimit.EnableLimitSwitch(false);
@@ -281,8 +279,13 @@ double Shooter::GetFeederIntakePower(void)
 
 bool Shooter::GetFeederPhotoeye(void)
 {
-  return !m_forwardLimit.Get();
+  return m_feederPhotoeye.Get();
 }
+
+// bool Shooter::GetFeederPhotoeye2(void)
+// {
+//    return m_feederPhotoeye.Get();
+// }
 
 
 
@@ -290,7 +293,8 @@ bool Shooter::GetFeederPhotoeye(void)
 void Shooter::Periodic() 
 {
    frc::SmartDashboard::PutBoolean ("FEEDER PHOTOEYE DETECT", GetFeederPhotoeye());
-    frc::SmartDashboard::PutBoolean ("Pivot Bot Sw", GetPivotBotLimit() );
+   // frc::SmartDashboard::PutBoolean ("***FEEDER PHOTOEYE 2***", GetFeederPhotoeye2());
+   frc::SmartDashboard::PutBoolean ("Pivot Bot Sw", GetPivotBotLimit() );
   
    // frc::SmartDashboard::PutBoolean ("FEEDER TOF DETECT", GetFeederTOFDetect());
    // frc::SmartDashboard::PutNumber  ("FEEDER TOF RANGE", GetFeederTOFRange());

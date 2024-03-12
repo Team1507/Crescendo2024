@@ -9,7 +9,7 @@
 #include <frc/AnalogInput.h>
 
 #define FEEDER_SHOOTER_POWER 0.8
-#define FEEDER_INTAKE_POWER  0.4
+#define FEEDER_INTAKE_POWER  0.2
 
 enum dPadPosition {DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT};
 
@@ -58,6 +58,7 @@ class Shooter : public frc2::SubsystemBase {
   // float  GetFeederTOFRange(void);
 
   bool   GetFeederPhotoeye(void);
+  // bool   GetFeederPhotoeye2(void);
 
  private:
 
@@ -77,6 +78,7 @@ class Shooter : public frc2::SubsystemBase {
 
   rev::CANSparkMax          m_feederMotor{SHOOTER_FEEDER_CANID, rev::CANSparkMax::MotorType::kBrushless};
   rev::SparkLimitSwitch     m_forwardLimit = m_feederMotor.GetForwardLimitSwitch(rev::SparkLimitSwitch::Type::kNormallyOpen);
+  frc::DigitalInput         m_feederPhotoeye{FEEDER_PHOTO_EYE};
   // frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
 
 

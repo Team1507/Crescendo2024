@@ -88,7 +88,7 @@ SwerveModule::SwerveModule(int driveMotorCanID, int steerMotorCanID, int steerEn
 
     m_steerMotor.ConfigNominalOutputForward(0.0, 0);
     m_steerMotor.ConfigNominalOutputReverse(0.0, 0);
-    m_steerMotor.ConfigPeakOutputForward(0.5, 0);
+    m_steerMotor.ConfigPeakOutputForward(0.5, 0);  
     m_steerMotor.ConfigPeakOutputReverse(-0.5, 0);
 
     //Initialise Steer Encoder

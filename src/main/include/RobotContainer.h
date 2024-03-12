@@ -39,7 +39,7 @@ class RobotContainer
   Intake         m_intake;
   Amperatus      m_amperatus;
   Drivetrain     m_drivetrain;
-  //PhotonVision   m_photonvision;
+  PhotonVision   m_photonvision;
   DriverFeedback m_driverfeedback;
 
 
