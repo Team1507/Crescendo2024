@@ -9,7 +9,7 @@
 #define SPEAKER_ANGLE 52
 
 #define PODIUM_POWER  0.8
-#define PODIUM_ANGLE  36
+#define PODIUM_ANGLE  34.5
 
 #define GENERAL_POWER 0.8
 #define GENERAL_ANGLE 40
@@ -18,7 +18,9 @@
 
 #define AMP_ANGLE     23
 
-#define SOURCE_ANGLE  36
+#define SOURCE_ANGLE  40
+
+#define CLIMB_ANGLE   15
 
 CmdShooterDPad::CmdShooterDPad(dPadPosition position) 
 {
@@ -79,8 +81,8 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD LEFT" << std::endl;
-        robotContainer.m_shooter.SetShooterPower(GENERAL_POWER);
-        robotContainer.m_shooter.SetPivotAngle(GENERAL_ANGLE);
+        // robotContainer.m_shooter.SetShooterPower(GENERAL_POWER);
+        // robotContainer.m_shooter.SetPivotAngle(GENERAL_ANGLE);
       }
       break;
 
@@ -90,7 +92,7 @@ void CmdShooterDPad::Initialize()
       {
         std::cout<< "DPAD RIGHT A" << std::endl;
         robotContainer.m_shooter.SetShooterPower(0);
-        robotContainer.m_shooter.SetPivotAngle(15);
+        robotContainer.m_shooter.SetPivotAngle(CLIMB_ANGLE);
       }
       else
       {
