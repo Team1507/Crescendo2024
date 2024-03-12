@@ -30,11 +30,15 @@
 
 //Autos
 #include "commands/AutoDoNothing.h"
-#include "commands/AutoTwoPieceBlueOne.h"
-#include "commands/AutoTwoPieceRedOne.h"
-#include "commands/AutoTwoPieceMiddle.h"
-#include "commands/AutoThreePieceMiddle.h"
-
+#include "commands/AutoRedFourPieceMiddle.h"
+#include "commands/AutoRedThreePieceRight.h"
+#include "commands/AutoRedFourPieceRight.h"
+#include "commands/AutoRedThreePieceMiddle.h"
+#include "commands/AutoJustShoot.h"
+#include "commands/AutoBlueFourPieceMiddle.h"
+#include "commands/AutoBlueThreePieceMiddle.h"
+#include "commands/AutoBlueThreePieceLeft.h"
+#include "commands/AutoBlueFourPieceLeft.h"
 
 
 
@@ -83,6 +87,24 @@ RobotContainer::RobotContainer()
   m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
 
   frc::SmartDashboard::PutData("Auto Mode", &m_chooser);
+  
+  //Red Autos
+  m_chooser.AddOption("Red Four Piece Middle",     new AutoRedFourPieceMiddle());
+
+  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceRight);
+
+  m_chooser.AddOption("Red Four Piece Right",      new AutoRedFourPieceRight());
+
+  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle); 
+
+  //Blue Autos
+  m_chooser.AddOption("Blue Four Piece Middle",    new AutoBlueFourPieceMiddle());
+  
+  m_chooser.AddOption("Blue Three Piece Middle",   new AutoBlueThreePieceMiddle);
+
+  m_chooser.AddOption("Blue Four Piece Left",      new AutoBlueFourPieceLeft());
+
+  m_chooser.AddOption("Blue Three Piece Left",     new AutoBlueThreePieceLeft());
 
   ConfigureBindings();
 }
