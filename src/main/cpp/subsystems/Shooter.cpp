@@ -223,7 +223,8 @@ void Shooter::SetPivotAngle(float position)
 
 bool Shooter::GetPivotBotLimit(void)
 {
-   return m_shooterPivotBotLimit.Get();
+   //return m_shooterPivotBotLimit.Get();
+   return m_pivotBotLimitSw.Get();
 }
 
 

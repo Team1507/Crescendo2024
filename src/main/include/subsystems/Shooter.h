@@ -7,6 +7,7 @@
 #include <frc/DigitalInput.h>
 #include "TimeOfFlight.h"
 #include <frc/AnalogInput.h>
+#include <frc/DigitalInput.h>
 
 #define FEEDER_SHOOTER_POWER 0.8
 #define FEEDER_INTAKE_POWER  0.2
@@ -83,6 +84,9 @@ class Shooter : public frc2::SubsystemBase {
 
 
   frc::AnalogInput          m_pivotAnglePot{3};
+
+  frc::DigitalInput         m_pivotBotLimitSw{8};
+  
 
   const float DEG_PER_ROT =  ( 1.0 / 0.52595 ); 
   

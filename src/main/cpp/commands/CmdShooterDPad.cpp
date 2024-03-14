@@ -50,7 +50,6 @@ void CmdShooterDPad::Initialize()
         robotContainer.m_shooter.SetShooterPower(SPEAKER_POWER);
         robotContainer.m_shooter.SetPivotAngle(SPEAKER_ANGLE);
       }
-
       break;
       
     //----------------------------

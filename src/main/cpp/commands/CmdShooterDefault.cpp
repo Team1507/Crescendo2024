@@ -57,13 +57,13 @@ void CmdShooterDefault::Execute()
 //*********************PIVOT MANUAL*********************
 //******************************************************
 
-  if (robotContainer.m_topDriver.GetRightY() > PIVOT_DEADBAND_CONSTANT)
+  if (robotContainer.m_topDriver.GetRightY() > PIVOT_DEADBAND_CONSTANT  &&   !robotContainer.m_shooter.GetPivotBotLimit() )
   {
     robotContainer.m_shooter.SetPivotPower(-PIVOT_SLOW_POWER);
     //robotContainer.m_shooter.SetPivotAngle(robotContainer.m_shooter.GetPivotAngle());
     m_manualPivotEnable = true;
   }
-  else if (robotContainer.m_topDriver.GetRightY() < -PIVOT_DEADBAND_CONSTANT)
+  else if (robotContainer.m_topDriver.GetRightY() < -PIVOT_DEADBAND_CONSTANT    )
   {
     robotContainer.m_shooter.SetPivotPower(PIVOT_SLOW_POWER);
     //robotContainer.m_shooter.SetPivotAngle(robotContainer.m_shooter.GetPivotAngle());
@@ -76,6 +76,16 @@ void CmdShooterDefault::Execute()
     robotContainer.m_shooter.SetPivotAngle(robotContainer.m_shooter.GetPivotAngle());
     m_manualPivotEnable = false;
   }
+
+
+  //PIVOT SAFETY SWITCH
+  if( robotContainer.m_shooter.GetPivotBotLimit() )
+  {
+    robotContainer.m_shooter.SetPivotPower(0);
+  }
+
+
+
 
 }
 
