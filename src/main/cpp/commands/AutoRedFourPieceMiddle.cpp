@@ -31,7 +31,7 @@ AutoRedFourPieceMiddle::AutoRedFourPieceMiddle()
     //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
-    CmdShooterSetAngle(36),
+    CmdShooterSetAngle(37.5),
   
   
     //Go To Third Note

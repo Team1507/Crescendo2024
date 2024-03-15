@@ -90,6 +90,7 @@ void DriverFeedback::Periodic()
             FeedbackLED(COLOR_WHITE);
         }
         m_prevFeederNote = currFeederNote;
+        return;
     }
 
 
@@ -121,6 +122,17 @@ void DriverFeedback::Periodic()
 
 
 
+    //Rumble
+    if( robotContainer.m_shooter.GetFeederPhotoeye() && robotContainer.m_topDriver.GetRightBumper()  )
+    {
+        RumbleTop(1.0);
+        RumbleBot(1.0);
+    }
+    else
+    {
+        RumbleTop(0.0);
+        RumbleBot(0.0);
+    }
 
 
 

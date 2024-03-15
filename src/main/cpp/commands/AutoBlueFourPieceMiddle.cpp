@@ -53,7 +53,7 @@ AutoBlueFourPieceMiddle::AutoBlueFourPieceMiddle()
 
     CmdShooterShootNote(),
     CmdIntakeRetract(),
-    CmdShooterSetAngle(36),
+    CmdShooterSetAngle(37.5),
     
     //Go get 4th note!
     CmdDriveToPoint(-70, 176, 0, 12000, false, 10),
