@@ -25,6 +25,7 @@ class Shooter : public frc2::SubsystemBase {
   //***********SHOOTER***********
   void   ShooterInit(void);
   void   SetShooterPower(double power);
+  void   SetShooterPowerDB(void);
   void   SetShooterRPM(double rpm);
 
   double GetUpperShooterPower(void);

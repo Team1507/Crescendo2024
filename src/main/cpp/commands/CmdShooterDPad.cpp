@@ -16,7 +16,8 @@
 
 //**************MODE SHIFT CONSTANTS*************
 
-#define AMP_ANGLE     23
+#define AMP_ANGLE     35
+#define AMP_POWER     0.5
 
 #define SOURCE_ANGLE  40
 
@@ -40,9 +41,9 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD UP A" << std::endl;
-        robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
+        robotContainer.m_shooter.SetShooterPower(AMP_POWER);
         robotContainer.m_shooter.SetPivotAngle(AMP_ANGLE);
-        robotContainer.m_driverfeedback.BlinkLED(COLOR_YELLOW);
+        // robotContainer.m_driverfeedback.BlinkLED(COLOR_YELLOW);
       }    
       else
       {

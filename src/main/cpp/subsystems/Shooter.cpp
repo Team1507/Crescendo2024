@@ -115,6 +115,12 @@ void Shooter::SetShooterPower(double power)
     m_shooterLower.Set(power);
 }
 
+void Shooter::SetShooterPowerDB(void)
+{
+   m_shooterUpper.Set(frc::SmartDashboard::GetNumber("SHOOTER_POWER",FEEDER_SHOOTER_POWER));
+   m_shooterLower.Set(frc::SmartDashboard::GetNumber("SHOOTER_POWER",FEEDER_SHOOTER_POWER));
+}
+
 void Shooter::SetShooterRPM(double rpm)
 {
    double testRPM = frc::SmartDashboard::GetNumber("SHOOTER_RPM",0.0);
