@@ -42,7 +42,7 @@
 #include "commands/AutoBlueThreePieceMiddle.h"
 #include "commands/AutoBlueThreePieceLeft.h"
 #include "commands/AutoBlueFourPieceLeft.h"
-
+#include "commands/AutoBlueShakeNBake.h"
 
 
 RobotContainer::RobotContainer() 
@@ -100,6 +100,8 @@ RobotContainer::RobotContainer()
   m_chooser.AddOption("Blue Four Piece Left",      new AutoBlueFourPieceLeft());
 
   m_chooser.AddOption("Blue Three Piece Left",     new AutoBlueThreePieceLeft());
+
+  m_chooser.AddOption("Blue Shake N Bake",         new AutoBlueShakeNBake());
 
   ConfigureBindings();
 }
