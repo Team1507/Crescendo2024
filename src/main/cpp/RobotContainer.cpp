@@ -28,6 +28,8 @@
 #include "commands/CmdAmpTrapRetract.h"
 #include "commands/CmdDriverDPad.h"
 #include "commands/CmdShooterSetAngle.h"
+#include "commands/CmdShooterAmpDeploy.h"
+#include "commands/CmdShooterAmpRetract.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
@@ -50,7 +52,7 @@ RobotContainer::RobotContainer()
   m_drivetrain.SetDefaultCommand(  CmdDriveWithGamepad());
   m_shooter.SetDefaultCommand   (  CmdShooterDefault());
   m_intake.SetDefaultCommand    (  CmdIntakeDefault());
-  m_amperatus.SetDefaultCommand (  CmdAmperatusDefault());
+  //m_amperatus.SetDefaultCommand (  CmdAmperatusDefault());
 
   //******************** Dashboard Buttons *******************************
   frc::SmartDashboard::PutData( "CmdDriveTypeToggle",    new CmdDriveTypeToggle());
@@ -109,12 +111,12 @@ void RobotContainer::ConfigureBindings()
 
   m_topDriver_YButton.OnTrue(new CmdShooterSourceLoad());
   
-   m_topDriver_XButton.WhileTrue(new CmdAmpIntake(0)); //amp intake
+   //m_topDriver_XButton.WhileTrue(new CmdAmpIntake(0)); //amp intake
 
-   m_topDriver_BButton.WhileTrue(new CmdAmpEject(0)); //amp eject
+   //m_topDriver_BButton.WhileTrue(new CmdAmpEject(0)); //amp eject
 
-   m_topDriver_LeftBumper.OnTrue(new CmdAmpSetAngle()); //amp up
-   m_topDriver_LeftBumper.OnFalse(new CmdAmpSetAngle()); //amp down
+   m_topDriver_LeftBumper.OnTrue(new CmdShooterAmpDeploy()); //amp out
+   m_topDriver_LeftBumper.OnFalse(new CmdShooterAmpRetract()); //amp in
 
   m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
 

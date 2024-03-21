@@ -9,7 +9,7 @@ CmdAmpSetAngle::CmdAmpSetAngle()
 
 void CmdAmpSetAngle::Initialize() 
 {
-  robotContainer.m_amperatus.SetAmpAngle(0.3);
+  //robotContainer.m_amperatus.SetAmpAngle(0.3);
   std::cout << "Amperatus Angle Set" << std::endl;  
 }
 

@@ -37,7 +37,7 @@ class RobotContainer
   Shooter        m_shooter;
   Climber        m_climber;
   Intake         m_intake;
-  Amperatus      m_amperatus;
+  //Amperatus      m_amperatus;
   Drivetrain     m_drivetrain;
   PhotonVision   m_photonvision;
   DriverFeedback m_driverfeedback;

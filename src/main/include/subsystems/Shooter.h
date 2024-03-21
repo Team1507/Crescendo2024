@@ -9,6 +9,8 @@
 #include <frc/AnalogInput.h>
 #include <frc/DigitalInput.h>
 
+#include <frc/DoubleSolenoid.h>
+
 #define FEEDER_SHOOTER_POWER 0.8
 #define FEEDER_INTAKE_POWER  0.2
 
@@ -59,6 +61,16 @@ class Shooter : public frc2::SubsystemBase {
   // bool   GetFeederTOFDetect(void);
   // float  GetFeederTOFRange(void);
 
+
+ // Amperatus
+
+  void ShooterAmpDeploy(void);
+  void ShooterAmpRetract(void);
+
+  bool IsShooterAmpDeployed(void);
+
+
+
   bool   GetFeederPhotoeye(void);
   // bool   GetFeederPhotoeye2(void);
 
@@ -84,6 +96,8 @@ class Shooter : public frc2::SubsystemBase {
   // frc::TimeOfFlight         m_feederTOF{FEEDER_TOF_CANID};
 
 
+  frc::DoubleSolenoid m_shooterAmpDoubleSolenoid {PCM_CANID, frc::PneumaticsModuleType::REVPH, AMP_DEPLOY_PCM, AMP_RETRACT_PCM};
+
   frc::AnalogInput          m_pivotAnglePot{3};
 
   frc::DigitalInput         m_pivotBotLimitSw{8};
@@ -94,6 +108,7 @@ class Shooter : public frc2::SubsystemBase {
   //Pivot Angle Calibration
   float m_startingPivotAngle;
   float m_startingPivotEncoder;
+  bool m_isAmping;
 
   float Deg2Rot(float deg); 
   float Rot2Deg(float rot);

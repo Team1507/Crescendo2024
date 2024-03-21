@@ -294,7 +294,22 @@ bool Shooter::GetFeederPhotoeye(void)
 //    return m_feederPhotoeye.Get();
 // }
 
+void Shooter::ShooterAmpDeploy(void)
+{
+    m_shooterAmpDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
+    m_isAmping = true;
+}
 
+void Shooter::ShooterAmpRetract(void)
+{
+    m_shooterAmpDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
+    m_isAmping = false;
+}
+
+bool Shooter::IsShooterAmpDeployed(void)
+{
+   return m_isAmping;
+}
 
 // This method will be called once per scheduler run
 void Shooter::Periodic() 

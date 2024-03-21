@@ -6,12 +6,12 @@
 
 CmdAmpTrapRetract::CmdAmpTrapRetract() 
 {
-  AddRequirements(&robotContainer.m_amperatus);
+  //AddRequirements(&robotContainer.m_amperatus);
 }
 
 void CmdAmpTrapRetract::Initialize() 
 {
-  robotContainer.m_amperatus.AmpTrapRetract();
+  //robotContainer.m_amperatus.AmpTrapRetract();
   std::cout<<"Amp Trap Retract has started"<<std::endl;
 }
 

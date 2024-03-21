@@ -43,6 +43,7 @@ void CmdShooterDPad::Initialize()
         std::cout<< "DPAD UP A" << std::endl;
         robotContainer.m_shooter.SetShooterPower(AMP_POWER);
         robotContainer.m_shooter.SetPivotAngle(AMP_ANGLE);
+        robotContainer.m_shooter.ShooterAmpDeploy();
         // robotContainer.m_driverfeedback.BlinkLED(COLOR_YELLOW);
       }    
       else
@@ -67,7 +68,11 @@ void CmdShooterDPad::Initialize()
       {
         std::cout<< "DPAD DOWN" << std::endl;
         robotContainer.m_shooter.SetShooterPower(IDLE_POWER);
-        robotContainer.m_driverfeedback.BlinkLED(COLOR_PURPLE);
+        robotContainer.m_driverfeedback.BlinkLED(COLOR_PURPLE);\
+        if(robotContainer.m_shooter.IsShooterAmpDeployed())
+        {
+          robotContainer.m_shooter.ShooterAmpRetract();
+        }
       }
 
       break;

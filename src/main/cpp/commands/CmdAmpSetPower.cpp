@@ -9,7 +9,7 @@ CmdAmpSetPower::CmdAmpSetPower()
 
 void CmdAmpSetPower::Initialize() 
 {
-  robotContainer.m_amperatus.SetAmpPower(0.0);
+  //robotContainer.m_amperatus.SetAmpPower(0.0);
   std::cout << "Amperatus Power Set" << std::endl;
 }
 

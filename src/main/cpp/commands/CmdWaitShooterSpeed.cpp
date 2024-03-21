@@ -27,6 +27,6 @@ void CmdWaitShooterSpeed::End(bool interrupted)
 
 bool CmdWaitShooterSpeed::IsFinished()
 {
- const units::second_t timeout = units::second_t(1.0); 
+ const units::second_t timeout = units::second_t(0.65); 
  return m_timer.Get() >= timeout;
 }

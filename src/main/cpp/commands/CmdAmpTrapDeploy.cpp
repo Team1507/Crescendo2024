@@ -6,12 +6,12 @@
 
 CmdAmpTrapDeploy::CmdAmpTrapDeploy() 
 {
-  AddRequirements(&robotContainer.m_amperatus);
+  //AddRequirements(&robotContainer.m_amperatus);
 }
 
 void CmdAmpTrapDeploy::Initialize() 
 {
-  robotContainer.m_amperatus.AmpTrapDeploy();
+ // robotContainer.m_amperatus.AmpTrapDeploy();
   std::cout<<"Amp Trap Deploy has started"<<std::endl;
 }
 

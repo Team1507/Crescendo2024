@@ -8,7 +8,7 @@
 
 CmdAmperatusDefault::CmdAmperatusDefault() 
 {
-  AddRequirements(&robotContainer.m_amperatus);
+  //AddRequirements(&robotContainer.m_amperatus);
 }
 
 void CmdAmperatusDefault::Initialize() 
@@ -20,17 +20,17 @@ void CmdAmperatusDefault::Execute()
 {
   if (robotContainer.m_topDriver.GetRightX() > MANUAL_DEADBAND)
   {
-    robotContainer.m_amperatus.SetAmpPower(AMP_SLOW_POWER);
+    //robotContainer.m_amperatus.SetAmpPower(AMP_SLOW_POWER);
     //robotContainer.m_amperatus.SetAmpAngle(robotContainer.m_amperatus.GetAmpAngle());
   }
   else if (robotContainer.m_topDriver.GetRightX() < -MANUAL_DEADBAND)
   {
-    robotContainer.m_amperatus.SetAmpPower(-AMP_SLOW_POWER);
+    //robotContainer.m_amperatus.SetAmpPower(-AMP_SLOW_POWER);
     //robotContainer.m_amperatus.SetAmpAngle(robotContainer.m_amperatus.GetAmpAngle())
   }
   else
   {
-    robotContainer.m_amperatus.SetAmpPower(0); //CHANGE LATER, ADD HAND OFFS!!!!!
+    //robotContainer.m_amperatus.SetAmpPower(0); //CHANGE LATER, ADD HAND OFFS!!!!!
   }
 }
 

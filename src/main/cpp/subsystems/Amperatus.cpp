@@ -3,9 +3,9 @@
 
 Amperatus::Amperatus() 
 {
-    m_photoeye.EnableLimitSwitch(false);
-    m_ampMotor.RestoreFactoryDefaults();
-    m_ampMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
+    //m_photoeye.EnableLimitSwitch(false);
+    //m_ampMotor.RestoreFactoryDefaults();
+    //m_ampMotor.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
     // m_ampMotorPID.SetP(0.0);
     // m_ampMotorPID.SetI(0.0);
     // m_ampMotorPID.SetD(0.0);
@@ -13,7 +13,7 @@ Amperatus::Amperatus()
     // m_ampMotorPID.SetSmartMotionAllowedClosedLoopError(0.0);
     // m_ampMotorPID.SetOutputRange(-0.3, 0.3, 0);
 
-    m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);   //Make sure not set to deploy
+    //m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);   //Make sure not set to deploy
 
 }
 
@@ -24,12 +24,12 @@ void Amperatus::Periodic()
 
 void   Amperatus::SetAmpPower(double power)
 {
-    m_ampMotor.Set(power);
+    //m_ampMotor.Set(power);
 }
 
 void   Amperatus::SetAmpAngle(double position)
 {
-    m_ampMotor.Set(position);
+    //m_ampMotor.Set(position);
 }
 
 // void   Amperatus::ResetAmpEncoder()
@@ -39,27 +39,27 @@ void   Amperatus::SetAmpAngle(double position)
 
 void   Amperatus::SetAmpRollerPower(double power)
 {
-     m_ampRoller.Set(power);
+     //m_ampRoller.Set(power);
 }
 
 bool   Amperatus::GetAmpPhotoeye(void)
 {
-    return !m_photoeye.Get();
+    //return !m_photoeye.Get();
 }
 
 double Amperatus::GetAmpPower(void)
 {
-    return m_ampMotor.Get();
+    //return m_ampMotor.Get();
 }
 
 void   Amperatus::AmpTrapDeploy(void)
 {
-    m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
+    //m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
 }
 
 void   Amperatus::AmpTrapRetract(void)
 {
-    m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
+    //m_ampDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
 }
 
 // double Amperatus::GetAmpAngle(void)

@@ -5,7 +5,7 @@
 
 CmdAmpHome::CmdAmpHome() 
 {
-  AddRequirements(&robotContainer.m_amperatus);
+  //AddRequirements(&robotContainer.m_amperatus);
 }
 
 

@@ -4,7 +4,7 @@
 
 CmdAmpSourceLoad::CmdAmpSourceLoad() 
 {
-  AddRequirements(&robotContainer.m_amperatus);
+  //AddRequirements(&robotContainer.m_amperatus);
   AddRequirements(&robotContainer.m_shooter);
 }
 
@@ -13,7 +13,7 @@ void CmdAmpSourceLoad::Initialize()
 {
   std::cout << "Amp Source Load Start" << std::endl;
   robotContainer.m_shooter.SetPivotAngle(2); 
-  robotContainer.m_amperatus.SetAmpRollerPower(-.1);
+  //robotContainer.m_amperatus.SetAmpRollerPower(-.1);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -23,7 +23,7 @@ void CmdAmpSourceLoad::Execute() {}
 void CmdAmpSourceLoad::End(bool interrupted) 
 {
   std::cout << "Amp Source Load End" << std::endl;
-  robotContainer.m_amperatus.SetAmpRollerPower(0);
+  //robotContainer.m_amperatus.SetAmpRollerPower(0);
   robotContainer.m_shooter.SetPivotAngle(0);
 }
 
