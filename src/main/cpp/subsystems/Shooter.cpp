@@ -296,13 +296,13 @@ bool Shooter::GetFeederPhotoeye(void)
 
 void Shooter::ShooterAmpDeploy(void)
 {
-    m_shooterAmpDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
+    m_shooterAmpDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
     m_isAmping = true;
 }
 
 void Shooter::ShooterAmpRetract(void)
 {
-    m_shooterAmpDoubleSolenoid.Set(frc::DoubleSolenoid::kForward);
+    m_shooterAmpDoubleSolenoid.Set(frc::DoubleSolenoid::kReverse);
     m_isAmping = false;
 }
 

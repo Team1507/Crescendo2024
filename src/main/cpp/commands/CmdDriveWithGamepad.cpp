@@ -49,7 +49,7 @@ void CmdDriveWithGamepad::Execute()
   const float xyMaxVelocity = 19600; //
   const float rMaxVelocity  = 13000; //
 
-  const float DEADBAND  = 0.10;
+  //const float DEADBAND  = 0.10;
 
   //Default normal drive power
   float xyScaleValue  = 0.7;
@@ -62,16 +62,17 @@ void CmdDriveWithGamepad::Execute()
   // leftX  = ( leftX  < 0 ) ? -pow(  leftX,  2) : pow(  leftX,  2);
   // rightX = ( rightX < 0 ) ? -pow( rightX,  2) : pow( rightX,  2);
 
-  // Re-apply deadband - bad controller
-  //Apply DeadBand
-  if (fabs(leftY)  < DEADBAND) leftY  = 0;
-  if (fabs(leftX)  < DEADBAND) leftX  = 0;
-  if (fabs(rightX) < DEADBAND) rightX = 0;
+  //Remove Deadband
+  // // Re-apply deadband - bad controller
+  // //Apply DeadBand
+  // if (fabs(leftY)  < DEADBAND) leftY  = 0;
+  // if (fabs(leftX)  < DEADBAND) leftX  = 0;
+  // if (fabs(rightX) < DEADBAND) rightX = 0;
 
-  //Subtract off deadband for smooth transition 
-  if (fabs(leftY) >= DEADBAND) leftY  +=   (leftY>0)? -DEADBAND : +DEADBAND;
-  if (fabs(leftX) >= DEADBAND) leftX  +=   (leftX>0)? -DEADBAND : +DEADBAND;
-  if (fabs(rightX)>= DEADBAND) rightX +=  (rightX>0)? -DEADBAND : +DEADBAND;
+  // //Subtract off deadband for smooth transition 
+  // if (fabs(leftY) >= DEADBAND) leftY  +=   (leftY>0)? -DEADBAND : +DEADBAND;
+  // if (fabs(leftX) >= DEADBAND) leftX  +=   (leftX>0)? -DEADBAND : +DEADBAND;
+  // if (fabs(rightX)>= DEADBAND) rightX +=  (rightX>0)? -DEADBAND : +DEADBAND;
 
   //Creep/Comb the Desert mode
   if( leftBumper )     

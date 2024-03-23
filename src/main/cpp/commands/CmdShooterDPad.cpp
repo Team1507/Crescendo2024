@@ -19,7 +19,7 @@
 #define AMP_ANGLE     35
 #define AMP_POWER     0.5
 
-#define SOURCE_ANGLE  40
+#define SOURCE_ANGLE  42.5
 
 #define CLIMB_ANGLE   15
 

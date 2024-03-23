@@ -121,7 +121,8 @@ void WriteToSmartDashboard(void)
   //Time
   frc::SmartDashboard::PutNumber("MatchTime",  (double)robotContainer.m_timer.GetMatchTime() );       //Match Time
 
-
+  //Shooter
+  frc::SmartDashboard::PutBoolean("Amp Status", robotContainer.m_shooter.IsShooterAmpDeployed());
 
 }
 

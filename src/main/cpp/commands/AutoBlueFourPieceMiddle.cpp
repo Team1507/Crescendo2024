@@ -53,7 +53,7 @@ AutoBlueFourPieceMiddle::AutoBlueFourPieceMiddle()
 
     CmdShooterShootNote(),
     CmdIntakeRetract(),
-    CmdShooterSetAngle(36.75),
+    CmdShooterSetAngle(50),
     
     //Go get 4th note!
     CmdDriveToPoint(-70, 176, 0, 12000, false, 10),
@@ -62,10 +62,13 @@ AutoBlueFourPieceMiddle::AutoBlueFourPieceMiddle()
 
 
     //Drive to score fourth
-    CmdShooterSetPower(0.85),
-    CmdDriveToPoint(-12, 70, 0, 12000, true, 10),
+    CmdDriveToPoint(-12, 70, 0, 12000, false, 10),
+    CmdDriveToPoint(0 , 10 , 0 , 8000 , true, 10),
     CmdShooterShootNote(),
     CmdIntakeRetract(),
+
+    //Far Out
+    CmdDriveToPoint(-70, 176, 0, 12000, true, 10),
 
     CmdShooterSetPower(0),
     CmdDriveStop(),

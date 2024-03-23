@@ -31,7 +31,7 @@ AutoRedFourPieceMiddle::AutoRedFourPieceMiddle()
     //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
-    CmdShooterSetAngle(37.0),
+    CmdShooterSetAngle(50),
   
   
     //Go To Third Note
@@ -55,9 +55,12 @@ AutoRedFourPieceMiddle::AutoRedFourPieceMiddle()
 
 
    //Drive to score fourth
-   CmdShooterSetPower(0.85),
-   CmdDriveToPoint(12, 70, 0, 12000, true, 10),
+   CmdDriveToPoint(12, 70, 0, 12000, false, 10),
+   CmdDriveToPoint(0 , 10 , 0 , 8000 , true, 10),
    CmdShooterShootNote(),
+
+   //Far Out
+   CmdDriveToPoint(70, 176, 0, 12000, true, 10),
  
 
 
