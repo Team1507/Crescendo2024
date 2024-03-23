@@ -53,7 +53,7 @@ void Shooter::ShooterInit()
    m_shooterPivotPID.SetP(2.0);   // .1 rotation = .2 power 
    m_shooterPivotPID.SetI(0.0);
    m_shooterPivotPID.SetD(0.0);
-   m_shooterPivotPID.SetOutputRange(-0.6, 0.6 ,0);
+   m_shooterPivotPID.SetOutputRange(-0.8, 0.8 ,0);
    m_shooterPivotPID.SetFeedbackDevice(m_shooterPivotEncoder);
 
    m_shooterLower.SetClosedLoopRampRate(0.0);
@@ -321,13 +321,13 @@ void Shooter::Periodic()
    // frc::SmartDashboard::PutBoolean ("FEEDER TOF DETECT", GetFeederTOFDetect());
    // frc::SmartDashboard::PutNumber  ("FEEDER TOF RANGE", GetFeederTOFRange());
 
-   // frc::SmartDashboard::PutNumber  ("Pivot Encoder", GetPivotEncoder());
+   //frc::SmartDashboard::PutNumber  ("Pivot Encoder", GetPivotEncoder());
    frc::SmartDashboard::PutNumber  ("Pivot Angle  ", Rot2Deg( GetPivotEncoder() ) );
 
    frc::SmartDashboard::PutNumber  ("Pivot Angle Pot V", m_pivotAnglePot.GetValue() );
    frc::SmartDashboard::PutNumber  ("Pivot Angle Pot Deg", Pot2Deg() );
-   // frc::SmartDashboard::PutNumber  ("Pivot Angle Start Deg", m_startingPivotAngle   );
-   // frc::SmartDashboard::PutNumber  ("Pivot Angle Start Enc", m_startingPivotEncoder );
+   //frc::SmartDashboard::PutNumber  ("Pivot Angle Start Deg", m_startingPivotAngle   );
+   //frc::SmartDashboard::PutNumber  ("Pivot Angle Start Enc", m_startingPivotEncoder );
 
    frc::SmartDashboard::PutBoolean ("Pivot PotVsEnc", CheckPotVsRotAngle() );
 
