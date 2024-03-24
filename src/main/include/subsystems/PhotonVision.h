@@ -13,7 +13,7 @@ class PhotonVision : public frc2::SubsystemBase {
   int   GetTargetId(void);
   bool  IsTargetValid(void);
   float GetTargetYaw(void);
-
+  float GetTargetDistance(void);
 
   void Periodic() override;
 

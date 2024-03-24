@@ -43,12 +43,13 @@ void CmdShooterDefault::Execute()
     m_shooting = false;
   }
   
-  // //Need to think about this one....
-  // if((robotContainer.m_topDriver.GetLeftTriggerAxis() > INTERPOLATION_DEADBAND_CONSTANT) && !m_interpolation)
-  // {
-  //   robotContainer.m_shooter.ShooterInterpolate(0.0);
-  //   m_interpolation = true;
-  // }
+//***************DISTANCE INTERP CALCULATION*************
+//*******************************************************
+
+  if((robotContainer.m_topDriver.GetLeftTriggerAxis() > INTERPOLATION_DEADBAND_CONSTANT))
+  {
+    robotContainer.m_shooter.ShooterInterpolate(robotContainer.m_photonvision.GetTargetDistance());
+  }
   // else if((robotContainer.m_topDriver.GetLeftTriggerAxis() < INTERPOLATION_DEADBAND_CONSTANT) && m_interpolation)
   // {
   //   m_interpolation = false;

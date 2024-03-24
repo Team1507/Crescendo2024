@@ -77,9 +77,9 @@ void PhotonVision::Periodic()
         {
             m_targetYaw =  targetList[myTargetIndex].GetYaw();
 
-            const units::meter_t  CAMERA_HEIGHT = 10_in;
+            const units::meter_t  CAMERA_HEIGHT = 8.2_in;
             const units::meter_t  TARGET_HEIGHT = 57_in;
-            const units::radian_t CAMERA_PITCH  = 25_deg;
+            const units::radian_t CAMERA_PITCH  = 36.7_deg;
 
             //This function may calculate the floor X-Y distance rather than the hypotenuse distance
             //from camera to AprilTag
@@ -132,6 +132,13 @@ void PhotonVision::Periodic()
   {
     if( m_targetValid)
         return m_targetYaw;
+    else
+        return 0.0;
+  }
+  float PhotonVision::GetTargetDistance(void)
+  {
+    if( m_targetValid)
+        return m_targetDistance;
     else
         return 0.0;
   }

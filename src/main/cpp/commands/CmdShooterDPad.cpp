@@ -1,4 +1,5 @@
 #include "commands/CmdShooterDPad.h"
+#include "commands/CmdShooterSourceLoad.h"
 #include "Robot.h"
 
 //*********NON-MODE SHIFT CONSTANTS*********
@@ -82,6 +83,7 @@ void CmdShooterDPad::Initialize()
       if(robotContainer.m_topDriver.GetAButton())
       {
         std::cout<< "DPAD LEFT A" << std::endl;
+        robotContainer.m_shooter.SetShooterPowerDB();
       }
       else
       {

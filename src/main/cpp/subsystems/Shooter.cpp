@@ -3,21 +3,27 @@
 #include <iostream>
 
 #define FEEDER_POWER 0
-
+#define MAX_INTERP_DISTANCE 110.0
 
 typedef struct 
 {
    float distance;
-   float velocity;
+   float power;
    float angle;
 } shooterTable_t;
 
 
 shooterTable_t shooterTable[] = 
 {
-   {10,20,30},
-   {40,50,60},
-   {70,80,90}
+   //DISTANCE POWER ANGLE
+   {36.6 , 0.8 , 51    }, 
+   {50.2 , 0.8 , 45    },
+   {63.8 , 0.8 , 42    },
+   {76.7 , 0.8 , 39    },
+   {91.1 , 0.8 , 37    },
+   {104.6 , 0.8 , 34   },
+   {118.1 , 0.85 , 32.5},
+   {131.9 , 0.85 , 31  }
 };
 
 
@@ -79,27 +85,32 @@ void Shooter::ShooterInit()
    // m_feederTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
 }
 
+//By Jack Skerrett, DISTANCE INTERPOLATION CALCULATION (DIC)
+
 void Shooter::ShooterInterpolate(double distance)
 {
    for(unsigned int i=0; i<SHOOTER_TABLE_SIZE; i++)
    { 
-      if(distance < shooterTable[i].distance)
+      if(distance > shooterTable[i].distance && distance < shooterTable[i+1].distance)
       {
          double x2 = shooterTable[i+1].distance;
          double x1 = shooterTable[i].distance;
-         double y2 = shooterTable[i+1].velocity;
-         double y1 = shooterTable[i].velocity;
+         double y2 = shooterTable[i+1].power;
+         double y1 = shooterTable[i].power;
          
-         double shooterVelocity =y1 + (distance - x1)*((y2-y1) / (x2-x1));
-         std::cout<<"interpolation shooter Velocity="<< shooterVelocity<<std::endl;
-         SetShooterRPM(shooterVelocity);
+         double shooterPower =y1 + (distance - x1)*((y2-y1) / (x2-x1));
+         //std::cout<<"interpolation shooter Velocity="<< shooterPower<<std::endl;
+         frc::SmartDashboard::PutNumber("Interp Power", shooterPower);
+         SetShooterPower(shooterPower);
+         
 
 
          y2 = shooterTable[i+1].angle;
          y1 = shooterTable[i].angle;
 
          double shooterAngle = y1 + (distance - x1)*((y2-y1) / (x2-x1));
-         std::cout<<"Interpolation Shooter Angle="<< shooterAngle<<std::endl;
+         //std::cout<<"Interpolation Shooter Angle="<< shooterAngle<<std::endl;
+         frc::SmartDashboard::PutNumber("Interp Angle", shooterAngle);
          SetPivotAngle(shooterAngle);
 
          return;
