@@ -46,7 +46,8 @@ AutoRedFourPieceMiddle::AutoRedFourPieceMiddle()
     //frc2::WaitCommand(2.00_s),
 
     CmdShooterShootNote(),
-
+    CmdIntakeRetract(),
+    CmdShooterSetAngle(50),
 
     //Go get 4th note!
     CmdDriveToPoint(70, 176, 0, 12000, false, 10),
