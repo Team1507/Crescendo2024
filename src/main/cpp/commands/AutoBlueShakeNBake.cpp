@@ -24,16 +24,16 @@ AutoBlueShakeNBake::AutoBlueShakeNBake()
   CmdShooterSetAngle(38),
   CmdDriveToPoint(0, 24, -15, 8000, false, 10),
   CmdShooterShootNote(),
-  CmdDriveToPoint(0, 74, -15, 13000, false, 10),
+  CmdDriveToPoint(0, 74, -15, 12000, false, 10),
 
   //Move to second note
   CmdShooterSetAngle(50),
-  CmdDriveToPoint(-43,200,0,13000,false,10),
+  CmdDriveToPoint(-43,200,0,12000,false,10),
   CmdIntakeDeploy(),
   CmdDriveToPoint(-43,249,0,5000,true,10),
 
   //Go to shoot second note
-  CmdDriveToPoint(8, 50, 0, 13000, false, 10 ),
+  CmdDriveToPoint(8, 50, 0, 12000, false, 10 ),
   CmdDriveToPoint(0, 0, -25, 6000, true, 10),
   CmdShooterShootNote(),
   CmdIntakeRetract(),
@@ -52,12 +52,12 @@ AutoBlueShakeNBake::AutoBlueShakeNBake()
   CmdDriveToPoint(56, 20, 30, 8000, true, 10),
   CmdShooterShootNote(),
   CmdIntakeRetract(),
-  CmdShooterSetAngle(43),
+  CmdShooterSetAngle(40),
 
   //Move and shoot Fith note
   CmdIntakeDeploy(),
-  CmdDriveToPoint(70, 35, 30, 4000, false, 10),
-  CmdDriveToPoint(65, 30, 23, 4000, true, 10),
+  CmdDriveToPoint(70, 35, 30, 2000, false, 10),
+  CmdDriveToPoint(65, 30, 20, 2000, true, 10),
   CmdShooterShootNote(),
 
   CmdDriveStop(),
