@@ -10,7 +10,9 @@
 #include "commands/CmdDriveStop.h"
 #include "commands/CmdWaitShooterSpeed.h"
 #include "commands/CmdDriveClearAll.h"
+#include "commands/CmdDriveTurn2Angle.h"
 #include <frc2/command/WaitCommand.h>
+
 AutoBlueShakeNBake::AutoBlueShakeNBake() 
 {
   AddCommands(
@@ -19,14 +21,44 @@ AutoBlueShakeNBake::AutoBlueShakeNBake()
 
   //Move and Shoot First Note
   CmdShooterSetPower(0.8),
-  CmdShooterSetAngle(28),
-  CmdDriveToPoint(0,74,-15,10000,false,10),
+  CmdShooterSetAngle(38),
+  CmdDriveToPoint(0, 24, -15, 8000, false, 10),
   CmdShooterShootNote(),
+  CmdDriveToPoint(0, 74, -15, 13000, false, 10),
 
   //Move to second note
-  CmdDriveToPoint(-43,200,0,10000,false,10),
+  CmdShooterSetAngle(50),
+  CmdDriveToPoint(-43,200,0,13000,false,10),
   CmdIntakeDeploy(),
   CmdDriveToPoint(-43,249,0,5000,true,10),
+
+  //Go to shoot second note
+  CmdDriveToPoint(8, 50, 0, 13000, false, 10 ),
+  CmdDriveToPoint(0, 0, -25, 6000, true, 10),
+  CmdShooterShootNote(),
+  CmdIntakeRetract(),
+
+  //Move and shoot third note
+  CmdIntakeDeploy(),
+  CmdDriveToPoint(-28, 37, -20, 8000, false, 10),
+  CmdDriveToPoint(19, 0, 0, 8000, true, 10),
+  CmdShooterShootNote(),
+  CmdIntakeRetract(),
+
+  //Move and shoot forth note
+  CmdShooterSetAngle(45),
+  CmdIntakeDeploy(),
+  CmdDriveToPoint(28, 37, 0, 6000, false, 10),
+  CmdDriveToPoint(56, 20, 30, 8000, true, 10),
+  CmdShooterShootNote(),
+  CmdIntakeRetract(),
+  CmdShooterSetAngle(43),
+
+  //Move and shoot Fith note
+  CmdIntakeDeploy(),
+  CmdDriveToPoint(70, 35, 30, 4000, false, 10),
+  CmdDriveToPoint(65, 30, 23, 4000, true, 10),
+  CmdShooterShootNote(),
 
   CmdDriveStop(),
   CmdPrintText("Shaked N Baked")

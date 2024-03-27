@@ -12,6 +12,8 @@ class PhotonVision : public frc2::SubsystemBase {
   void  SetTargetId(int id);
   int   GetTargetId(void);
   bool  IsTargetValid(void);
+  bool  IsTargetValidAndInRange(void);
+
   float GetTargetYaw(void);
   float GetTargetDistance(void);
 

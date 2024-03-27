@@ -104,12 +104,12 @@ void DriverFeedback::Periodic()
         m_blinkEnable=false;
     }
     else
-    if( robotContainer.m_photonvision.IsTargetValid() && fabs( robotContainer.m_photonvision.GetTargetYaw() ) < 1.5 )
+    if( robotContainer.m_photonvision.IsTargetValidAndInRange() && fabs( robotContainer.m_photonvision.GetTargetYaw() ) < 1.5 )
     {
         FeedbackLED(COLOR_GREEN);
     }
     else
-    if( robotContainer.m_photonvision.IsTargetValid() )
+    if( robotContainer.m_photonvision.IsTargetValidAndInRange() )
     {
         FeedbackLED(COLOR_YELLOW);
     }

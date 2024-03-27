@@ -128,6 +128,16 @@ void PhotonVision::Periodic()
   {
     return m_targetValid;
   }
+
+  bool  PhotonVision::IsTargetValidAndInRange(void)
+  {
+    const float MAX_INTERPOLATION_RANGE = 110.0;
+
+    return m_targetValid && (m_targetDistance < MAX_INTERPOLATION_RANGE);
+  }
+
+
+
   float PhotonVision::GetTargetYaw(void)
   {
     if( m_targetValid)

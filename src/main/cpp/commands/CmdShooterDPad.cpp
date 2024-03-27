@@ -88,6 +88,7 @@ void CmdShooterDPad::Initialize()
       else
       {
         std::cout<< "DPAD LEFT" << std::endl;
+        robotContainer.m_shooter.SetShooterPower(0.8);
         // robotContainer.m_shooter.SetShooterPower(GENERAL_POWER);
         // robotContainer.m_shooter.SetPivotAngle(GENERAL_ANGLE);
       }

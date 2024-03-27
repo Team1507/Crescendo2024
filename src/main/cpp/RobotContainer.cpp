@@ -111,7 +111,7 @@ void RobotContainer::ConfigureBindings()
   m_topDriver_RightBumper.OnTrue(new CmdIntakeDeploy());
   m_topDriver_RightBumper.OnFalse(new CmdIntakeRetract()); 
 
-  m_topDriver_YButton.OnTrue(new CmdShooterSourceLoad());
+  m_topDriver_YButton.WhileTrue(new CmdShooterSourceLoad());
   
    //m_topDriver_XButton.WhileTrue(new CmdAmpIntake(0)); //amp intake
 

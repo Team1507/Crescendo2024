@@ -46,7 +46,7 @@ void CmdShooterDefault::Execute()
 //***************DISTANCE INTERP CALCULATION*************
 //*******************************************************
 
-  if((robotContainer.m_topDriver.GetLeftTriggerAxis() > INTERPOLATION_DEADBAND_CONSTANT))
+  if((robotContainer.m_topDriver.GetLeftTriggerAxis() > INTERPOLATION_DEADBAND_CONSTANT) && robotContainer.m_photonvision.IsTargetValidAndInRange() )
   {
     robotContainer.m_shooter.ShooterInterpolate(robotContainer.m_photonvision.GetTargetDistance());
   }
