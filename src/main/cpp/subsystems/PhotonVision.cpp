@@ -3,6 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "frc/smartdashboard/SmartDashboard.h"
+#include "frc/DriverStation.h"
 
 #include "subsystems/PhotonVision.h"
 #include <photon/PhotonUtils.h>
@@ -21,6 +22,11 @@ PhotonVision::PhotonVision()
 
 void PhotonVision::Periodic() 
 {
+
+    if( frc::DriverStation::IsAutonomous() )
+    {
+        return;
+    }
 
     //Assune the worst
     m_targetValid    = false;

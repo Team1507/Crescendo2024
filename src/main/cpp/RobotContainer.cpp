@@ -43,7 +43,7 @@
 #include "commands/AutoBlueThreePieceLeft.h"
 #include "commands/AutoBlueFourPieceLeft.h"
 #include "commands/AutoBlueShakeNBake.h"
-
+#include "commands/AutoRedShakeNBake.h"
 
 RobotContainer::RobotContainer() 
 {
@@ -86,16 +86,18 @@ RobotContainer::RobotContainer()
   //Red Autos
   m_chooser.AddOption("Red Four Piece Middle",     new AutoRedFourPieceMiddle());
 
-  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceRight);
+  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceRight());
 
   m_chooser.AddOption("Red Four Piece Right",      new AutoRedFourPieceRight());
 
-  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle); 
+  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle()); 
+
+  m_chooser.AddOption("Red Shake N Bake",          new AutoRedShakeNBake());
 
   //Blue Autos
   m_chooser.AddOption("Blue Four Piece Middle",    new AutoBlueFourPieceMiddle());
   
-  m_chooser.AddOption("Blue Three Piece Middle",   new AutoBlueThreePieceMiddle);
+  m_chooser.AddOption("Blue Three Piece Middle",   new AutoBlueThreePieceMiddle());
 
   m_chooser.AddOption("Blue Four Piece Left",      new AutoBlueFourPieceLeft());
 
