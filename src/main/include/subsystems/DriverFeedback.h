@@ -10,7 +10,7 @@
 #define COLOR_GREEN 0, 255, 0
 #define COLOR_BLUE  0, 0, 255
 
-#define COLOR_WHITE 255, 255, 255 
+#define COLOR_WHITE 120, 120, 120     //Dim to save Trent's eyes as he loads a note for Auto
 
 #define COLOR_YELLOW 255, 255, 0
 #define COLOR_PURPLE 128,   0, 128
@@ -27,6 +27,7 @@ class DriverFeedback : public frc2::SubsystemBase {
   void RumbleBot(float power);
   void RumbleTop(float power);
 
+  void PanelLED(int r, int g, int b);
   void FeedbackLED(int r, int g, int b);
 
   void BlinkLED(int r, int g, int b);

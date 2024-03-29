@@ -1,13 +1,19 @@
 #include "subsystems/DriverFeedback.h"
 #include "Robot.h"
 
+#define LEDDIV 10
+
 DriverFeedback::DriverFeedback() 
 {
     ctre::phoenix::led::CANdleConfiguration candleConfig {};
     //candleConfig.statusLedOffWhenActive = true;
     candleConfig.disableWhenLOS = false;    //<<<<< IF True = MUST constantly update LEDs or they turn off
 
-    candleConfig.brightnessScalar = 0.05;
+    candleConfig.brightnessScalar = 1.0;
+
+    candleConfig.stripType = LEDStripType::GRB;
+
+
    // candleConfig.vBatOutputMode = ctre::phoenix::led::VBatOutputMode::Modulated;
     m_frontCandle.ConfigAllSettings(candleConfig, 100);
     m_rearCandle.ConfigAllSettings(candleConfig, 100);
@@ -35,10 +41,17 @@ void DriverFeedback::RumbleTop(float power)
     robotContainer.m_topDriver.SetRumble(frc::GenericHID::RumbleType::kBothRumble,power);
 }
 
+void DriverFeedback::PanelLED(int r, int g, int b)
+{
+    m_frontCandle.SetLEDs(r,g,b,  0, 8, 11);
+    m_rearCandle.SetLEDs( r,g,b,  0, 8, 11);  
+}
+
+
 void DriverFeedback::FeedbackLED(int r, int g, int b)
 {
-    m_frontCandle.SetLEDs(r,g,b);
-    m_rearCandle.SetLEDs(r,g,b);
+    m_frontCandle.SetLEDs(r/LEDDIV, g/LEDDIV, b/LEDDIV,  0, 0, 8);
+    m_rearCandle.SetLEDs( r/LEDDIV, g/LEDDIV, b/LEDDIV,  0, 0, 8);
 }
 
 void DriverFeedback::BlinkLED(int r, int g, int b)
