@@ -292,7 +292,7 @@ float SwerveModule::GetSteerMotor( void )
 }
 void SwerveModule::SetDriveMotor( float power )
 {
-    frc::SmartDashboard::PutNumber(m_dbgID + "-ReqDVeloc",  0 ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-ReqDVeloc",  0 ); 
     if( m_invert_drive )
         m_driveMotor.Set(ControlMode::PercentOutput, -power);
     else
@@ -300,7 +300,7 @@ void SwerveModule::SetDriveMotor( float power )
 }
 void SwerveModule::SetDriveVelocity( float speed )
 {
-    frc::SmartDashboard::PutNumber(m_dbgID + "-ReqDVeloc",  speed ); 
+    // frc::SmartDashboard::PutNumber(m_dbgID + "-ReqDVeloc",  speed ); 
     if( m_invert_drive )
         m_driveMotor.Set(ControlMode::Velocity, -speed);
     else
