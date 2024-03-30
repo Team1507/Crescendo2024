@@ -22,6 +22,7 @@ void CmdShooterFeederEject::Execute()
 
 void CmdShooterFeederEject::End(bool interrupted) 
 {
+  robotContainer.m_shooter.SetFeederIntakePower(0);
   std::cout << "Eject Note Ended" << std::endl;
 }
 

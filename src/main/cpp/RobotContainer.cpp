@@ -140,7 +140,7 @@ void RobotContainer::ConfigureBindings()
   m_botDriver_StartButton.OnTrue(new CmdDriveZeroGyro());           //Zero Gyro
   m_botDriver_YButton.OnTrue(new CmdDriveForceSteerAngle( 90.0));   //Straighten drive wheels
   m_botDriver_BButton.OnTrue(new CmdDriveForcePark()); 
-  m_botDriver_AButton.OnTrue(new CmdShooterFeederEject());
+  m_botDriver_AButton.WhileTrue(new CmdShooterFeederEject());
 
 
   m_botDriver_POVup.OnTrue(    new CmdDriverDPad( DPAD_UP   ) );
