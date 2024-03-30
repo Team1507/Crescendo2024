@@ -79,7 +79,7 @@ void Shooter::ShooterInit()
    frc::SmartDashboard::PutNumber("FEEDER_INTAKE_POWER",FEEDER_INTAKE_POWER);
 
    frc::SmartDashboard::PutNumber("SHOOTER_POWER",0.0);
-   frc::SmartDashboard::PutNumber("SHOOTER_RPM",0.0);
+   // frc::SmartDashboard::PutNumber("SHOOTER_RPM",0.0);
 
    // m_feederTOF.SetRangingMode(frc::TimeOfFlight::RangingMode::kShort, 50.0);  //Max 24ms sample rate per datasheet
    // m_feederTOF.SetRangeOfInterest(8,8,12,12);   //Use center 4 pixels for FOV
@@ -342,8 +342,8 @@ void Shooter::Periodic()
 
    frc::SmartDashboard::PutBoolean ("Pivot PotVsEnc", CheckPotVsRotAngle() );
 
-   frc::SmartDashboard::PutNumber  ("Upper Motor Temp", m_shooterUpper.GetMotorTemperature() );
-   frc::SmartDashboard::PutNumber  ("Lower Motor Temp", m_shooterLower.GetMotorTemperature() );
+   // frc::SmartDashboard::PutNumber  ("Upper Motor Temp", m_shooterUpper.GetMotorTemperature() );
+   // frc::SmartDashboard::PutNumber  ("Lower Motor Temp", m_shooterLower.GetMotorTemperature() );
 
 
    

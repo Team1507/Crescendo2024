@@ -30,6 +30,7 @@
 #include "commands/CmdShooterSetAngle.h"
 #include "commands/CmdShooterAmpDeploy.h"
 #include "commands/CmdShooterAmpRetract.h"
+#include "commands/CmdShooterFeederEject.h"
 
 //Autos
 #include "commands/AutoDoNothing.h"
@@ -44,6 +45,7 @@
 #include "commands/AutoBlueFourPieceLeft.h"
 #include "commands/AutoBlueShakeNBake.h"
 #include "commands/AutoRedShakeNBake.h"
+#include "commands/AutoRedFourPieceAlt.h"
 
 RobotContainer::RobotContainer() 
 {
@@ -57,8 +59,8 @@ RobotContainer::RobotContainer()
   //******************** Dashboard Buttons *******************************
   frc::SmartDashboard::PutData( "CmdDriveTypeToggle",    new CmdDriveTypeToggle());
   frc::SmartDashboard::PutData( "CmdDriveClearAll",      new CmdDriveClearAll());
-  frc::SmartDashboard::PutData( "GrpTest1",              new GrpTest1());
-  frc::SmartDashboard::PutData( "GrpTest2",              new GrpTest2());
+  // frc::SmartDashboard::PutData( "GrpTest1",              new GrpTest1());
+  // frc::SmartDashboard::PutData( "GrpTest2",              new GrpTest2());
   // frc::SmartDashboard::PutData( "AmpTrapDeploy",         new CmdAmpTrapDeploy());
   // frc::SmartDashboard::PutData( "AmpTrapRetract",        new CmdAmpTrapRetract());
   frc::SmartDashboard::PutData( "SetStartAngle",         new CmdShooterSetAngle(45.0));
@@ -90,14 +92,16 @@ RobotContainer::RobotContainer()
 
   m_chooser.AddOption("Red Four Piece Right",      new AutoRedFourPieceRight());
 
-  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle()); 
+  // m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle()); 
 
   m_chooser.AddOption("Red Shake N Bake",          new AutoRedShakeNBake());
+
+  m_chooser.AddOption("Red Four Piece Alt",        new AutoRedFourPieceAlt());
 
   //Blue Autos
   m_chooser.AddOption("Blue Four Piece Middle",    new AutoBlueFourPieceMiddle());
   
-  m_chooser.AddOption("Blue Three Piece Middle",   new AutoBlueThreePieceMiddle());
+  // m_chooser.AddOption("Blue Three Piece Middle",   new AutoBlueThreePieceMiddle());
 
   m_chooser.AddOption("Blue Four Piece Left",      new AutoBlueFourPieceLeft());
 
@@ -136,6 +140,7 @@ void RobotContainer::ConfigureBindings()
   m_botDriver_StartButton.OnTrue(new CmdDriveZeroGyro());           //Zero Gyro
   m_botDriver_YButton.OnTrue(new CmdDriveForceSteerAngle( 90.0));   //Straighten drive wheels
   m_botDriver_BButton.OnTrue(new CmdDriveForcePark()); 
+  m_botDriver_AButton.OnTrue(new CmdShooterFeederEject());
 
 
   m_botDriver_POVup.OnTrue(    new CmdDriverDPad( DPAD_UP   ) );

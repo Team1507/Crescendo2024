@@ -1,4 +1,4 @@
-#include "commands/AutoBlueShakeNBake.h"
+#include "commands/AutoRedFourPieceAlt.h"
 #include "commands/CmdPrintText.h"
 //#include "subsystems/Subway.h" <---- Drive train
 #include "commands/CmdShooterSetAngle.h"
@@ -13,55 +13,51 @@
 #include "commands/CmdDriveTurn2Angle.h"
 #include <frc2/command/WaitCommand.h>
 
-AutoBlueShakeNBake::AutoBlueShakeNBake() 
+AutoRedFourPieceAlt::AutoRedFourPieceAlt() 
 {
   AddCommands(
+
   CmdDriveClearAll(),
-  CmdPrintText("Shake N Bake Baby Blue"),
+  CmdPrintText("Auto Red Four Piece Alt Start"),
   frc2::WaitCommand(0.1_s),
 
   //Move and Shoot First Note
   CmdShooterSetPower(0.8),
-  CmdShooterSetAngle(38),
-  CmdDriveToPoint(0, 24, -15, 8000, false, 10),
+  CmdShooterSetAngle(37),
+  CmdDriveToPoint(0, 24, 10, 8000, false, 10),
   CmdShooterShootNote(),
-  CmdDriveToPoint(0, 74, -15, 12000, false, 10),
+  CmdDriveToPoint(0, 74, 10, 13000, false, 10),
 
   //Move to second note
   CmdShooterSetAngle(50),
-  CmdDriveToPoint(-43,200,0,12000,false,10),
+  CmdDriveToPoint(48,200,0,13000,false,10),
   CmdIntakeDeploy(),
-  CmdDriveToPoint(-43,249,0,5000,true,10),
+  CmdDriveToPoint(48,249,0,6000,true,10),
 
   //Go to shoot second note
-  CmdDriveToPoint(8, 50, 0, 12000, false, 10 ),
-  CmdDriveToPoint(0, 0, -25, 6000, true, 10),
+  CmdDriveToPoint(0, 50, 0, 13000, false, 10 ),
+  CmdDriveToPoint(0, 0, 25, 6000, true, 10),
   CmdShooterShootNote(),
-  CmdIntakeRetract(),
 
   //Move and shoot third note
   CmdIntakeDeploy(),
-  CmdDriveToPoint(-28, 37, -20, 8000, false, 10),
-  CmdDriveToPoint(19, 0, 0, 8000, true, 10),
+  CmdDriveToPoint(28, 37, 20, 8000, false, 10),
+  CmdDriveToPoint(-19, 0, 0, 8000, true, 10),
   CmdShooterShootNote(),
+  CmdShooterSetAngle(52),
   CmdIntakeRetract(),
 
   //Move and shoot forth note
-  CmdShooterSetAngle(45),
   CmdIntakeDeploy(),
-  CmdDriveToPoint(28, 37, 0, 6000, false, 10),
-  CmdDriveToPoint(56, 20, 30, 8000, true, 10),
+  CmdDriveToPoint(-28, 37, 0, 6000, false, 10),
+  CmdDriveToPoint(-24, 0, 0, 8000, true, 10),
   CmdShooterShootNote(),
   CmdIntakeRetract(),
-  CmdShooterSetAngle(40),
 
-  //Move and shoot Fith note
-  CmdIntakeDeploy(),
-  CmdDriveToPoint(70, 35, 30, 2000, false, 10),
-  CmdDriveToPoint(65, 30, 20, 2000, true, 10),
-  CmdShooterShootNote(),
+  //Far Out
+  CmdDriveToPoint(0, 201, 0, 13000, true, 10),
 
   CmdDriveStop(),
-  CmdPrintText("Shaked N Baked Blue")
+  CmdPrintText("Auto Red Four Piece Alt End")
   );
 }

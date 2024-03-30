@@ -66,6 +66,7 @@ class RobotContainer
   frc2::JoystickButton m_botDriver_StartButton{&m_botDriver, frc::XboxController::Button::kStart };
   frc2::JoystickButton m_botDriver_YButton    {&m_botDriver, frc::XboxController::Button::kY };
   frc2::JoystickButton m_botDriver_BButton    {&m_botDriver, frc::XboxController::Button::kB };
+  frc2::JoystickButton m_botDriver_AButton    {&m_botDriver, frc::XboxController::Button::kA };
 
   frc2::POVButton      m_botDriver_POVup      {&m_botDriver, 0};
   frc2::POVButton      m_botDriver_POVdown    {&m_botDriver, 180};
