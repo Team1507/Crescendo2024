@@ -49,9 +49,16 @@ AutoRedFourPieceRight::AutoRedFourPieceRight()
     CmdIntakeRetract(),
 
     //Head to 5th piece
-    CmdDriveToPoint(115, 176, 0, 10000, true, 10),
-    CmdShooterSetPower(0.1),
+    CmdShooterSetAngle(30),
+    CmdShooterSetPower(.85),
+    CmdDriveToPoint(115, 176, 0, 13000, false, 10),
+    CmdIntakeDeploy(),
+    CmdDriveToPoint(131, 249, 0, 6000, false, 10),
+    CmdDriveToPoint(115, 176, 14, 13000, true, 10),
+    CmdShooterShootNote(),
+    CmdIntakeRetract(),
 
+    CmdShooterSetPower(0.1),
     CmdPrintText("Auto Red Four Piece Right Done"),
     CmdShooterSetPower(0),
     CmdDriveStop()

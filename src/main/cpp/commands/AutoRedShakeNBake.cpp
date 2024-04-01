@@ -18,7 +18,7 @@ AutoRedShakeNBake::AutoRedShakeNBake()
   AddCommands(
   CmdDriveClearAll(),
   CmdPrintText("Shake N Bake Baby Red"),
-  frc2::WaitCommand(0.1_s),
+  frc2::WaitCommand(0.3_s),
 
   //Move and Shoot First Note
   CmdShooterSetPower(0.8),

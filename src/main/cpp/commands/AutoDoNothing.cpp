@@ -18,6 +18,6 @@ AutoDoNothing::AutoDoNothing()
 
 
     CmdDriveStop(),    // saftey
-    CmdPrintText("AutoDoNothing Complete")
+    CmdPrintText("Did Nothing Successfully")
   );
 }

@@ -21,18 +21,19 @@ AutoRedThreePieceMiddle::AutoRedThreePieceMiddle() {
   AddCommands(
         CmdPrintText("Auto Three Piece Middle Started"), 
     CmdDriveClearAll(),
+
     //Shooting Starting Note
     CmdShooterSetAngle(50),
     CmdShooterSetPower(0.8),
     CmdWaitShooterSpeed(),
     CmdShooterShootNote(),
-    //Deploying Intake to pick up second note
-    CmdIntakeDeploy(),
+
     //drive to note
+    CmdIntakeDeploy(),
     CmdDriveToPoint(0, 37, 0, 4000, true, 10),
-    //Driving To Speaker
+
+    //shoot second note
     CmdDriveToPoint(0, 0, 0, 4000, true, 10),
-    //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
     CmdShooterSetAngle(36),
@@ -41,7 +42,6 @@ AutoRedThreePieceMiddle::AutoRedThreePieceMiddle() {
     //Go To Third Note
     CmdIntakeDeploy(),
     CmdDriveToPoint(50, 40, 25, 5000, false, 10),
-
     CmdDriveToPoint(50, 55, 20, 2000, true, 10),
 
     // CmdDriveToPoint(30, -5, 25, 4000, true, 10),  

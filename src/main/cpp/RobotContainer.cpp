@@ -46,6 +46,7 @@
 #include "commands/AutoBlueShakeNBake.h"
 #include "commands/AutoRedShakeNBake.h"
 #include "commands/AutoRedFourPieceAlt.h"
+#include "commands/AutoRedThreePieceAlt.h"
 
 RobotContainer::RobotContainer() 
 {
@@ -79,35 +80,37 @@ RobotContainer::RobotContainer()
 
   m_chooser.AddOption("Auto Do Nothing",           new AutoDoNothing() );
 
-  m_chooser.AddOption("Auto Just Shoot",           new AutoJustShoot());
+  // m_chooser.AddOption("Auto Just Shoot",           new AutoJustShoot());
   
-  m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
+   m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
 
   frc::SmartDashboard::PutData("Auto Mode", &m_chooser);
   
-  //Red Autos
-  m_chooser.AddOption("Red Four Piece Middle",     new AutoRedFourPieceMiddle());
+  // //Red Autos
+   m_chooser.AddOption("Red Four Piece Middle",     new AutoRedFourPieceMiddle());
 
-  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceRight());
+   m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceRight());
 
-  m_chooser.AddOption("Red Four Piece Right",      new AutoRedFourPieceRight());
+   m_chooser.AddOption("Red Four Piece Right",      new AutoRedFourPieceRight());
 
-  // m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle()); 
+   m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle()); 
 
-  m_chooser.AddOption("Red Shake N Bake",          new AutoRedShakeNBake());
+   m_chooser.AddOption("Red Shake N Bake",          new AutoRedShakeNBake());
 
-  m_chooser.AddOption("Red Four Piece Alt",        new AutoRedFourPieceAlt());
+   m_chooser.AddOption("Red Four Piece Alt",        new AutoRedFourPieceAlt());
 
-  //Blue Autos
-  m_chooser.AddOption("Blue Four Piece Middle",    new AutoBlueFourPieceMiddle());
+   m_chooser.AddOption("Red Three Piece Alt",       new AutoRedThreePieceAlt());
+
+   //Blue Autos
+   m_chooser.AddOption("Blue Four Piece Middle",    new AutoBlueFourPieceMiddle());
   
-  // m_chooser.AddOption("Blue Three Piece Middle",   new AutoBlueThreePieceMiddle());
+  // // m_chooser.AddOption("Blue Three Piece Middle",   new AutoBlueThreePieceMiddle());
 
-  m_chooser.AddOption("Blue Four Piece Left",      new AutoBlueFourPieceLeft());
+   m_chooser.AddOption("Blue Four Piece Left",      new AutoBlueFourPieceLeft());
 
-  m_chooser.AddOption("Blue Three Piece Left",     new AutoBlueThreePieceLeft());
+   m_chooser.AddOption("Blue Three Piece Left",     new AutoBlueThreePieceLeft());
 
-  m_chooser.AddOption("Blue Shake N Bake",         new AutoBlueShakeNBake());
+   m_chooser.AddOption("Blue Shake N Bake",         new AutoBlueShakeNBake());
 
   ConfigureBindings();
 }
