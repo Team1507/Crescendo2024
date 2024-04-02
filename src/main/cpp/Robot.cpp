@@ -114,8 +114,8 @@ void WriteToSmartDashboard(void)
   frc::SmartDashboard::PutNumber("odo_X",         robotContainer.m_drivetrain.GetOdometryX()       );
   frc::SmartDashboard::PutNumber("odo_Y",         robotContainer.m_drivetrain.GetOdometryY()       );
   frc::SmartDashboard::PutNumber("odo_H",         robotContainer.m_drivetrain.GetOdometryHeading() );
-  // frc::SmartDashboard::PutNumber("Upper Shooter Velocity", robotContainer.m_shooter.GetUpperShooterRPM() );
-  // frc::SmartDashboard::PutNumber("Lower Shooter Velocity", robotContainer.m_shooter.GetLowerShooterRPM() );
+  frc::SmartDashboard::PutNumber("Upper Shooter Velocity", robotContainer.m_shooter.GetUpperShooterRPM() );
+  frc::SmartDashboard::PutNumber("Lower Shooter Velocity", robotContainer.m_shooter.GetLowerShooterRPM() );
 
 
   //Time

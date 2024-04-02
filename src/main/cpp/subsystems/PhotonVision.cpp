@@ -85,7 +85,7 @@ void PhotonVision::Periodic()
 
             const units::meter_t  CAMERA_HEIGHT = 8.2_in;
             const units::meter_t  TARGET_HEIGHT = 57_in;
-            const units::radian_t CAMERA_PITCH  = 36.7_deg;
+            const units::radian_t CAMERA_PITCH  = 35_deg;
 
             //This function may calculate the floor X-Y distance rather than the hypotenuse distance
             //from camera to AprilTag

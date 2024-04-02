@@ -93,13 +93,13 @@ RobotContainer::RobotContainer()
 
    m_chooser.AddOption("Red Four Piece Right",      new AutoRedFourPieceRight());
 
-   m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle()); 
+  //  m_chooser.AddOption("Red Three Piece Right",     new AutoRedThreePieceMiddle()); 
 
    m_chooser.AddOption("Red Shake N Bake",          new AutoRedShakeNBake());
 
-   m_chooser.AddOption("Red Four Piece Alt",        new AutoRedFourPieceAlt());
+  //  m_chooser.AddOption("Red Four Piece Alt",        new AutoRedFourPieceAlt());
 
-   m_chooser.AddOption("Red Three Piece Alt",       new AutoRedThreePieceAlt());
+  //  m_chooser.AddOption("Red Three Piece Alt",       new AutoRedThreePieceAlt());
 
    //Blue Autos
    m_chooser.AddOption("Blue Four Piece Middle",    new AutoBlueFourPieceMiddle());
