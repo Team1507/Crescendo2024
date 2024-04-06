@@ -36,11 +36,13 @@ AutoBlueShakeNBake::AutoBlueShakeNBake()
       // Go to shoot second note
       CmdDriveToPoint(8, 50, 0, 13000, false, 10),
       CmdDriveToPoint(0, 0, -25, 6000, true, 10),
+      //CmdIntakeDeploy(),  // Intake earlier  //NO!!!!!  Will impact shoot
       CmdShooterShootNote(),
-      CmdIntakeRetract(),
+      //CmdIntakeRetract(),
 
       // Move and shoot third note
       CmdIntakeDeploy(),
+      frc2::WaitCommand(0.2_s),
       CmdDriveToPoint(-28, 37, -20, 8000, false, 10),
       CmdDriveToPoint(19, 0, 0, 8000, true, 10),
       CmdShooterShootNote(),
@@ -50,7 +52,7 @@ AutoBlueShakeNBake::AutoBlueShakeNBake()
       CmdShooterSetAngle(45),
       CmdIntakeDeploy(),
       CmdDriveToPoint(28, 37, 0, 6000, false, 10),
-      CmdDriveToPoint(56, 20, 30, 8000, true, 10),
+      CmdDriveToPoint(59, 20, 30, 8000, true, 10),   //was 56,20.  +3x
       CmdShooterShootNote(),
       CmdIntakeRetract(),
       CmdShooterSetAngle(42),
@@ -58,7 +60,7 @@ AutoBlueShakeNBake::AutoBlueShakeNBake()
       // Move and shoot Fith note
       CmdIntakeDeploy(),
       CmdDriveToPoint(70, 35, 30, 3000, false, 10),
-      CmdDriveToPoint(65, 25, 20, 4000, true, 10),
+      CmdDriveToPoint(68, 25, 20, 4000, true, 10),  //was 65,26   +3x
       frc2::WaitCommand(0.1_s),
       CmdShooterShootNote(),
 

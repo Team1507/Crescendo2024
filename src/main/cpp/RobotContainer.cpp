@@ -80,7 +80,7 @@ RobotContainer::RobotContainer()
 
   m_chooser.AddOption("Auto Do Nothing",           new AutoDoNothing() );
 
-  // m_chooser.AddOption("Auto Just Shoot",           new AutoJustShoot());
+  m_chooser.AddOption("Auto Just Shoot",           new AutoJustShoot());
   
    m_chooser.SetDefaultOption("Auto Do Nothing",    new AutoDoNothing() );
 
