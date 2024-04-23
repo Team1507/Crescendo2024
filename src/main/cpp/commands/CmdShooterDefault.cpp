@@ -63,10 +63,12 @@ void CmdShooterDefault::Execute()
     robotContainer.m_shooter.SetPivotAngle(35);
     robotContainer.m_shooter.SetShooterPower(0.6);
     robotContainer.m_shooter.ShooterAmpDeploy();
+    m_whammy = true;
   }
   else if(robotContainer.m_topDriver.GetRightX() > 0.5 & m_whammy)
   {
     robotContainer.m_shooter.ShooterAmpRetract();
+    m_whammy = false;
   }
 
 //*********************PIVOT MANUAL*********************
