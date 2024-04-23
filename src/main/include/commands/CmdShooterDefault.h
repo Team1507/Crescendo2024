@@ -19,6 +19,8 @@ class CmdShooterDefault
 
   bool m_shooting;
 
+  bool m_whammy;
+
   bool m_interpolation;
   bool m_manualPivotEnable;
 };

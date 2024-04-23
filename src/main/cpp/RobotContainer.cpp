@@ -117,21 +117,21 @@ RobotContainer::RobotContainer()
 
 void RobotContainer::ConfigureBindings() 
 {
-  m_topDriver_RightBumper.OnTrue(new CmdIntakeDeploy());
-  m_topDriver_RightBumper.OnFalse(new CmdIntakeRetract()); 
+  m_topDriver_YButton.OnTrue(new CmdIntakeDeploy());
+  m_topDriver_YButton.OnFalse(new CmdIntakeRetract()); 
 
-  m_topDriver_YButton.WhileTrue(new CmdShooterSourceLoad());
+  // m_topDriver_YButton.WhileTrue(new CmdShooterSourceLoad());
   
    //m_topDriver_XButton.WhileTrue(new CmdAmpIntake(0)); //amp intake
 
    //m_topDriver_BButton.WhileTrue(new CmdAmpEject(0)); //amp eject
 
-   m_topDriver_LeftBumper.OnTrue(new CmdShooterAmpDeploy()); //amp out
-   m_topDriver_LeftBumper.OnFalse(new CmdShooterAmpRetract()); //amp in
+  //  m_topDriver_YButton.OnTrue(new CmdShooterAmpDeploy()); //amp out
+  //  m_topDriver_YButton.OnFalse(new CmdShooterAmpRetract()); //amp in
 
-  m_topDriver_BackButton.WhileTrue(new CmdClimberClimb()); //climber climb
+  m_topDriver_LeftBumper.WhileTrue(new CmdClimberClimb()); //climber climb
 
-  m_topDriver_StartButton.OnTrue(new CmdAmpTrapDeploy());
+  // m_topDriver_StartButton.OnTrue(new CmdAmpTrapDeploy());
 
   m_topDriver_POVup.OnTrue(    new CmdShooterDPad( DPAD_UP   ) );
   m_topDriver_POVdown.OnTrue(  new CmdShooterDPad( DPAD_DOWN ) );
