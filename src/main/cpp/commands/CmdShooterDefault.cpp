@@ -56,7 +56,7 @@ void CmdShooterDefault::Execute()
   //   m_interpolation = false;
   // }
 
-//********************WHAMMY AMPING************************
+//********************GUITAR CONTROLS************************
 //*********************************************************
   if(robotContainer.m_topDriver.GetRightX() > 0.5 & !m_whammy)
   {
@@ -70,6 +70,18 @@ void CmdShooterDefault::Execute()
     robotContainer.m_shooter.ShooterAmpRetract();
     m_whammy = false;
   }
+
+  if(robotContainer.m_topDriver.GetBackButtonPressed())
+  {
+    robotContainer.m_shooter.SetShooterPower(0.1);
+  }
+
+  if(robotContainer.m_topDriver.GetLeftX() > 0.5)
+  {
+    robotContainer.m_shooter.SetShooterPower(0.8);
+  }
+  
+  //change axis values once i can test the guitar and what values activate what
 
 //*********************PIVOT MANUAL*********************
 //******************************************************
