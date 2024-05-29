@@ -117,9 +117,12 @@ void WriteToSmartDashboard(void)
   frc::SmartDashboard::PutNumber("Upper Shooter Velocity", robotContainer.m_shooter.GetUpperShooterRPM() );
   frc::SmartDashboard::PutNumber("Lower Shooter Velocity", robotContainer.m_shooter.GetLowerShooterRPM() );
 
+  //Voltage
+  frc::SmartDashboard::PutNumber("Voltage", robotContainer.m_pdh.GetVoltage());
+
 
   //Time
-  frc::SmartDashboard::PutNumber("MatchTime",  (double)robotContainer.m_timer.GetMatchTime() );       //Match Time
+  frc::SmartDashboard::PutNumber("Match Time",  (double)robotContainer.m_timer.GetMatchTime() );       //Match Time
 
   //Shooter
   frc::SmartDashboard::PutBoolean("Amp Status", robotContainer.m_shooter.IsShooterAmpDeployed());

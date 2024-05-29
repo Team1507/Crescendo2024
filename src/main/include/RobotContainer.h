@@ -19,8 +19,8 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/Timer.h>
 #include <frc2/command/button/POVButton.h>
+#include <frc/PowerDistribution.h>
 #include "subsystems/DriverFeedback.h"
-
 
 
 class RobotContainer
@@ -42,6 +42,8 @@ class RobotContainer
   PhotonVision   m_photonvision;
   DriverFeedback m_driverfeedback;
 
+  frc::PowerDistribution m_pdh{27, frc::PowerDistribution::ModuleType::kRev};
+;
 
   frc::Timer   m_timer;
   frc2::Command* GetAutonomousCommand();
