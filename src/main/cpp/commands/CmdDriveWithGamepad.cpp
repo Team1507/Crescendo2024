@@ -84,8 +84,8 @@ void CmdDriveWithGamepad::Execute()
   //Turbo/ludicrous mode
   if( rightBumper )     
   {
-    xyScaleValue  = 0.9;
-    rScaleValue   = 0.9;  
+    xyScaleValue  = 1;
+    rScaleValue   = 1;  
   }
 
   //Apply max velocity and scaling

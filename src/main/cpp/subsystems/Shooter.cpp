@@ -16,14 +16,13 @@ typedef struct
 shooterTable_t shooterTable[] = 
 {
    //DISTANCE POWER ANGLE
-   {36.6 , 0.8 , 51    }, 
-   {50.2 , 0.8 , 45    },
-   {63.8 , 0.8 , 42    },
-   {76.7 , 0.8 , 39    },
-   {91.1 , 0.8 , 37    },
-   {104.6 , 0.8 , 34   },
-   {118.1 , 0.85 , 32.5},
-   {131.9 , 0.85 , 31  }
+   {40.0 , 0.8 , 50    }, 
+   {50.2 , 0.8 , 46    },
+   {63.8 , 0.8 , 43    },
+   {76.7 , 0.8 , 40    },
+   {91.1 , 0.8 , 38    },
+   {104.6 , 0.8 , 36   },
+   {110.3 , 0.8 , 34   }
 };
 
 
@@ -59,7 +58,7 @@ void Shooter::ShooterInit()
    m_shooterPivotPID.SetP(2.0);   // .1 rotation = .2 power 
    m_shooterPivotPID.SetI(0.0);
    m_shooterPivotPID.SetD(0.0);
-   m_shooterPivotPID.SetOutputRange(-0.8, 0.8 ,0);
+   m_shooterPivotPID.SetOutputRange(-1, 1 ,0);
    m_shooterPivotPID.SetFeedbackDevice(m_shooterPivotEncoder);
 
    m_shooterLower.SetClosedLoopRampRate(0.0);
