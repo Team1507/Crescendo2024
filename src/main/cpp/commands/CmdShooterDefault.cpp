@@ -50,10 +50,10 @@ void CmdShooterDefault::Execute()
   {
     robotContainer.m_shooter.ShooterInterpolate(robotContainer.m_photonvision.GetTargetDistance());
   }
-  // else if((robotContainer.m_topDriver.GetLeftTriggerAxis() < INTERPOLATION_DEADBAND_CONSTANT) && m_interpolation)
-  // {
-  //   m_interpolation = false;
-  // }
+  //  else if((robotContainer.m_topDriver.GetLeftTriggerAxis() < INTERPOLATION_DEADBAND_CONSTANT) && m_interpolation)
+  //  {
+  //    m_interpolation = false;
+  //  }
 
 //*********************PIVOT MANUAL*********************
 //******************************************************

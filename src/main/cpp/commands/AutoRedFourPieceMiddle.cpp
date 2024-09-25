@@ -25,9 +25,9 @@ AutoRedFourPieceMiddle::AutoRedFourPieceMiddle()
     //Deploying Intake to pick up second note
     CmdIntakeDeploy(),
     //drive to note
-    CmdDriveToPoint(0, 37, 0, 4000, true, 10),
+    CmdDriveToPoint(0, 37, 0, 6000, true, 10),
     //Driving To Speaker
-    CmdDriveToPoint(0, 0, 0, 4000, true, 10),
+    CmdDriveToPoint(0, 0, 0, 6000, true, 10),
     //Shoot Second Note
     CmdIntakeRetract(),
     CmdShooterShootNote(),
@@ -36,9 +36,9 @@ AutoRedFourPieceMiddle::AutoRedFourPieceMiddle()
   
     //Go To Third Note
     CmdIntakeDeploy(),
-    CmdDriveToPoint(50, 40, 25, 5000, false, 10),
+    CmdDriveToPoint(50, 40, 25, 6000, false, 10),
 
-    CmdDriveToPoint(50, 55, 20, 2000, true, 10),
+    CmdDriveToPoint(50, 55, 20, 3000, true, 10),
 
     // CmdDriveToPoint(30, -5, 25, 4000, true, 10),  
 
@@ -52,12 +52,12 @@ AutoRedFourPieceMiddle::AutoRedFourPieceMiddle()
     //Go get 4th note!
     CmdDriveToPoint(70, 176, 0, 12000, false, 10),
     CmdIntakeDeploy(),
-    CmdDriveToPoint(74, 249, 0, 6000, true, 10),
+    CmdDriveToPoint(74, 249, 0, 7000, true, 10),
 
 
    //Drive to score fourth
    CmdDriveToPoint(12, 70, 0, 12000, false, 10),
-   CmdDriveToPoint(0 , 10 , 0 , 8000 , true, 10),
+   CmdDriveToPoint(0 , 10 , 0 , 10000 , true, 10),
    CmdShooterShootNote(),
    CmdIntakeRetract(),
 

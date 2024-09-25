@@ -25,23 +25,23 @@ AutoRedThreePieceRight::AutoRedThreePieceRight()
     CmdShooterShootNote(),
     CmdShooterSetAngle(37),
     CmdIntakeDeploy(),
-    CmdDriveToPoint(0, 33, 0, 4000, false, 10),
-    CmdDriveToPoint(-15, 28, -40, 2000, true, 10),
+    CmdDriveToPoint(0, 33, 0, 6000, false, 10),
+    CmdDriveToPoint(-15, 28, -40, 4000, true, 10),
     CmdIntakeRetract(),
     CmdShooterShootNote(),
 
     //Moving to third piece
-    CmdDriveToPoint(-115, 145, 20, 10000, false, 10),
-    CmdDriveToPoint(-96, 205, 20, 8000, false, 10),
+    CmdDriveToPoint(-115, 145, 20, 12000, false, 10),
+    CmdDriveToPoint(-96, 205, 20, 9000, false, 10),
     CmdIntakeDeploy(),
-    CmdDriveToPoint(-75, 257, 20, 6000, false, 10),
+    CmdDriveToPoint(-75, 257, 20, 7000, false, 10),
 
     // Drive Back Home
-    CmdDriveToPoint(-105, 145, 0, 8000, false, 10),
+    CmdDriveToPoint(-105, 145, 0, 10000, false, 10),
     CmdIntakeRetract(),
     CmdShooterSetAngle(40),
-    CmdDriveToPoint(-30, 43, -50, 10000, false, 10),
-    CmdDriveToPoint(0, 0, -50, 5000, true, 10),
+    CmdDriveToPoint(-30, 43, -50, 12000, false, 10),
+    CmdDriveToPoint(0, 0, -50, 7000, true, 10),
     CmdShooterShootNote(),
 
     CmdShooterSetPower(0),
